@@ -1,10 +1,9 @@
 # Tabla de contenido
 1. [Indormacion sobre el repos](#Informacion-sobre-el-repositorio)
 2. [Estrucra del repositorio](#estructura-del-repositorio)
+3. [Carpeta Principal](#carpeta-principal)
+4. [Carpeta PDF](#carpeta-pdf)
 
-2.1. [Carpeta principal](#carpeta-principal)
-
-2.2. [Carpeta PDF](#carpeta-pdf)
 
 # Informacion sobre el repositorio
 En este repositorio estara lo de este año 2024-2025 (DAM 2(_de nuevo_))
