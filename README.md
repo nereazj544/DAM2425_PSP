@@ -15,7 +15,9 @@
 
 
 # Estructura del repositorio
-Va a estar estructurado en dos carpetas: la principal y la PDF.
+Va a estar estructurado en dos carpetas: la principal y la PDF. <br> 
+> [!NOTE] 
+> Las otras carpetas estan de relleno
 
 ## Carpeta principal
 En la carpeta principal, tendre todo los cosos de clase. (_que buena explicacion Neo_)
