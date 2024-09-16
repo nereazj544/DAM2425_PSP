@@ -3,7 +3,8 @@
 2. [Estrucra del repositorio](#estructura-del-repositorio)
 3. [Carpeta Principal](#carpeta-principal)
 4. [Carpeta PDF](#carpeta-pdf)
-5. [Repositorio de GitHub (Version Intellij IDEA)](#repositorio-github-version-intellij-idea)
+5. [Repositorio crear GitHub (Version Intellij IDEA)](#repositorio-crear-github-version-intellij-idea)
+5. [Repositorio clonar GitHub (Version Intellij IDEA)](#repositorio-clonar-github-version-intellij-idea)
 
 
 # Informacion sobre el repositorio
@@ -34,6 +35,7 @@ El entorno de desarrollo nada más abrirse, se mostrara asi:
 
 Con **_New Project_** se crea un nuevo proyecto (_no seas tan obvio Neo :v_).
 <br>
+<br>
 <img src="img/2.png" alt="de creacion del proyecto" width="100%">
 
 <br> Le cambiamos el nombre por el nombre del proyecto, si queremos cambiar la localizacion del proyecto le daremos a la carpeta donde se puede selecionar la nueva carpeta de guardado. <br> El _Build System_, aquí puedes elegir el sistema de construcción que quieres usar para el proyecto. <br>
@@ -61,4 +63,32 @@ Cuando el editor acabe de crearse:
 <br>
 
 
-# Repositorio GitHub (Version Intellij IDEA)
+# Repositorio crear GitHub (Version Intellij IDEA)
+<br>
+
+Para crear el repositorio en IntelliJ IDEA (para empezar: _hay varias opciones que se pueden usar_ 🤌), en la parte superior al lado del nombre del proyecto donde pone <span style="color: red">**_"Version control"_**</span> le das y te sale un desplegable con diferentes opciones.
+
+<br>
+<br>
+<img src="img/GITHUB/2.png" alt="de creacion del proyecto" width="100%">
+
+<br>
+<br>
+
+## Opcion 1: Version Control > Share Project On > GitHub
+
+> [!NOTE]
+> Esta version es la más sencilla de todas 
+
+<br>
+<img src="img/GITHUB/3.png" alt="de creacion del proyecto" width="100%">
+
+
+<br>
+<br>
+<br>
+<br>
+
+# Repositorio clonar GitHub (Version Intellij IDEA)
+<br>
+<img src="img/GITHUB/1.png" alt="de creacion del proyecto" width="100%">
