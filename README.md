@@ -66,7 +66,13 @@ Cuando el editor acabe de crearse:
 # Repositorio crear GitHub (Version Intellij IDEA)
 <br>
 
-Para crear el repositorio en IntelliJ IDEA (para empezar: _hay varias opciones que se pueden usar_ 🤌), en la parte superior al lado del nombre del proyecto donde pone <span style="color: red">**_"Version control"_**</span> le das y te sale un desplegable con diferentes opciones.
+Para crear el repositorio en IntelliJ IDEA (para empezar: _hay varias opciones que se pueden usar_ 🤌). 
+>[!Important]
+> Es muy importante que previamente hayas vinculado tu cuenta de GitHub con el IDE
+
+
+<br>En la parte superior al lado del nombre del proyecto donde pone <span style="color: red">**_"Version control"_**</span> le das y te sale un desplegable con diferentes opciones.
+
 
 <br>
 <br>
