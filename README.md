@@ -4,8 +4,11 @@
 3. [Carpeta Principal](#carpeta-principal)
 4. [Carpeta PDF](#carpeta-pdf)
 5. [Repositorio crear GitHub (Version Intellij IDEA)](#repositorio-crear-github-version-intellij-idea)
-5. [Repositorio clonar GitHub (Version Intellij IDEA)](#repositorio-clonar-github-version-intellij-idea)
+    - [Opcion: Share Project On](#opcion-version-control--share-project-on--github)
+6. [Repositorio clonar GitHub (Version Intellij IDEA)](#repositorio-clonar-github-version-intellij-idea)
 
+<br>
+<br>
 
 # Informacion sobre el repositorio
 - En PSP usaremos: _https://www.jetbrains.com/es-es/idea/download/?section=windows_ Community ZIP
@@ -54,6 +57,7 @@ Gradle: Otra herramienta de construcción que es muy flexible y poderosa, usada 
 
 Cuando el editor acabe de crearse:
 <br>
+<br>
 <img src="img/3.png" alt="de creacion del proyecto" width="100%">
 
 <br>
@@ -66,8 +70,8 @@ Cuando el editor acabe de crearse:
 # Repositorio crear GitHub (Version Intellij IDEA)
 <br>
 
-Para crear el repositorio en IntelliJ IDEA (para empezar: _hay varias opciones que se pueden usar_ 🤌). 
->[!Important]
+Para crear el repositorio desde IntelliJ IDEA (para empezar: _hay varias opciones que se pueden usar_ 🤌). 
+> [!Important]
 > Es muy importante que previamente hayas vinculado tu cuenta de GitHub con el IDE
 
 
@@ -81,19 +85,21 @@ Para crear el repositorio en IntelliJ IDEA (para empezar: _hay varias opciones q
 <br>
 <br>
 
-## Opcion 1: Version Control > Share Project On > GitHub
+## Opcion: Version Control > Share Project On > GitHub
 
 > [!NOTE]
 > Esta version es la más sencilla de todas 
 
 <br>
-<img src="img/GITHUB/3.png" alt="de creacion del proyecto" width="100%">
+<img src="img/GITHUB/3.png" alt="Share Project On GitHub" width="100%">
+<br>
+<br>
+<p>Lo unico que haces aqui es darle al Share y a correr :) </p>
+<br>
+<img src="img/GITHUB/perfil1.png" alt="Repositorios dentro del Usuario" width="100%">
+<br>
+<br>
 
-
-<br>
-<br>
-<br>
-<br>
 
 # Repositorio clonar GitHub (Version Intellij IDEA)
 <br>
