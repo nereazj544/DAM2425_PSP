@@ -3,6 +3,7 @@
 2. [Estrucra del repositorio](#estructura-del-repositorio)
 3. [Carpeta Principal](#carpeta-principal)
 4. [Carpeta PDF](#carpeta-pdf)
+5. [Repositorio de GitHub (Version Intellij IDEA)](#repositorio-github-version-intellij-idea)
 
 
 # Informacion sobre el repositorio
@@ -19,3 +20,6 @@ En la carpeta principal, tendre todo los cosos de clase. (_que buena explicacion
 
 ## Carpeta PDF
 En esta segunda carpeta estara lo que viene siendo la documentacion que nos facilitaran en clase.
+
+
+# Repositorio GitHub (Version Intellij IDEA)
