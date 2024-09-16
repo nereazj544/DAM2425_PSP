@@ -28,6 +28,10 @@ En esta segunda carpeta estara lo que viene siendo la documentacion que nos faci
 # Usar Intellij IDEA
 El zip que nos proporcionaron (que se encuentra en este projecto con el nombre: **<span style="color:red; ">"_ideaIC-2024.2.1.win.zip_"</span>**).
 <br>
+
+**<span style="color: red;">_SPOILER: Pesa demasiado y GitHub no lo quiere, asi que lo pondre en el drive_</span>**
+
+<br>
 Cuando se descomprima la carpeta; dentro de dicha carpeta deberas de ir a la carpeta **BIN > idea64.exe** y con eso ya puedes usar este IDE.
 <br>
 El entorno de desarrollo nada más abrirse, se mostrara asi:
