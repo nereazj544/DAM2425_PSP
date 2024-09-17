@@ -1,4 +1,5 @@
 # Tabla de contenido
+
 1. [Indormacion sobre el repos](#Informacion-sobre-el-repositorio)
 2. [Estrucra del repositorio](#estructura-del-repositorio)
 3. [Carpeta Principal](#carpeta-principal)
@@ -6,6 +7,7 @@
 5. [Repositorio crear GitHub (Version Intellij IDEA)](#repositorio-crear-github-version-intellij-idea)
     - [Opcion: Share Project On](#opcion-version-control--share-project-on--github)
 6. [Repositorio clonar GitHub (Version Intellij IDEA)](#repositorio-clonar-github-version-intellij-idea)
+7. [TODO](#todo)
 
 <br>
 <br>
@@ -109,4 +111,31 @@ Para crear el repositorio desde IntelliJ IDEA (para empezar: _hay varias opcione
 
 # Repositorio clonar GitHub (Version Intellij IDEA)
 <br>
+
+Para clonar un repositorio desde la pantalla de inicio hay selecionas: _"Get From VCS"_
+
+<br>
 <img src="img/GITHUB/1.png" alt="de creacion del proyecto" width="100%">
+<br>
+<br>
+Tienes varias opciones como se ven:
+<ul>
+    <li>La primera opcion seria pillando un URL del sitio de donde vayamos a clonar el proyecto por ejemplo: </li>
+</ul>
+<br>
+<br>
+<img src="img/GITHUB/5.png" alt="de creacion del proyecto" width="100%">
+<br>
+<br>
+Cuando lo pilles empezara la ✨clonacion✨
+<br>
+<br>
+<img src="img/GITHUB/6.png" alt="de creacion del proyecto" width="100%">
+
+<br>
+<br>
+<br>
+
+# TODO
+>[!Important]
+>Si no eres Neo (el propietario de la cuenta :3) no sigas leyendo cotilla.
