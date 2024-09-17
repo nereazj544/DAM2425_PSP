@@ -2,12 +2,7 @@
 >
 > **<span style="color: red;">Si no eres Neo (el propietario de la cuenta :3) no sigas leyendo cotilla </span>**
 
-
 <div align="center">
-
-
-
-
 
   <table align="center">
   <tr border="none">
@@ -36,8 +31,6 @@
 
 </div>
 
-  
-
 <br>
 <br>
 
@@ -64,6 +57,7 @@
 <p align="center" > <em style="color: green; font-weight: bold;">separadores :3</em></p>
 <br>
 
+<div>
 <table align="center">
   <tr border="none">
   <td width="50%" align="center">
@@ -96,5 +90,4 @@
   </td>
   </tr>
   </table>
-
 </div>
