@@ -7,7 +7,38 @@
 5. [Repositorio crear GitHub (Version Intellij IDEA)](#repositorio-crear-github-version-intellij-idea)
     - [Opcion: Share Project On](#opcion-version-control--share-project-on--github)
 6. [Repositorio clonar GitHub (Version Intellij IDEA)](#repositorio-clonar-github-version-intellij-idea)
-7. [TODO](#todo)
+
+<br>
+<br>
+
+# TODO
+>[!Important]
+>Si no eres Neo (el propietario de la cuenta :3) no sigas leyendo cotilla.
+
+
+<br>
+<br>
+
+---
+
+<div align="center">
+  <table align="center">
+  <tr border="none">
+  <td align="center">
+  <img width="100%" height="100%"  align="center" src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXI0Y2Y3bG5hOTgwNzZ0eW1mbXNtM3cyZjBrdWlxZGpvZHF4MWw2ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/GBg0e0ksxX3Gg/giphy.gif"/>
+  
+  
+  
+  <br></br>
+  <!-- Imagen Shawn Froste -->
+  <td  align="center">
+  <img width="100%" height="100%"  align="center" src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXI0Y2Y3bG5hOTgwNzZ0eW1mbXNtM3cyZjBrdWlxZGpvZHF4MWw2ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/GBg0e0ksxX3Gg/giphy.gif"/>
+  </td>
+  </tr>
+  </table>
+
+</div>
+![ezreal represnetando](https://i.pinimg.com/564x/aa/9f/1d/aa9f1dc09b4e30fb2cce25efbec3754d.jpg)
 
 <br>
 <br>
@@ -136,6 +167,3 @@ Cuando lo pilles empezara la ✨clonacion✨
 <br>
 <br>
 
-# TODO
->[!Important]
->Si no eres Neo (el propietario de la cuenta :3) no sigas leyendo cotilla.
