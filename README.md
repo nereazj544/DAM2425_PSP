@@ -3,10 +3,6 @@
 > **<span style="color: red;">Si no eres Neo (el propietario de la cuenta :3) no sigas leyendo cotilla </span>**
 
 
-> [!WARNING]
-> Esta es una advertencia. Presta atención.
-
-
 <div align="center">
 
 
