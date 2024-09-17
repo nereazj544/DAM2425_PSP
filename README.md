@@ -26,7 +26,7 @@
      - [x] Tema de GitHub:
        - [x] ~~Crear repositorio desde IDE (es bastante más facil que desde Eclipse)~~
        - [x] ~~Clonacion~~
-      - [x] ~~Crear una guia en el README.md principal del proyecto ~~
+      - [x] ~~Crear una guia en el README.md principal del proyecto~~
    2. Organización
       - [x] ~~Organizar repositorio~~
    3. 
