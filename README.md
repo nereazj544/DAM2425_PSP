@@ -22,13 +22,13 @@
   ✏️ Lista de cosas que hay que hacer:
 
   1. Investigacion
-     - [x] Haberiguar como carrula el nuevo editor
+     - [x] ~~Haberiguar como carrula el nuevo editor~~
      - [x] Tema de GitHub:
-       - [x] Crear repositorio desde IDE (es bastante más facil que desde Eclipse)
-       - [x] Clonacion
-      - [x] Crear una guia en el README.md principal del proyecto 
+       - [x] ~~Crear repositorio desde IDE (es bastante más facil que desde Eclipse)~~
+       - [x] ~~Clonacion~~
+      - [x] ~~Crear una guia en el README.md principal del proyecto ~~
    2. Organización
-      - [x] Organizar repositorio
+      - [x] ~~Organizar repositorio~~
    3. 
       - [ ] 
 
