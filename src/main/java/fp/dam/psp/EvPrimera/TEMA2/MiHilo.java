@@ -1,4 +1,4 @@
-package fp.dam.psp.EvPrimera.TEMA2.ActividadesTema2;
+package fp.dam.psp.EvPrimera.TEMA2;
 
 public class MiHilo {
 }
