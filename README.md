@@ -2,6 +2,15 @@
 >
 > **<span style="color: red;">Si no eres Neo (el propietario de la cuenta :3) no sigas leyendo cotilla </span>**
 
+
+>[!Important]
+>
+>En GitHub, al entrar en un repositorio y si se quiere iniciar VS Code desde el navegador solo clika:
+>
+> <kba style="color: #12e2ff; border: 1px solid grey; padding: 2px; margin:1px;">Ctrl</kba> + <kba style="color: #12e2ff; border: 1px solid grey; padding: 2px; margin:1px;">.</kba>
+
+
+
 <div align="center">
 
   <table align="center">
