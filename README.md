@@ -80,7 +80,8 @@
         <li>1º EVALUACION</li>
             <ul>
                 <li>
-    Dia: 20/09/2024 > 
+    Dia: 20/09/2024 > Empezamos con la Unidad 2, se supone que la unidad 1 nos la deja a nostros pero, pasando :)
+    Spoiler: La documentacion es la misma que el año pasado.
         </li>
         <li>
     Dia: 23/09/2024 > 
