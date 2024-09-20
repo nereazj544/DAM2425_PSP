@@ -6,22 +6,23 @@ public class Mensajes {
 //        HiloMensajes h = new HiloMensajes("n");
 //        h.run();
 
-//        Clase anonima
+//        Clase anonima, formas de poner el nombre del hilo.
 Thread t = new Thread(){
-        @Override
 
+        @Override
         public void run () {
             for (int i = 1; i <= 5; i++) {
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
                 }
-                System.out.println(getName() + ", mensaje " + i);
+                System.out.println( ", mensaje " + i);
             }
         }
 
 };
 t.start();
+t.run();
 //        h.start();
     }
 }
