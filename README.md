@@ -7,7 +7,7 @@
 >
 >En GitHub, al entrar en un repositorio y si se quiere iniciar VS Code desde el navegador solo clika:
 >
-> <kba style="color: #12e2ff; border: 1px solid grey; padding: 2px; margin:1px;">Ctrl</kba> + <kba style="color: #12e2ff; border: 1px solid grey; padding: 2px; margin:1px;">.</kba>
+> <kba style="color: #12e2ff; border: 1px solid grey; padding: 2px; margin:1px;">Ctrl</kba> + <kba style="color: #12e2ff; border: 1px solid grey; padding: 2px; margin:1px;">.</kba> si no funciona: https://github.dev/nereazj544/DAM2425_PSP
 
 
 
@@ -89,7 +89,8 @@
         <li>1º EVALUACION</li>
             <ul>
                 <li>
-    Dia: 20/09/2024 > 
+    Dia: 20/09/2024 > Empezamos con la Unidad 2, se supone que la unidad 1 nos la deja a nostros pero, pasando :)
+    Spoiler: La documentacion es la misma que el año pasado. 
         </li>
         <li>
     Dia: 23/09/2024 > 
