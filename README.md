@@ -19,7 +19,8 @@
    2. Organización
       - [x] ~~Organizar repositorio~~
    3. Tareas/Doc/Resumir
-      - [ ] Hacer un Word con el resumen de cada cosa.
+      - [ ] Hacer un Word del tema 2
+      - [ ] Hacer las actividades del tema 2
   
   <br></br>
   <!-- Imagen Shawn Froste -->
@@ -62,8 +63,8 @@
   <tr border="none">
   <td width="50%" align="center">
   
-  <img width="100%" height="100%"  align="center" src="https://i.pinimg.com/564x/fc/60/09/fc6009b3702ef030769b2b53134ea72e.jpg"/>
   
+  <img width="100%" height="100%"  align="center" src="https://i.pinimg.com/564x/fc/60/09/fc6009b3702ef030769b2b53134ea72e.jpg"/>
   <br></br>
   <!-- Imagen Shawn Froste -->
   <td  align="center">
@@ -80,14 +81,42 @@
         <li>1º EVALUACION</li>
             <ul>
                 <li>
-    Dia: 20/09/2024 > Empezamos con la Unidad 2, se supone que la unidad 1 nos la deja a nostros pero, pasando :)
-    Spoiler: La documentacion es la misma que el año pasado.
+    Dia: 20/09/2024 > Empezamos con la Unidad 2, se supone que la unidad 1 nos la deja a nostros pero, pasando :)  
+    <br>
+    Spoiler: La documentacion es la misma que el año pasado. Y seguramente haya que volver a Ecplise
+     <img width="50%" height="50%"  align="center" src="https://preview.redd.it/ezreal-emotes-on-pbe-swipe-v0-qckngwanhyma1.jpg?width=256&format=pjpg&auto=webp&s=b812deaa8d0a48eb4baa914cf5046ecb0d8b6a1d"/>
+    <br>
         </li>
         <li>
     Dia: 23/09/2024 > 
         </li>
         </ul>
     </ol>
+  </td>
+  </tr>
+  </table>
+
+
+[//]: # (Aqui va otras cosas)
+<table align="center">
+  <tr border="none">
+  <td width="50%" align="center">
+    <h3>Cosas a tener encuenta :)</h3>
+mover lineas en esta mierda de editor: ctrl + shift + flechas
+  <ol>
+    <li>Tema de los hilos
+    <ul>
+        <li>Thread (Bajo Nivel)</li>
+        <li>Alto nivel</li>
+    </ul>
+</li>
+</ol>
+  <br></br>
+
+  <td  align="center">
+
+
+  <img width="100%" height="100%"  align="center" src=""/>
   </td>
   </tr>
   </table>
