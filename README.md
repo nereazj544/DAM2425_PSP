@@ -103,6 +103,7 @@
   <td width="50%" align="center">
     <h3>Cosas a tener encuenta :)</h3>
 mover lineas en esta mierda de editor: ctrl + shift + flechas
+¿clases anonimas?
   <ol>
     <li>Tema de los hilos
     <ul>

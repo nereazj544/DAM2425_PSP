@@ -1,8 +1,6 @@
 package fp.dam.psp.EvPrimera.TEMA2.Dia20;
 
 public class Tarea implements  Runnable{
-
-
     private String nombre;
 
     public Tarea(String nombre) {
@@ -14,7 +12,12 @@ public class Tarea implements  Runnable{
 //    Este hay que emplementarlo por cojones nada más se haga un Runnable
     @Override
     public void run() {
-
+        for (int i = 1; i <= 5; i++){
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {}
+            System.out.println(nombre + ", mensaje " + i);
+        }
     }
 
     public static void main(String[] args) {
