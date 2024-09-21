@@ -103,21 +103,13 @@
   <td width="50%" align="center">
     <h3>Cosas a tener encuenta :)</h3>
 mover lineas en esta mierda de editor: ctrl + shift + flechas
-¿clases anonimas?
-  <ol>
-    <li>Tema de los hilos
-    <ul>
-        <li>Thread (Bajo Nivel)</li>
-        <li>Alto nivel</li>
-    </ul>
-</li>
-</ol>
+
   <br></br>
 
   <td  align="center">
 
 
-  <img width="100%" height="100%"  align="center" src=""/>
+  <img width="100%" height="100%"  align="center" src="https://i.pinimg.com/736x/63/b1/c1/63b1c18c3c758be805a74e632ae52687.jpg"/>
   </td>
   </tr>
   </table>
