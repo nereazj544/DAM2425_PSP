@@ -1,7 +1,10 @@
 >[!WARNING]
 >
 > **<span style="color: red;">Si no eres Neo (el propietario de la cuenta :3) no sigas leyendo cotilla </span>**
->Para abrir el "github.dev" es con los comandos: ctrl + alt + . / o poniendo "[]()"
+> <br>
+>Para abrir el "github.dev" es con los comandos: ctrl + alt + . 
+> <br>
+>"[Ruta al dev](https://github.dev/nereazj544/DAM2425_PSP)"
 
 <div align="center">
 
@@ -97,7 +100,26 @@
   </tr>
   </table>
 
+<p align="center" > <em style="color: green; font-weight: bold;">separadores :3</em></p>
 
+<div align="center">
+  <table>
+  <tr border="none">
+  <td align="center">
+  <img width="50%" height="50%" style="margin: 9px;" src="https://i.pinimg.com/564x/d7/15/09/d715099c210236ed0bf07c60214d0e0b.jpg"/>
+
+  <!-- Imagen Shawn Froste -->
+  <td  align="center">
+  <img width="55%" height="50%"  align="center" style="margin: 9px;" src="https://i.pinimg.com/736x/99/4d/8a/994d8aec87e0ef64f360c113648bde9e.jpg"/>
+  </td>
+  </tr>
+  </table>
+
+</div>
+
+<br>
+<p align="center" > <em style="color: green; font-weight: bold;">separadores :3</em></p>
+<br>
 [//]: # (Aqui va otras cosas)
 <table align="center">
   <tr border="none">
