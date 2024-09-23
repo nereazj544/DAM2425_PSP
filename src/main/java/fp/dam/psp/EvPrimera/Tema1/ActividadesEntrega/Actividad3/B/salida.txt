@@ -1,0 +1,31 @@
+
+C:\Users\nzjha\Desktop\Clon_Github\DAM2425_PSP>mkdir nuevo 
+
+C:\Users\nzjha\Desktop\Clon_Github\DAM2425_PSP>cd nuevo 
+
+C:\Users\nzjha\Desktop\Clon_Github\DAM2425_PSP\nuevo>echo prueba  1>MiFichero.txt 
+
+C:\Users\nzjha\Desktop\Clon_Github\DAM2425_PSP\nuevo>dir /W 
+ El volumen de la unidad C es Windows
+ El n£mero de serie del volumen es: 66F3-ACFE
+
+ Directorio de C:\Users\nzjha\Desktop\Clon_Github\DAM2425_PSP\nuevo
+
+[.]             [..]            MiFichero.txt   
+               1 archivos              9 bytes
+               2 dirs  58.862.837.760 bytes libres
+
+C:\Users\nzjha\Desktop\Clon_Github\DAM2425_PSP\nuevo>dir
+ El volumen de la unidad C es Windows
+ El n£mero de serie del volumen es: 66F3-ACFE
+
+ Directorio de C:\Users\nzjha\Desktop\Clon_Github\DAM2425_PSP\nuevo
+
+23/09/2024  23:39    <DIR>          .
+23/09/2024  23:39    <DIR>          ..
+23/09/2024  23:39                 9 MiFichero.txt
+               1 archivos              9 bytes
+               2 dirs  58.862.833.664 bytes libres
+
+C:\Users\nzjha\Desktop\Clon_Github\DAM2425_PSP\nuevo>echo FIN 
+FIN
