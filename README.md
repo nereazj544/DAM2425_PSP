@@ -58,6 +58,8 @@
 <p align="center" > <em style="color: green; font-weight: bold;">separadores :3</em></p>
 <br>
 
+---
+
 <div>
 <table align="center">
   <tr border="none">
@@ -122,3 +124,10 @@ mover lineas en esta mierda de editor: ctrl + shift + flechas
   </tr>
   </table>
 </div>
+
+
+[//]: # (DIA 23 NOTAS)
+
+Repaso del anterior dia: empezando por la instacia de una subclase de Thread, instanciando la clase Thread.
+Repaso general del dia anterior + github de clase https://github.com/pspfleming/CURSO2024/tree/main
+TODO copiar los ejemplos que hay en el GitHub

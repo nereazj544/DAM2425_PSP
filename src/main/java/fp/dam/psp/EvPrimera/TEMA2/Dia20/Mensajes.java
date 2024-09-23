@@ -2,9 +2,11 @@ package fp.dam.psp.EvPrimera.TEMA2.Dia20;
 
 public class Mensajes {
     public static void main(String[] args) {
+
 //        HiloMensajes h = new HiloMensajes();
 //        HiloMensajes h = new HiloMensajes("n");
 //        h.run();
+        // ! No se invoca el metodo run (es algo incorrecto)
 
 //        Clase anonima, formas de poner el nombre del hilo.
 Thread t = new Thread(){
@@ -22,7 +24,7 @@ Thread t = new Thread(){
 
 };
 t.start();
-t.run();
+//t.run();
 //        h.start();
     }
 }
