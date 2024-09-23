@@ -23,6 +23,10 @@ public class UnHilo extends Thread{
         UnHilo h = new UnHilo(1);
         UnHilo h2 = new UnHilo(2);
         UnHilo h3 = new UnHilo(3);
+        h.start();
+        h2.start();
+        h3.start();
+
 
     }
 }

@@ -1,6 +1,10 @@
 >[!WARNING]
 >
 > **<span style="color: red;">Si no eres Neo (el propietario de la cuenta :3) no sigas leyendo cotilla </span>**
+> <br>
+>Para abrir el "github.dev" es con los comandos: ctrl + alt + . 
+> <br>
+>"[Ruta al dev](https://github.dev/nereazj544/DAM2425_PSP)"
 
 <div align="center">
 
@@ -98,28 +102,39 @@
   </tr>
   </table>
 
+<p align="center" > <em style="color: green; font-weight: bold;">separadores :3</em></p>
 
+<div align="center">
+  <table>
+  <tr border="none">
+  <td align="center">
+  <img width="50%" height="50%" style="margin: 9px;" src="https://i.pinimg.com/564x/d7/15/09/d715099c210236ed0bf07c60214d0e0b.jpg"/>
+
+  <!-- Imagen Shawn Froste -->
+  <td  align="center">
+  <img width="55%" height="50%"  align="center" style="margin: 9px;" src="https://i.pinimg.com/736x/99/4d/8a/994d8aec87e0ef64f360c113648bde9e.jpg"/>
+  </td>
+  </tr>
+  </table>
+
+</div>
+
+<br>
+<p align="center" > <em style="color: green; font-weight: bold;">separadores :3</em></p>
+<br>
 [//]: # (Aqui va otras cosas)
 <table align="center">
   <tr border="none">
   <td width="50%" align="center">
     <h3>Cosas a tener encuenta :)</h3>
 mover lineas en esta mierda de editor: ctrl + shift + flechas
-¿clases anonimas?
-  <ol>
-    <li>Tema de los hilos
-    <ul>
-        <li>Thread (Bajo Nivel)</li>
-        <li>Alto nivel</li>
-    </ul>
-</li>
-</ol>
+
   <br></br>
 
   <td  align="center">
 
 
-  <img width="100%" height="100%"  align="center" src=""/>
+  <img width="100%" height="100%"  align="center" src="https://i.pinimg.com/736x/63/b1/c1/63b1c18c3c758be805a74e632ae52687.jpg"/>
   </td>
   </tr>
   </table>
