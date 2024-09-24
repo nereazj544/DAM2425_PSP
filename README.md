@@ -94,7 +94,11 @@
     <br>
         </li>
         <li>
-    Dia: 23/09/2024 > 
+    Dia: 23/09/2024 > Repaso del anterior día: empezando por la instacia de una subclase de Thread, instanciando la clase Thread.
+Repaso general del día anterior + github de clase https://github.com/pspfleming/CURSO2024/tree/main
+TODO copiar los ejemplos que hay en el GitHub.
+Volver a poner la mierda de los PDF del tema 2 y 1 sin editar, que sino se queja el GitHub :v
+Hacer una version 2 del reloj, donde desaparezca el implements Runnable
         </li>
         </ul>
     </ol>
@@ -141,10 +145,5 @@ mover lineas en esta mierda de editor: ctrl + shift + flechas
 </div>
 
 
-[//]: # (DIA 23 NOTAS)
+[//]: # (DIA 27 NOTAS)
 
-Repaso del anterior día: empezando por la instacia de una subclase de Thread, instanciando la clase Thread.
-Repaso general del día anterior + github de clase https://github.com/pspfleming/CURSO2024/tree/main
-TODO copiar los ejemplos que hay en el GitHub.
-Volver a poner la mierda de los PDF del tema 2 y 1 sin editar, que sino se queja el GitHub :v
-Hacer una version 2 del reloj, donde desaparezca el implements Runnable

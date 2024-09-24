@@ -1,0 +1,2 @@
+Ya existe el subdirectorio o el archivo nuevo.
+El sistema no puede encontrar la ruta especificada.

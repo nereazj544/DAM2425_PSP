@@ -4,3 +4,4 @@ echo prueba > MiFichero.txt
 dir /W
 dir
 echo FIN
+cd ie
