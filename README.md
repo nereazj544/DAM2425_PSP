@@ -25,6 +25,7 @@
       - [x] ~~Organizar repositorio~~
    3. Tareas/Doc/Resumir
       - [ ] Hacer un Word del tema 2
+      - [ ] Hacer las actividades de la UD2 - Programacion Multihilos
       - [ ] Hacer las actividades del tema 2
   
   <br></br>
@@ -50,7 +51,7 @@
   <td align="center">
   <img width="50%" height="50%" style="margin: 9px;" src="https://i.pinimg.com/564x/aa/9f/1d/aa9f1dc09b4e30fb2cce25efbec3754d.jpg"/>
 
-  <!-- Imagen Shawn Froste -->
+  
   <td  align="center">
   <img width="55%" height="50%"  align="center" style="margin: 9px;" src="https://i.pinimg.com/564x/68/16/25/681625381291aebeedf573c8c572d566.jpg"/>
   </td>
@@ -149,4 +150,8 @@ mover lineas en esta mierda de editor: ctrl + shift + flechas
 NOTAS CLASE DEL DIA 30
 
 Explicacion del reloj, la clase que se creo en clase la llamo TareaReloj, saber crear hilos de todas las posibilidades.
-Echarle un vistado si eso al git de clase.
+Echarle un vistado si eso al github de clase.
+- PDF nos quedamos por la pagina: 13 || Punto 3.4.2
+- Hacer un diagrama mejor :)
+- Buscar tema de las prioridades y profundizar en ese tema.
+
