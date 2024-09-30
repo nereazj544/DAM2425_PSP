@@ -1,0 +1,5 @@
+PREGUNTA: Averigua para qué sirve el método SwingUtilities.invokeLater(…) ¿Cómo demostrarías que las referencias a
+los objetos Runnable que se le pasan como parámetro no se usan para crear nuevos hilos?
+
+RESPUESTA: se utiliza para asegurarse que las operaciones de interfaz de usuario se ejecuten en el hilo de eventos de Swing. Es necesario para evitar problemas de concurrencia en la interfaz grafica.
+
