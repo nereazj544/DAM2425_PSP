@@ -5,6 +5,7 @@
 >Para abrir el "github.dev" es con los comandos: ctrl + alt + . 
 > <br>
 >"[Ruta al dev](https://github.dev/nereazj544/DAM2425_PSP)"
+> https://github.com/pspfleming/CURSO2024/tree/main
 
 <div align="center">
 
@@ -145,5 +146,7 @@ mover lineas en esta mierda de editor: ctrl + shift + flechas
 </div>
 
 
-[//]: # (DIA 27 NOTAS)
+NOTAS CLASE DEL DIA 30
 
+Explicacion del reloj, la clase que se creo en clase la llamo TareaReloj, saber crear hilos de todas las posibilidades.
+Echarle un vistado si eso al git de clase.

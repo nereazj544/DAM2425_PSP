@@ -136,3 +136,9 @@ Cuando lo pilles empezara la ✨clonacion✨
 <br>
 <br>
 
+
+
+
+NOTAS CLASE DEL DIA 30
+
+Explicacion del reloj, la clase que se creo en clase la llamo TareaReloj
