@@ -1,0 +1,4 @@
+Los hilos con mayor prioridad tieden a recibir más tiempo de CPU y pueden completar sus tareas más rapido.
+Sin embargo, la influencia de la prioridad no simpre es predecible o sigue un mismo comportamiento, especialmente en programas como estos que son poco desos o tienen muy poco peso en la carga del sistema.
+En algunos casos, los hilos de mayor prioridad termiann antes, pero no esta garantizado.
+Todo dependera del planificador del S.O. que juega un papel importante en la orgnizacion de la prioridad de los hilos.
