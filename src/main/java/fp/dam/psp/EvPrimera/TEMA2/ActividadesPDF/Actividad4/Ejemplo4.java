@@ -8,12 +8,16 @@ también que esto no ocurre en el primer caso.
 
 public class Ejemplo4 {
     public static void main(String[] args) throws InterruptedException{
+
+        //Creacion del hilo con una clase anonima.
         Thread h = new Thread("Cuenta atras"){
             @Override
             public void run(){
+                //bucle de cuenta atras
                 for (int i = 5; i >= 0; i--) {
                     System.out.println(i);
                     try {
+                        //el hilo se fue a mimir
                         Thread.sleep(100);
                     } catch (InterruptedException e) {
                         // TODO Auto-generated catch block
@@ -22,7 +26,9 @@ public class Ejemplo4 {
                 }
             }
         };
+        //se inicia el hilo
         h.start();
+        //esperando a que el hilo termine su ejecucion.
         h.join();
         System.out.println("metodo main finalizado");
     }
