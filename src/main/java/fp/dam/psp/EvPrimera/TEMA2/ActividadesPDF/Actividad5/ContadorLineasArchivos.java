@@ -31,15 +31,14 @@ public class ContadorLineasArchivos {
             System.exit(0);
         }
 
+        File [] ar = file.listFiles();
         List<File> fList = new ArrayList<>();
-        for (File fl : fList) {
+        for (File fl : ar) {
             if (fl.isFile() && fl.getName().endsWith(".txt")) {
                 fList.add(fl);
             }
         }
-        if (fList.isEmpty()) {
-            System.out.println("> No se han encontrado archivos de texto en el dir");
-        }
+        
 
         long inicio = System.currentTimeMillis();
         if (m.equals("S")) {
@@ -92,7 +91,7 @@ public class ContadorLineasArchivos {
                     palabras++;
                 }
             }
-
+            System.out.println("> Archivo: " + f.getName());
             System.out.println("> Linea: " + linea + "\n > Palabras: " + palabras + "\n > Carcaters: " + c);
 
         } catch (Exception e) {
