@@ -13,7 +13,7 @@ public class EjemploInterrupt extends Thread {
                 Thread.sleep(200);
             } catch (InterruptedException e) {
                 System.out.println("interrumpido mientras dormía");
-                interrupt();
+                interrupt(); //reinterrumpir hilo
             }
         }
     }
@@ -29,7 +29,7 @@ public class EjemploInterrupt extends Thread {
         // }else{
             // Thread.sleep(2000);
             //se interrumpe el hilo
-            if (f.equals("fin")) {
+            if (f.equalsIgnoreCase("fin")) {
                 
                 h.interrupt();
                 h.join();
