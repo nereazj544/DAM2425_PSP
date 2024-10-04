@@ -155,3 +155,7 @@ Echarle un vistado si eso al github de clase.
 - Hacer un diagrama mejor :)
 - Buscar tema de las prioridades y profundizar en ese tema.
 
+
+
+
+Examen tipo test (tengo miedo )
