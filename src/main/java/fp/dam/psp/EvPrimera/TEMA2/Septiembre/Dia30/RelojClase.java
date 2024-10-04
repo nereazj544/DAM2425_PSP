@@ -1,7 +1,5 @@
-package fp.dam.psp.EvPrimera.TEMA2.Dia30;
+package fp.dam.psp.EvPrimera.TEMA2.Septiembre.Dia30;
 
-
-import fp.dam.psp.EvPrimera.TEMA2.Dia20.Tarea;
 
 import javax.swing.*;
 import java.time.LocalDateTime;

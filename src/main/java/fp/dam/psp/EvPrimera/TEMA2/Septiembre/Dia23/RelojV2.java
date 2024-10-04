@@ -1,4 +1,4 @@
-package fp.dam.psp.EvPrimera.TEMA2.Dia23;
+package fp.dam.psp.EvPrimera.TEMA2.Septiembre.Dia23;
 
 
 // TODO: Lo que hay que hacer en esta version, creando el implements runnable

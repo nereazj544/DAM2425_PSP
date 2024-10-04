@@ -1,4 +1,4 @@
-package fp.dam.psp.EvPrimera.TEMA2.Dia30;
+package fp.dam.psp.EvPrimera.TEMA2.Septiembre.Dia30;
 
 
 import javax.swing.*;

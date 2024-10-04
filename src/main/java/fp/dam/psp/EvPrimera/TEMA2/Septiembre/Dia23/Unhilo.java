@@ -1,6 +1,4 @@
-package fp.dam.psp.EvPrimera.TEMA2.Dia23;
-
-import fp.dam.psp.EvPrimera.TEMA2.Dia20.UnHilo;
+package fp.dam.psp.EvPrimera.TEMA2.Septiembre.Dia23;
 
 public class Unhilo extends  Thread{
     public Unhilo(){

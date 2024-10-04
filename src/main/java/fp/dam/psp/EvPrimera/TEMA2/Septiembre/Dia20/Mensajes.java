@@ -1,4 +1,4 @@
-package fp.dam.psp.EvPrimera.TEMA2.Dia20;
+package fp.dam.psp.EvPrimera.TEMA2.Septiembre.Dia20;
 
 public class Mensajes {
     public static void main(String[] args) {
