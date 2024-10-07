@@ -1,5 +1,7 @@
 package fp.dam.psp.EvPrimera.TEMA2.OCTUBRE.Dia14;
 public class Contador {
+    //? una opcion es crearse un monitor
+    private  static  final Object m = new Object(); //* Se crea un monitor (perooo esta era la manera de ChatGPT que nos dijo aquella vez, 🫤)
     private int n; //! Objeto de la secion critica.
     public Contador(int n) {
         this.n = n;
@@ -15,6 +17,7 @@ public class Contador {
     public void inc (){
 //        synchronized (this){
         synchronized (Contador.class){
+            //! se el metodo es estatico seria Contador.class
             n++;
             //en este se elige el monitor
         }
