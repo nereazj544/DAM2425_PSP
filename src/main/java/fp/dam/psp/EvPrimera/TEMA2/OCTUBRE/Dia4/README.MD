@@ -16,3 +16,5 @@ Mecanismos simples, pero dificiles de manejar, dan pie a que nos equivoquemos de
 Los mecanismos de sincornizacion sirven para evitar los errores con los hilos que se juntan concurrentemente (paralelo), esto ocurre cuando van varios a un mismo sitio-
 ¿cambios de contexto?
  de la exclusion mutua leido los apuntes + hacer resumen.
+
+
