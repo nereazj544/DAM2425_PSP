@@ -1,0 +1,1 @@
+Se suponia que iba a explicar esto bien pero como que ni el lo sabe :v
