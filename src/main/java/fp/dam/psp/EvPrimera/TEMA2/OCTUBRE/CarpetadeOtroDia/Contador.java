@@ -1,4 +1,4 @@
-package fp.dam.psp.EvPrimera.TEMA2.OCTUBRE.Dia14;
+package fp.dam.psp.EvPrimera.TEMA2.OCTUBRE.CarpetadeOtroDia;
 public class Contador {
     //? una opcion es crearse un monitor
     private  static  final Object m = new Object(); //* Se crea un monitor (perooo esta era la manera de ChatGPT que nos dijo aquella vez, 🫤)
