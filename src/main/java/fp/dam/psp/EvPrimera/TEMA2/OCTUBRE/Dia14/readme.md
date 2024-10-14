@@ -41,7 +41,8 @@ private static Object m = new Object();
 > en el segundo ejemplo H2 permanece en estado de bloqueo, hasta que H1 acabe.
 > Después de que salga compiten por el cerrojo. 
 
-Cosas a no hacer:
+>[!WARNING]
+> No hacer esto nunca :)
 
 Es poner un Integer como un monitor
 
@@ -59,3 +60,5 @@ Los problemas son:
 1. Usar un objeto Integer como monitor no es una buena práctica. Los objetos Integer son inmutables, lo que significa que cada vez que incrementas n, se crea un nuevo objeto Integer.
 2. Esto puede llevar a condiciones de carrera, ya que diferentes hilos podrían estar sincronizando en diferentes objetos Integer.
 3. Es más eficiente y seguro usar un tipo primitivo int en lugar de Integer para este propósito.
+
+
