@@ -61,4 +61,25 @@ Los problemas son:
 2. Esto puede llevar a condiciones de carrera, ya que diferentes hilos podrían estar sincronizando en diferentes objetos Integer.
 3. Es más eficiente y seguro usar un tipo primitivo int en lugar de Integer para este propósito.
 
+# Metodo Get del ejmplo 9
+En este caso, el método get() no está sincronizado, lo que significa que no es una sección crítica en sí mismo. Sin embargo, esto puede llevar a problemas de concurrencia si se accede al valor de 'n' mientras otro hilo está modificándolo en el método inc().
 
+Para hacer que get() sea thread-safe y parte de la sección crítica, podrías sincronizarlo así:
+
+```java
+public synchronized int get() {
+    return n;
+}
+```
+
+O usando un bloque sincronizado:
+
+```java
+public int get() {
+    synchronized (Contador.class) {
+        return n;
+    }
+}
+```
+
+Esto aseguraría que la lectura de 'n' sea atómica y consistente con las modificaciones realizadas en inc(). Sin embargo, ten en cuenta que sincronizar get() puede afectar el rendimiento si se llama con frecuencia.
