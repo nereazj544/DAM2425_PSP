@@ -19,5 +19,5 @@ Dentro de la seccion critica ya no va a ver concurrecia, entonces hay que ver co
 
 >[!NOTE]
 > en el segundo ejemplo H2 permanece en estado de bloqueo, hasta que H1 acabe.
-> Despues de que salga compiten por el cerrojo. 
+> Después de que salga compiten por el cerrojo. 
 > 

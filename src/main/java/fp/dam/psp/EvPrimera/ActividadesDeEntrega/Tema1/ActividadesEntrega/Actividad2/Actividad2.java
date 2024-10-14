@@ -1,4 +1,4 @@
-package fp.dam.psp.EvPrimera.Tema1.ActividadesEntrega.Actividad2;
+package fp.dam.psp.EvPrimera.ActividadesDeEntrega.Tema1.ActividadesEntrega.Actividad2;
 
 import java.io.BufferedReader;
 import java.io.IOException;

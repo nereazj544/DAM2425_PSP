@@ -1,4 +1,4 @@
-package fp.dam.psp.EvPrimera.Tema1.ActividadesEntrega.Actividad1;
+package fp.dam.psp.EvPrimera.ActividadesDeEntrega.Tema1.ActividadesEntrega.Actividad1;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

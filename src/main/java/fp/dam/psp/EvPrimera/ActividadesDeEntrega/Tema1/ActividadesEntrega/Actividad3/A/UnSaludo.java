@@ -1,4 +1,4 @@
-package fp.dam.psp.EvPrimera.Tema1.ActividadesEntrega.Actividad3.A;
+package fp.dam.psp.EvPrimera.ActividadesDeEntrega.Tema1.ActividadesEntrega.Actividad3.A;
 
 /*
  * El programa Java siguiente escribe 5 líneas repitiendo 

@@ -1,4 +1,4 @@
-package fp.dam.psp.EvPrimera.Tema1.ActividadesEntrega.Actividad3.B;
+package fp.dam.psp.EvPrimera.ActividadesDeEntrega.Tema1.ActividadesEntrega.Actividad3.B;
 
 import java.io.File;
 
