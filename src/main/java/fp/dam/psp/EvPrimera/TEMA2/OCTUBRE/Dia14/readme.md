@@ -83,3 +83,4 @@ public int get() {
 ```
 
 Esto aseguraría que la lectura de 'n' sea atómica y consistente con las modificaciones realizadas en inc(). Sin embargo, ten en cuenta que sincronizar get() puede afectar el rendimiento si se llama con frecuencia.
+
