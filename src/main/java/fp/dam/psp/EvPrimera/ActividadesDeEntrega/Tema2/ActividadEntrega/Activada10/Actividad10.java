@@ -1,4 +1,4 @@
-package fp.dam.psp.EvPrimera.ActividadesDeEntrega.Tema2.ActividadEntrega;
+package fp.dam.psp.EvPrimera.ActividadesDeEntrega.Tema2.ActividadEntrega.Activada10;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
