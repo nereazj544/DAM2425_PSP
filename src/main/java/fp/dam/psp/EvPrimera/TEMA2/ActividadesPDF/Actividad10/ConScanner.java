@@ -1,32 +1,26 @@
 package fp.dam.psp.EvPrimera.TEMA2.ActividadesPDF.Actividad10;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
+public class ConScanner extends Thread{
+    static boolean s = false;
+    static boolean f = false;
 
-public class EjemploSuspension extends Thread {
-     // Variable para controlar el estado de suspension del hilo
-    static boolean suspendido = false;
-    static boolean f = false; // Opcion de finalizar el hilo
-
-    // Metodo sincronizado para suspender
-    public synchronized void suspendido() {
-        suspendido = true;
+    public synchronized void sus (){
+        s = true;
     }
 
-    // Metodo sincronizado para reanudar
-    public synchronized void reaundar() {
-        suspendido = false;
+    public synchronized void r (){
+        s = false;
         notify();
-        // Notificamos al hilo para que dejen de estar en el estado de "bloqueo", una
-        // vez que el "bloqueo" este libre
+    }
+    
+    public synchronized void fin(){
+        f = true;
+        interrupt();
     }
 
-    public synchronized void fin() {
-        f = true;
-        interrupt(); // Se finaliza el hilo
-    }
+
 
     @Override
     public void run() {
@@ -35,7 +29,7 @@ public class EjemploSuspension extends Thread {
                 // Bloque sincronizado por un monitor
                 // ! ⤵️ MONITOR
                 synchronized (this) {
-                    if (suspendido) {
+                    if (s) {
                         System.out.println("suspendido");
                         wait();
                         // El hilo ha quedado en espera hasta que reciba la notificacion
@@ -53,35 +47,38 @@ public class EjemploSuspension extends Thread {
         }
     }
 
-    public static void main(String[] args) throws Exception {
 
-        // Añadimos el BufferedReader para poder leer datos por teclado
-        // ? No era mas facil poner un Scanner(?)
 
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
-        EjemploSuspension hilo = new EjemploSuspension();
-        hilo.start(); // Empieza el funcionamiento del hilo
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        ConScanner h = new ConScanner();
+
+        h.start();
+
         do {
             System.out.println("s -> supender / r -> renudar / f -> finalizar");
-            String opcion = in.readLine();
+           String opcion = sc.nextLine();
             // Switch para depender de la opcion puesta: s se supende el hilo, r se renuada
             // (se notifica al hilo que puede seguir)
             switch (opcion.toLowerCase()) {
                 case "s":
-                    hilo.suspendido();
+                    h.sus();
                     break;
                 case "r":
-                    hilo.reaundar();
+                    h.r();
                     break;
                 case "f":
-                    hilo.fin();
+                    h.fin();
                     break;
 
                 default:
                     break;
             }
-        } while (true); // Bucle infinito.
-
+        } while (true);
+        
     }
+
+    
 }
