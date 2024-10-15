@@ -1,5 +1,7 @@
 package fp.dam.psp.EvPrimera.TEMA2.ActividadesTema2;
 
+
+
 /*
  * Crear un programa que reciba a través de sus argumentos una lista de ficheros de texto y cuente
 cuántas líneas, palabras y caracteres hay en cada fichero, así como en el total entre todos los
@@ -13,5 +15,15 @@ concurrente.
 
  */
 public class ContadorDePalabras {
+
+    public static void main(String[] args) {
+        if (args.length != 2) {
+            System.out.println("> No se han metido los datos correctos: ");
+            System.out.println("> Ruta de los ficheros (carpeta) y modo: 'C' o 'S'");
+            System.exit(0);
+        }
+
+       
+    }
 
 }
