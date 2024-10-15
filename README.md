@@ -14,20 +14,13 @@
   <td width="50%" align="center">
   <h3><img scr="">TO-DO</h3>
   ✏️ Lista de cosas que hay que hacer:
-
-  1. Investigacion
-     - [x] ~~Haberiguar como carrula el nuevo editor~~
-     - [x] Tema de GitHub:
-       - [x] ~~Crear repositorio desde IDE (es bastante más facil que desde Eclipse)~~
-       - [x] ~~Clonacion~~
-      - [x] ~~Crear una guia en el README.md principal del proyecto~~
-   2. Organización
-      - [x] ~~Organizar repositorio~~
-   3. Tareas/Doc/Resumir
-      - [ ] Hacer un Word del tema 2
-      - [ ] Hacer las actividades de la UD2 - Programacion Multihilos
-      - [ ] Hacer las actividades del tema 2
-  
+  <br></br>
+    > TEMA 2
+    <ul>
+    <li>Actividades del PDF de la unidad</li>
+    <li>Más Actividades del tema </li>
+    </ul>
+     
   <br></br>
   <!-- Imagen Shawn Froste -->
   <td  align="center">
