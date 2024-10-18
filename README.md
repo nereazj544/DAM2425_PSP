@@ -20,8 +20,11 @@
     <li>Actividades del PDF de la unidad</li>
     <li>Más Actividades del tema </li>
     <li>Actividades de entrega:
+<br>
 [ ] Actividad 11
+<br>
 [ ] Actividad 12
+<br>
 [ ] Actividad 13
 
 
