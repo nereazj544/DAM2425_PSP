@@ -22,10 +22,10 @@
 </ul> 
 
     TODO
-- [x] Actividad 10
-- [ ] Actividad 11
-- [ ] Actividad 12
-- [ ] Actividad 13
+1. [ X] ~~Actividad 10~~
+2. [ ] Actividad 11
+3. [ ] Actividad 12
+4. [ ] Actividad 13
 
 
   <br></br>
