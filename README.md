@@ -21,11 +21,11 @@
     <li>Más Actividades del tema </li>
     <li>Actividades de entrega:
 <br>
-[ ] Actividad 11
+- [ ] Actividad 11
 <br>
-[ ] Actividad 12
+- [ ] Actividad 12
 <br>
-[ ] Actividad 13
+- [ ] Actividad 13
 
 
 </li> 
