@@ -6,7 +6,7 @@ public class Prodcutor extends  Thread{
 
 
     public Prodcutor(Almacen almacen, long retardo){
-//        super(String.valueOf(id));
+super("productor");
         this.retardo = retardo;
         this.almacen = almacen;
     }

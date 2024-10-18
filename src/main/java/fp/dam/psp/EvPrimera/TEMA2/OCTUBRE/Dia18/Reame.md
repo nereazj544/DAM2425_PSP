@@ -17,3 +17,7 @@ Estar dentro de un wait no le va a garantizar nada que pille el cerrojo, si no l
 Finalizar de forma ordenada, espera a que el hilo finaliza este finaliza
 
 
+Para invocar a Notify, NotifyAll y wait = monitor de la seccion critica. Si se usa uno que no es salta un error: ilegalMonitor (el monitor es ilegal)
+
+
+

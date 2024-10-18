@@ -4,6 +4,7 @@ public class Consumidor extends  Thread{
     private long retardo;
     private Almacen almacen;
     public Consumidor(Almacen almacen, long retardo) {
+        super("consumidor");
         this.retardo = retardo;
         this.almacen = almacen;
     }
