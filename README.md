@@ -18,19 +18,16 @@
     > TEMA 2
     <ul>
     <li>Actividades del PDF de la unidad</li>
-    <li>Más Actividades del tema </li>
-    <li>Actividades de entrega:
-<br>
-- [X] Actividad 11
-<br>
+    <li>Más Actividades del tema </li> 
+</ul> 
+
+    TODO
+- [x] Actividad 10
+- [ ] Actividad 11
 - [ ] Actividad 12
-<br>
 - [ ] Actividad 13
 
 
-</li> 
-</ul>
-     
   <br></br>
   <!-- Imagen Shawn Froste -->
   <td  align="center">
