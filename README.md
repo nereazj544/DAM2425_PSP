@@ -19,7 +19,14 @@
     <ul>
     <li>Actividades del PDF de la unidad</li>
     <li>Más Actividades del tema </li>
-    </ul>
+    <li>Actividades de entrega:
+[ ] Actividad 11
+[ ] Actividad 12
+[ ] Actividad 13
+
+
+</li> 
+</ul>
      
   <br></br>
   <!-- Imagen Shawn Froste -->
