@@ -8,4 +8,15 @@ A parte de la solución basada en exclusión mutua, ¿se te ocurre alguna otra s
 
 
 public class Actividad11 {
+    private int n;
+    public Actividad11(int n) {
+        this.n = n;
+    }
+    public synchronized void inc() {
+        n++;
+    }
+    public int get() {
+        return n;
+    }
+
 }
