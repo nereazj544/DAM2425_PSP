@@ -2,7 +2,9 @@ package fp.dam.psp.EvPrimera.TEMA2.OCTUBRE.Dia21.Fumadores.AnotherVersion;
 
 import java.util.HashSet;
 import java.util.stream.Collectors;
-import static fp.dam.psp.fumadores.Main.actualizar;
+
+import static fp.dam.psp.EvPrimera.TEMA2.OCTUBRE.Dia21.Fumadores.AnotherVersion.Main.actualizar;
+//import static fp.dam.psp.fumadores.Main.actualizar;
 
 public class Mesa {
 

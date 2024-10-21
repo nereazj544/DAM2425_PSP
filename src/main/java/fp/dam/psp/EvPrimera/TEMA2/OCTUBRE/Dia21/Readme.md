@@ -15,3 +15,5 @@ Simular todo el proceso mediante cuatros hilos, uno para cada fumador y uno para
 
 >[!_NOTE_]
 > Este ejercicio es copia y pega del otro que hicimos el otro dia.
+
+
