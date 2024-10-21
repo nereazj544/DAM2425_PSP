@@ -1,8 +1,9 @@
-package fp.dam.psp.EvPrimera.TEMA2.OCTUBRE.Dia21.FumadoresConIntefazGafica;
+package fp.dam.psp.EvPrimera.Other.Fumadores;
+
+import static fp.dam.psp.EvPrimera.Other.Fumadores.Main.actualizar;
 
 import java.util.HashSet;
 import java.util.Set;
-import static fp.dam.psp.EvPrimera.TEMA2.OCTUBRE.Dia21.FumadoresConIntefazGafica.Main.actualizar;
 
 public class Mesa {
     Set<Ingredientes> ingredientes = new HashSet<>();

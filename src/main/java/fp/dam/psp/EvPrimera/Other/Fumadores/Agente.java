@@ -1,4 +1,4 @@
-package fp.dam.psp.EvPrimera.TEMA2.OCTUBRE.Dia21.FumadoresConIntefazGafica;
+package fp.dam.psp.EvPrimera.Other.Fumadores;
 
 import static fp.dam.psp.EvPrimera.TEMA2.OCTUBRE.Dia21.Fumadores.AnotherVersion.Main.actualizar;
 
