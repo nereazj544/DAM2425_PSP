@@ -24,11 +24,11 @@ public class Persona extends Thread {
                 System.out.println("Persona " + id + " intenta sentarse");
                 b.sentarse();
                 System.out.println("Persona " + id + " se sienta");
-                
+
                 int tD = r.nextInt(MIN_PRIORITY) + 100;
                 b.levantarse();
                 System.out.println("Persona " + id + " se levanta");
-                
+
 
             }
         } catch (InterruptedException e) {

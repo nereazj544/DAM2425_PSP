@@ -23,9 +23,9 @@
 
     TODO
 1. [ ] ~~Actividad 10~~
-2. [ ] Actividad 11
+2. [ ] ~~Actividad 11~~
 3. [ ] Actividad 12
-4. [ ] Actividad 13
+4. [ ] ~~Actividad 13~~
 
 
   <br></br>
