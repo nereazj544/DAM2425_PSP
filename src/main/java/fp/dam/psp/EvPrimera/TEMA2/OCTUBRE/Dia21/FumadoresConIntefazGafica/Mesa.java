@@ -18,8 +18,8 @@ public class Mesa {
         }
         ingredientes.add(i1);
         ingredientes.add(i2);
-        actualizar("> El agente coloco: " + i1);
-        actualizar("> El agente coloco: " + i2);
+        actualizar("> El agente coloco: " + i1 + "\n");
+        actualizar("> El agente coloco: " + i2 + "\n");
         notifyAll();
 
     }
@@ -35,7 +35,7 @@ public class Mesa {
             
         }
         ingredientes.clear();
-        actualizar("> El fumador retiro ingrediente: " + ingre);
+        actualizar("> El fumador retiro ingrediente: " + ingre + "\n");
         notifyAll();
 
     }

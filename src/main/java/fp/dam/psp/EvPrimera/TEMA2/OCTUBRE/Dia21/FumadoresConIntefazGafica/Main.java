@@ -4,18 +4,20 @@ import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
 
-
-public class Main extends JFrame implements WindowListener{
-    private static final long serialVersionUID = 1L;
+public class Main extends JFrame implements WindowListener {
+	private static final long serialVersionUID = 1L;
 	private static final JTextArea textArea = new JTextArea();
 	private JButton pausa = new JButton("PAUSA");
 	private JButton reanudar = new JButton("REANUDAR");
 
-	public Mesa m = new Mesa();
-	
+	private Mesa m = new Mesa();
+	private Agente agente = new Agente(m);
+	private Fumador f1 = new Fumador(getName(), Ingredientes.TABACO, m);
+	private Fumador f2 = new Fumador(getName(), Ingredientes.PAPEL, m);
+	private Fumador f3 = new Fumador(getName(), Ingredientes.CERILLAS, m);
 
-    public Main() {
-		super("BASE");
+	public Main() {
+		super("FUMADORES");
 		this.addWindowListener(this);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		Container contentPane = getContentPane();
@@ -43,17 +45,31 @@ public class Main extends JFrame implements WindowListener{
 		pausa.setEnabled(false);
 		reanudar.setEnabled(true);
 		textArea.append("PAUSADO\n");
-	
+		f1.suspender();
+		f2.suspender();
+		f3.suspender();
+		agente.suspender();
+
 	}
 
 	private void reanudar(ActionEvent e) {
 		pausa.setEnabled(true);
 		reanudar.setEnabled(false);
 		textArea.append("REANUDADO\n");
+
+		f1.reanudar();
+		f2.reanudar();
+		f3.reanudar();
+		agente.reanudar();
 	}
 
 	private void iniciar() {
 		setVisible(true);
+		f1.start();
+		f2.start();
+		f3.start();
+		agente.start();
+
 	}
 
 	private static void crear() {
@@ -72,6 +88,11 @@ public class Main extends JFrame implements WindowListener{
 	public void windowClosing(WindowEvent e) {
 		// TODO finalizar hilos de forma ordenada antes de salir
 		System.exit(0);
+
+		f1.fin();
+		f2.fin();
+		f3.fin();
+		agente.fin();
 
 		// Aqui seria:
 		/*
@@ -105,5 +126,5 @@ public class Main extends JFrame implements WindowListener{
 	@Override
 	public void windowDeactivated(WindowEvent e) {
 	}
-    
+
 }
