@@ -159,3 +159,11 @@ Echarle un vistado si eso al github de clase.
 
 
 Examen tipo test (tengo miedo )
+
+
+
+
+Examen tipo test -> 60%
+ejercicos (apuntes) -> 10%
+supuestos practico -> 50%
+(El viernes uno)
