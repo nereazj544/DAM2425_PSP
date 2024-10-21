@@ -12,3 +12,6 @@ ingredientes escogidos de forma aleatoria y esperará a que un fumador, el que t
 ingrediente que falta, los retire, lie un cigarro y lo fume (todo este proceso le llevará 1 segundo).
 Cuando el fumador termine de fumar, se repetirá el ciclo.
 Simular todo el proceso mediante cuatros hilos, uno para cada fumador y uno para el agente.
+
+>[!_NOTE_]
+> Este ejercicio es copia y pega del otro que hicimos el otro dia.
