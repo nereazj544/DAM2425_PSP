@@ -1,7 +1,5 @@
 package fp.dam.psp.EvPrimera.TEMA2.OCTUBRE.Dia21.Fumadores.AnotherVersion;
-
-import static fp.dam.psp.fumadores.Main.actualizar;
-
+import static fp.dam.psp.EvPrimera.TEMA2.OCTUBRE.Dia21.Fumadores.AnotherVersion.Main.actualizar;
 public class Fumador extends Thread {
 	Ingrediente ingrediente;
 	Mesa mesa;
