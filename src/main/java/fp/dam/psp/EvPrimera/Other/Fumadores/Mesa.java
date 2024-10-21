@@ -37,6 +37,7 @@ public class Mesa {
         }
         ingredientes.clear();
         actualizar("> El fumador retiro ingrediente: " + ingre + "\n");
+        actualizar("> El fumador se puso a fumar\n");
         notifyAll();
 
     }
