@@ -1,7 +1,8 @@
 package fp.dam.psp.EvPrimera.TEMA2.OCTUBRE.CarpetadeOtroDia;
 public class Contador {
     //? una opcion es crearse un monitor
-    private  static  final Object m = new Object(); //* Se crea un monitor (perooo esta era la manera de ChatGPT que nos dijo aquella vez, 🫤)
+    // private  static  final Object m = new Object(); 
+    //* Se crea un monitor (perooo esta era la manera de ChatGPT que nos dijo aquella vez, 🫤)
     private int n; //! Objeto de la secion critica.
     public Contador(int n) {
         this.n = n;
