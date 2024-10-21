@@ -19,7 +19,7 @@ public class Mesa {
 
 
     public synchronized void colIn (String i1, String i2){
-        if (ingredientes.isEmpty()){
+        if (!ingredientes.isEmpty()){
             try {
                 wait();
                 //! Nos va a mandar hacer que esta ⤵️ salte
@@ -35,7 +35,8 @@ public class Mesa {
 
     //! Se puede realizar de dos formas, con void no va a retornar nada. No es del to-do necesario, ya que es vaciar el bloque del Set.
     public  synchronized void reIn (String ingre){
-        if (ingredientes.contains(ingre)){
+        while ( ingredientes.isEmpty() || ingredientes.contains(ingre)){
+            System.out.println("> El fumador en espera");
             try {
                 wait();
             } catch (InterruptedException e) {
