@@ -166,4 +166,4 @@ Examen tipo test (tengo miedo )
 Examen tipo test -> 60%
 ejercicos (apuntes) -> 10%
 supuestos practico -> 50%
-(El viernes uno)
+(El viernes uno, con entorno grafico)
