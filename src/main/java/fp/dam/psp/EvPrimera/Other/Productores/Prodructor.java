@@ -25,4 +25,19 @@ public class Prodructor extends Thread{
         f = true;
         interrupt();
     }
+
+    @Override
+    public void run() {
+        while (!f) {
+            synchronized(this){
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+    
 }
