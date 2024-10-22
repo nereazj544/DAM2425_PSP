@@ -20,7 +20,7 @@ public class Piscina {
         cOcupadas++;
         incremetarContador(tipo);
         actualizar(nombre + "(" + tipo + ")entra." + obtenerEstadistias() + "\n");
-        notify();
+        notifyAll();
     }
 
     public synchronized void EntrarSubmarinistas(String nombre) {
@@ -35,14 +35,21 @@ public class Piscina {
         cOcupadas += 2;
         submarinistas++;
         actualizar(nombre + "(Submarinista) entra. " + obtenerEstadistias() + "\n");
-        notify();
+        notifyAll();
     }
 
     public synchronized void salirNadador(String nombre, String tipo) {
         cOcupadas--;
         decrementarContador(tipo);
         actualizar(nombre + " (" + tipo + ") sale. " + obtenerEstadistias() + "\n");
-        notify();
+        notifyAll();
+    }
+
+    public synchronized void salirSub(String nombre){
+        cOcupadas-=2;
+        submarinistas--;
+        actualizar(nombre + " (Submarinista) sale. " + obtenerEstadistias() + "\n");
+        notifyAll();
     }
 
     private String obtenerEstadistias() {

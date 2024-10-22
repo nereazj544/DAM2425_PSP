@@ -13,7 +13,8 @@ public class Main extends JFrame implements WindowListener {
 
 	// TODO Se invocan las clases (las de los hilos)
 	Piscina p = new Piscina();
-	
+	Usuario u = new Usuario(p, getName(), true);
+	Usuario u1 = new Usuario(p, getName(), false);
 	public Main() {
 		super("PISCINA");
 		this.addWindowListener(this);
@@ -44,6 +45,9 @@ public class Main extends JFrame implements WindowListener {
 		reanudar.setEnabled(true);
 		textArea.append("PAUSADO\n");
 		// TODO: Se pone el metodo de parada de cada hilo
+		u.suspender();
+		u1.suspender();
+
 
 	}
 
@@ -52,12 +56,16 @@ public class Main extends JFrame implements WindowListener {
 		reanudar.setEnabled(false);
 		textArea.append("REANUDADO\n");
 		// TODO: Se pone el metodo de volver a carrular de cada hilo
+		u.reanudar();
+		u1.reanudar();
 	}
 
 	private void iniciar() {
 		setVisible(true);
 		// TODO: Se pone "[hilo].star()" pa que carrule, y si no carrula revisar el
 		// metodo de reanudar (sino es notify es notifyall)
+		u1.start();
+		u.start();
 
 	}
 
@@ -78,6 +86,8 @@ public class Main extends JFrame implements WindowListener {
 		// TODO finalizar hilos de forma ordenada antes de salir
 		System.exit(0);
 		// TODO: Se pone el metodo de fin
+		u.fin();
+		u1.fin();
 
 		// Aqui seria:
 		/*
