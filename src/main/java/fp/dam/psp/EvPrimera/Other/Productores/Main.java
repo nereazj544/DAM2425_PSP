@@ -10,9 +10,12 @@ public class Main extends JFrame implements WindowListener {
 	private JButton pausa = new JButton("PAUSA");
 	private JButton reanudar = new JButton("REANUDAR");
 
-	
+	private Almacen almacen = new Almacen(10);
+	private Prodructor p = new Prodructor(1000, almacen);
+	private Consumidor c = new Consumidor(almacen, 1000);
+
 	public Main() {
-		super("FUMADORES");
+		super("PRODUCTORES");
 		this.addWindowListener(this);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		Container contentPane = getContentPane();
@@ -40,7 +43,9 @@ public class Main extends JFrame implements WindowListener {
 		pausa.setEnabled(false);
 		reanudar.setEnabled(true);
 		textArea.append("PAUSADO\n");
-		
+		// *SE PAUSAN HILOS
+		p.suspender();
+		c.suspender();
 
 	}
 
@@ -48,13 +53,17 @@ public class Main extends JFrame implements WindowListener {
 		pausa.setEnabled(true);
 		reanudar.setEnabled(false);
 		textArea.append("REANUDADO\n");
+		p.reanudar();
+		c.reanudar();
 
-		
 	}
 
 	private void iniciar() {
 		setVisible(true);
-		
+		//TODO: AQUI SE INICIAN LOS HILOS
+		p.start();
+		c.start();
+
 	}
 
 	private static void crear() {
@@ -73,8 +82,8 @@ public class Main extends JFrame implements WindowListener {
 	public void windowClosing(WindowEvent e) {
 		// TODO finalizar hilos de forma ordenada antes de salir
 		System.exit(0);
-
-		
+		p.fin();
+		c.fin();
 		// Aqui seria:
 		/*
 		 * f1.interrupt();

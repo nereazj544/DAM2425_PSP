@@ -1,5 +1,7 @@
 package fp.dam.psp.EvPrimera.Other.Productores;
 
+import static fp.dam.psp.EvPrimera.Other.Productores.Main.actualizar;
+
 public class Prodructor extends Thread{
     long contador, r = 0;
     private Almacen almacen;
@@ -37,6 +39,15 @@ public class Prodructor extends Thread{
                     e.printStackTrace();
                 }
             }
+        }
+        String prodcuto = String.format("%d", ++contador);
+        almacen.almacenar(prodcuto);
+        actualizar("prodcuto " + prodcuto + " añadido");
+        try {
+            sleep(r);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
     }
     
