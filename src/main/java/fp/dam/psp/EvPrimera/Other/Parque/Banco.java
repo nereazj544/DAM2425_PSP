@@ -8,11 +8,13 @@ public class Banco {
         this.capacidad = capacidad;
     }
 
-    public synchronized void sentarse() throws InterruptedException{
+    public synchronized boolean sentarse() throws InterruptedException{
         while (plazasO >= capacidad) {
-            wait();
+            plazasO++;
+            return true;
         }
-        plazasO++;
+        return false;
+        
     }
     public synchronized void levantarse() {
         plazasO--;

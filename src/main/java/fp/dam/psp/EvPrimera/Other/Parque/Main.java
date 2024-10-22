@@ -12,6 +12,8 @@ public class Main extends JFrame implements WindowListener {
 	private JButton reanudar = new JButton("REANUDAR");
 
 	// TODO Se invocan las clases (las de los hilos)
+	Banco b = new Banco(10);
+	Persona p = new Persona(8, b);
 
 	public Main() {
 		super(" ");
@@ -43,6 +45,7 @@ public class Main extends JFrame implements WindowListener {
 		reanudar.setEnabled(true);
 		textArea.append("PAUSADO\n");
 		// TODO: Se pone el metodo de parada de cada hilo
+		p.suspender();
 
 	}
 
@@ -51,12 +54,14 @@ public class Main extends JFrame implements WindowListener {
 		reanudar.setEnabled(false);
 		textArea.append("REANUDADO\n");
 		// TODO: Se pone el metodo de volver a carrular de cada hilo
+		p.reanudar();
 	}
 
 	private void iniciar() {
 		setVisible(true);
 		// TODO: Se pone "[hilo].star()" pa que carrule, y si no carrula revisar el
 		// metodo de reanudar (sino es notify es notifyall)
+		p.start();
 
 	}
 
@@ -78,6 +83,7 @@ public class Main extends JFrame implements WindowListener {
 		System.exit(0);
 		// TODO: Se pone el metodo de fin
 
+		p.fin();
 		// Aqui seria:
 		/*
 		 * f1.interrupt();
