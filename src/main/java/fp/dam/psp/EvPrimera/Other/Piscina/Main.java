@@ -12,9 +12,10 @@ public class Main extends JFrame implements WindowListener {
 	private JButton reanudar = new JButton("REANUDAR");
 
 	// TODO Se invocan las clases (las de los hilos)
-
+	Piscina p = new Piscina();
+	
 	public Main() {
-		super(" ");
+		super("PISCINA");
 		this.addWindowListener(this);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		Container contentPane = getContentPane();
