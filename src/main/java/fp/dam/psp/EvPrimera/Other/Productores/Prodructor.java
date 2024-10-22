@@ -20,7 +20,7 @@ public class Prodructor extends Thread{
 
     public synchronized void reanudar() {
         s = false;
-        notify();
+        notifyAll();
     }
 
     public synchronized void fin() {
@@ -29,26 +29,28 @@ public class Prodructor extends Thread{
     }
 
     @Override
-    public void run() {
-        while (!f) {
-            synchronized(this){
+public void run() {
+    while (!f) {
+        synchronized(this) {
+            while (s) { // Revisión de suspensión
                 try {
                     wait();
                 } catch (InterruptedException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
         }
-        String prodcuto = String.format("%d", ++contador);
-        almacen.almacenar(prodcuto);
-        actualizar("prodcuto " + prodcuto + " añadido");
+        // Añadir productos mientras no esté suspendido ni finalizado
+        String producto = String.format("%d", ++contador);
+        almacen.almacenar(producto);
+        actualizar("Producto " + producto + " añadido\n");
+
         try {
             sleep(r);
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
+}
     
 }

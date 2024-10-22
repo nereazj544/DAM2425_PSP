@@ -21,7 +21,7 @@ public class Consumidor extends Thread {
 
     public synchronized void reanudar() {
         s = false;
-        notify();
+        notifyAll();
     }
 
     public synchronized void fin() {
@@ -30,25 +30,27 @@ public class Consumidor extends Thread {
     }
 
     @Override
-    public void run() {
-        while (!f) {
-            synchronized(this){
+public void run() {
+    while (!f) {
+        synchronized(this) {
+            while (s) { // Revisión de suspensión
                 try {
                     wait();
                 } catch (InterruptedException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
         }
-        String prodcuto = almacen.retirar();
-        actualizar("prodcuto " + prodcuto + " retirado");
+        // Retirar productos mientras no esté suspendido ni finalizado
+        String producto = almacen.retirar();
+        actualizar("Producto " + producto + " retirado \n");
+
         try {
             sleep(r);
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
+}
 
 }
