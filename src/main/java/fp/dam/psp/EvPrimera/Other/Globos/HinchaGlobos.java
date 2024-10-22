@@ -20,7 +20,8 @@ public class HinchaGlobos extends Thread {
 
     public synchronized void reanudar() {
         s = false;
-        notifyAll();
+        // notifyAll();
+        notify();
     }
 
     public synchronized void fin() {
@@ -53,13 +54,13 @@ public class HinchaGlobos extends Thread {
                         e.printStackTrace();
                     }
                     vl++;
-                    actualizar("GLOBO " + num + " VL " + vl + "/n");
+                    actualizar("GLOBO " + num + " VL " + vl + "\n");
                     if (Math.random() < 0.2) {
-                        actualizar("GLOBO " + num + " EXPLOTO /n");
+                        actualizar("GLOBO " + num + " EXPLOTO \n");
                     }
                 }
                 if (!f && vl == 5) {
-                    actualizar("GLOBO " + num + " HINZHADO /n");
+                    actualizar("GLOBO " + num + " HINZHADO \n");
                 }
                 almacen.finHinchar();
             } else {

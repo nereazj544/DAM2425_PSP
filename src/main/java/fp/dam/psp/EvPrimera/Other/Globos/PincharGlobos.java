@@ -1,5 +1,7 @@
 package fp.dam.psp.EvPrimera.Other.Globos;
 
+import static fp.dam.psp.EvPrimera.TEMA2.OCTUBRE.Dia21.Fumadores.AnotherVersion.Main.actualizar;
+
 import java.util.Random;
 
 public class PincharGlobos extends Thread{
@@ -21,7 +23,8 @@ public class PincharGlobos extends Thread{
 
     public synchronized void reanudar() {
         s = false;
-        notifyAll();
+        // notifyAll();
+        notify();
     }
 
     public synchronized void fin() {
@@ -41,6 +44,19 @@ public class PincharGlobos extends Thread{
                         e.printStackTrace();
                     }
                 }
+            }
+            if (almacen.hayGlobosDisponibles() || almacen.hayGlobosHinchando()) {
+                try {
+                    sleep(r.nextInt(9000) + 1000);
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                if (almacen.hayGlobosDisponibles()) {
+                    actualizar("GLOBO PINCHADO POR " + nombre + "\n");
+                }
+            }else{
+                break;
             }
         }
     }

@@ -21,7 +21,7 @@ public class Almacen {
 
         Gdisponibles--;
         int numGlobo = MAX_GB - Gdisponibles;
-        actualizar("GLOBO " + numGlobo + " ENTRAGADO A: " + hincha + "/n");
+        actualizar("GLOBO " + numGlobo + " ENTRAGADO A: " + hincha + "\n");
         return numGlobo;
     }
 

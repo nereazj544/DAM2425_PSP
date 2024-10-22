@@ -11,7 +11,11 @@ public class Main extends JFrame implements WindowListener {
 	private JButton pausa = new JButton("PAUSA");
 	private JButton reanudar = new JButton("REANUDAR");
 
-	//TODO Se invocan las clases (las de los hilos)
+	// TODO Se invocan las clases (las de los hilos)
+
+	Almacen almacen = new Almacen();
+	HinchaGlobos HG = new HinchaGlobos(almacen, 100);
+	PincharGlobos PG = new PincharGlobos(almacen, 100);
 
 	public Main() {
 		super(" ");
@@ -42,20 +46,28 @@ public class Main extends JFrame implements WindowListener {
 		pausa.setEnabled(false);
 		reanudar.setEnabled(true);
 		textArea.append("PAUSADO\n");
-		//TODO: Se pone el metodo de parada de cada hilo
-		
+		// TODO: Se pone el metodo de parada de cada hilo
+		HG.suspender();
+		PG.suspender();
+
 	}
-	
+
 	private void reanudar(ActionEvent e) {
 		pausa.setEnabled(true);
 		reanudar.setEnabled(false);
 		textArea.append("REANUDADO\n");
-		//TODO: Se pone el metodo de volver a carrular de cada hilo
+		// TODO: Se pone el metodo de volver a carrular de cada hilo
+		HG.reanudar();
+		PG.reanudar();
+
 	}
-	
+
 	private void iniciar() {
 		setVisible(true);
-		//TODO: Se pone "[hilo].star()" pa que carrule, y si no carrula revisar el metodo de reanudar (sino es notify es notifyall)
+		// TODO: Se pone "[hilo].star()" pa que carrule, y si no carrula revisar el
+		// metodo de reanudar (sino es notify es notifyall)
+		HG.start();
+		PG.start();
 
 	}
 
@@ -75,9 +87,10 @@ public class Main extends JFrame implements WindowListener {
 	public void windowClosing(WindowEvent e) {
 		// TODO finalizar hilos de forma ordenada antes de salir
 		System.exit(0);
-		//TODO: Se pone el metodo de fin
-	
+		// TODO: Se pone el metodo de fin
 
+		PG.fin();
+		HG.fin();
 		// Aqui seria:
 		/*
 		 * f1.interrupt();
