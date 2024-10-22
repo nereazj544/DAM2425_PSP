@@ -1,5 +1,7 @@
-package fp.dam.psp.EvPrimera.TEMA2.OCTUBRE.Dia21.Fumadores.AnotherVersion;
-import static fp.dam.psp.EvPrimera.TEMA2.OCTUBRE.Dia21.Fumadores.AnotherVersion.Main.actualizar;
+package fp.dam.psp.EvPrimera.TEMA2.OCTUBRE.Dia21.Fumadores.OtraVersion2;
+
+import static fp.dam.psp.EvPrimera.TEMA2.OCTUBRE.Dia21.Fumadores.OtraVersion2.Main.actualizar;
+
 public class Fumador extends Thread {
 	Ingrediente ingrediente;
 	Mesa mesa;
@@ -13,24 +15,25 @@ public class Fumador extends Thread {
 	@Override
 	public void run() {
 		while (true) {
+			// ! CODIGO AÑADIDO.
+
 			synchronized (this) {
 				try {
-					wait();
+					wait(); // Esperamos a que sea notificado por el Mian
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 				}
 			}
-
+			// ! CODIGO INICAL
 			mesa.retirar(ingrediente);
 			try {
 				sleep(1000);
 			} catch (InterruptedException e) {
+
 			}
 			actualizar(getName() + " terminó de fumar\n");
-			actualizar(getName() + " finaliza su tarea");
+			actualizar(getName() + " finaliza su tarea\n");
 		}
 		// TODO quitar el comentario de la línea siguiente cuando se pueda finalizar el
 		// hilo (es decir, cuando el bucle ya no sea infinito)
-		// actualizar (getName() + " finaliza su tarea");
 	}
 }
