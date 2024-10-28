@@ -62,7 +62,7 @@ public class Deposito extends  HiloInterrumpible{
         //Hinchazo no des, y se se pasa un objeto random
         //* sE Movera el primero.
         notifyAll();
-        return  g;
+//        return  g;
     }
 
     //! FALTA EL DE REMOVER GLOBO
