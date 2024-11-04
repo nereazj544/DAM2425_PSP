@@ -1,7 +1,5 @@
 package fp.dam.psp.ResolucionDePracticas.Clase;
 
-import fp.dam.psp.ResolucionDePracticas.GitJulio.Consola;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

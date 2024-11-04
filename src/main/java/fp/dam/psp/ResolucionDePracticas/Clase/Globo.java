@@ -1,8 +1,5 @@
 package fp.dam.psp.ResolucionDePracticas.Clase;
 
-import fp.dam.psp.EvPrimera.TEMA2.OCTUBRE.Dia4.Contador;
-import fp.dam.psp.ResolucionDePracticas.GitJulio.Consola;
-
 import static fp.dam.psp.ResolucionDePracticas.Clase.Main.Consola.*;
 import static fp.dam.psp.ResolucionDePracticas.Clase.EstadoGlobo.*;
 

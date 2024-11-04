@@ -1,8 +1,5 @@
 package fp.dam.psp.ResolucionDePracticas.Clase;
 
-import fp.dam.psp.ResolucionDePracticas.GitJulio.Consola;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Deposito extends  HiloInterrumpible{
