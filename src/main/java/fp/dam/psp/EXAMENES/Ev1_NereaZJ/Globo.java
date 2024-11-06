@@ -29,13 +29,13 @@ public class Globo {
 				}
 				vl++;
 
-				int num = deposito.enregar(n);
+				// int num = deposito.enregar(n);
 
-				actualizar("Globo " + num + "Vl " + vl);
+				// actualizar("Globo " + num + "Vl " + vl);
 				if (Math.random() < 0.2) {
-					actualizar("Globo " + num + "Estalla\n");
+					// actualizar("Globo " + num + "Estalla\n");
 				} else if (vl == 5) {
-					actualizar("Globo" + num + " Entregado a " + HG.id);
+					// actualizar("Globo" + num + " Entregado a " + HG.id);
 				}
 			}
 		} catch (Exception e) {
@@ -45,14 +45,14 @@ public class Globo {
 
 	public synchronized void REVENTAR() {
 		if (deposito.hayGlDis()) {
-			int num = deposito.enregar(n);
+			// int num = deposito.enregar(n);
 			deposito.Pinchar();
 			while (vl < 5) {
-				Thread.sleep(100);
+				// Thread.sleep(100);
 
 			}
 			if (Math.random() < 0.2) {
-				actualizar("Globo " + num + " PINCHADO POR " + PG.nombre);
+				// actualizar("Globo " + num + " PINCHADO POR " + PG.nombre);
 			}
 		}
 

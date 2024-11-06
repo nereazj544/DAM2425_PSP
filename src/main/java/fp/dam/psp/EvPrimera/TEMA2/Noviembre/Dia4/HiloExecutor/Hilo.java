@@ -1,7 +1,5 @@
 package fp.dam.psp.EvPrimera.TEMA2.Noviembre.Dia4.HiloExecutor;
 
-import fp.dam.psp.EvPrimera.ActividadesDeEntrega.Tema1.ActividadesEntrega.Actividad3.A.Ejecutar;
-
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
