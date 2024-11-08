@@ -11,17 +11,17 @@ public class EjemploExcutor {
 
         //Ejecuta la tarea
         service.execute(() -> {
-            System.out.println("Tarea: " + Thread.currentThread().getId());
+            System.out.println("Execute _ Tarea: " + Thread.currentThread().getId());
         });
 
         //Multiples tareas
         for (int i = 0; i < 10; i++) {
             int tarea = i;
             service.execute(() -> {
-                System.out.println(" tarea: " + tarea + " ejecutando por " + Thread.currentThread().getName());
+                System.out.println("Multiples tarea: " + tarea + " ejecutando por " + Thread.currentThread().getName());
             });
         }
 
-        service.shutdown();
+        service.shutdownNow();
     }
 }

@@ -22,10 +22,7 @@
 </ul> 
 
     TODO
-1. [ ] ~~Actividad 10~~
-2. [ ] ~~Actividad 11~~
-3. [ ] Actividad 12
-4. [ ] ~~Actividad 13~~
+1. [ ]
 
 
   <br></br>

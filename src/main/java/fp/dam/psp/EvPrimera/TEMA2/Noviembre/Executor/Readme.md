@@ -10,3 +10,5 @@ Es una intefaz parte del framework de concurrencia de Java y proporciona una for
 El uso de Executor es una práctica recomendada en Java moderno para manejar tareas concurrentes de manera eficiente y escalable.
 <br>
 <br>
+![img.png](img.png)
+- Solo cuando se pausa esta madre se ven los hilos
