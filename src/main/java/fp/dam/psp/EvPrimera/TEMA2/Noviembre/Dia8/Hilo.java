@@ -19,7 +19,7 @@ public class Hilo implements  Runnable{
         for (int i = 0; i < 20; i++) {
             service.submit(new Hilo(i * 500));
         }
-        service.shutdownNow();
+        service.shutdown();
     }
 
     @Override

@@ -12,3 +12,13 @@ El uso de Executor es una práctica recomendada en Java moderno para manejar tar
 <br>
 ![img.png](img.png)
 - Solo cuando se pausa esta madre se ven los hilos
+
+
+Los hilos que se crean se denominan: ```WORKERTHREADS``` y estos hilos finalizarion solo con un ```shutdownNow``` o ```shutdown```
+
+# Diferencias ente ```shutdownNow``` y ```shutdown```
+
+La diferencia entre estos es: 
+- Now intenta detenerlos de forma inmediatamente, mientras que shutdown permite que las tareas en ejecucion termine.
+- La interrupción: shutdownNow() intenta interrumpir los hilos en ejecución, shutdown() no lo hace.
+- 
