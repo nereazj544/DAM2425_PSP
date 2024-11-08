@@ -21,4 +21,8 @@ Los hilos que se crean se denominan: ```WORKERTHREADS``` y estos hilos finalizar
 La diferencia entre estos es: 
 - Now intenta detenerlos de forma inmediatamente, mientras que shutdown permite que las tareas en ejecucion termine.
 - La interrupción: shutdownNow() intenta interrumpir los hilos en ejecución, shutdown() no lo hace.
-- 
+- shutdown siempre va a esperar a que finalicen, despues de que se ejecute no podras añadir más tareas, es una mala decidion usarlo para parar tareas de este tipo.
+
+
+`service.awaitTermination(1000L, TimeUnit.DAYS); //? Esto es lo mismo que un join. La 'L' es long`
+

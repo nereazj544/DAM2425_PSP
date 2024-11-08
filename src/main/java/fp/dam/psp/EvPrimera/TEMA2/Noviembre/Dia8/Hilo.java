@@ -18,8 +18,8 @@ public class Hilo implements  Runnable{
     //? Dependiendo de lo que creemo se van gestionando solitos o no
         for (int i = 0; i < 20; i++) {
             service.submit(new Hilo(i * 500));
-        }
         service.shutdown();
+        }
     }
 
     @Override
