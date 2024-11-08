@@ -17,3 +17,6 @@ Se pueden crear un numero de hilos iliminatados de estos.
 
 ## Como se crea esta vaina??
 res: pegandote un tiro :)
+
+La creacion de esto es usando:
+``ExecutorService executorService = Executors.``
