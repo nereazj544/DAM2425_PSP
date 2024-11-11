@@ -12,6 +12,7 @@ public class Barberia {
 
     }
 
+//    Supuestamente hay algo mal aqui, en este metodo no hay exclusion mutua
     public boolean enSalaEspera(){
         if (salaEspera.availablePermits() == 0) {
             //? Este metodo retornara verdadero o flaso. Si la sala esta llena retorna falso, si esta vacia (alguna silla) verdaro
