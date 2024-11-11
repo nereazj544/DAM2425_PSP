@@ -9,5 +9,5 @@ public class Barberia {
         return false;
     }
 
-    public void cortarPelo(){}
+    public void soliCortarPelo(){}
 }

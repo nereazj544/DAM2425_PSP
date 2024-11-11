@@ -39,6 +39,12 @@ en la sala de espera y 10 clientes.
 - Main
 
 ### Clase: Barbero
+Recursos de esta clase:
+- Sala de espera
+- Sillon de barbero (silla del cliente) ( ~~Elprofeysusdefiniciones~~ )
+- 
+- 
+
 ### Clase: Cliente
 El cliente ha de tener referencia a la barberia.
 ### Clase: Barberia
