@@ -18,14 +18,18 @@ public class Barberia {
             //? Este metodo retornara verdadero o flaso. Si la sala esta llena retorna falso, si esta vacia (alguna silla) verdaro
             return false;
         }else {
-            try {
-                salaEspera.acquire();
-            } catch (InterruptedException e) {
-               Thread.currentThread().interrupt();
-               System.out.println("PETO :)");
-               e.getMessage();
+//            try {
+//                salaEspera.acquire();
+                if (salaEspera.tryAcquire()){
+                    return true;
+                }
+//            } catch (InterruptedException e) {
+//               Thread.currentThread().interrupt();
+//               System.out.println("PETO :)");
+//               e.getMessage();
+//               return false;
             }
-        }
+
         return true;
     }
 
