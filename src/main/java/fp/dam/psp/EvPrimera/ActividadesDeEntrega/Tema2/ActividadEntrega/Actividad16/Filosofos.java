@@ -1,17 +1,20 @@
 package fp.dam.psp.EvPrimera.ActividadesDeEntrega.Tema2.ActividadEntrega.Actividad16;
 
+import static fp.dam.psp.EvPrimera.ActividadesDeEntrega.Tema2.ActividadEntrega.Actividad16.Main.actualizar;
 
-import static fp.dam.psp.EvPrimera.ActividadesDeEntrega.Tema2.ActividadEntrega.Actividad16.Mesa.actualizar;
-
-public class Filosofos extends Thread{
+public class Filosofos extends Thread {
     String nombre;
     Palillos Piz;
     Palillos Pder;
+    // Estado estado;
 
     public Filosofos(String nombre, Palillos piz, Palillos pder) {
         this.nombre = nombre;
         Piz = piz;
         Pder = pder;
+        // this.estado = estado;
+        // this.s = s;
+        // this.f = f;
     }
 
     // ! ==== PARA ASESINAR Y PAUSAR LOS HILOS ===
@@ -77,6 +80,5 @@ public class Filosofos extends Thread{
             // TODO: handle exception
         }
     }
-
 
 }
