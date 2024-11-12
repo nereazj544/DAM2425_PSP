@@ -60,11 +60,11 @@ public class Main extends JFrame implements WindowListener {
 	}
 
 	private static void crear() {
-		new Main().iniciar();
+		new fp.dam.psp.Swing.Main().iniciar();
 	}
 
 	public static void main(String[] args) {
-		SwingUtilities.invokeLater(Main::crear);
+		SwingUtilities.invokeLater(fp.dam.psp.Swing.Main::crear);
 	}
 
 	@Override
