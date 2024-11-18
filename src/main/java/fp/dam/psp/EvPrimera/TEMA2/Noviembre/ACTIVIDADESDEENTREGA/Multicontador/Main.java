@@ -15,7 +15,8 @@ public class Main extends JFrame implements WindowListener  {
     public Main(){
         super("Multicontador");
         text.setEditable(false);
-        contentPane.setPreferredSize(new Dimension(900, 700)); //? Dimensiones
+        Container contentPanel = getContentPane();
+        contentPanel.setPreferredSize(new Dimension(900, 700)); //? Dimensiones
         JPanel panel = new JPanel();
         this.addWindowListener(this);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -36,7 +37,7 @@ public class Main extends JFrame implements WindowListener  {
     }
 
     private static void crear() {
-        new fp.dam.psp.EvPrimera.TEMA2.Noviembre.ACTIVIDADESDEENTREGA.Multicontador.Main.inciar();
+        // new fp.dam.psp.EvPrimera.TEMA2.Noviembre.ACTIVIDADESDEENTREGA.Multicontador.Main.inciar();
     }
 
     public static void main(String[] args) {
