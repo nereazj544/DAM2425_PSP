@@ -1,4 +1,4 @@
-package fp.dam.psp.EvPrimera.TEMA2.Noviembre.ACTIVIDADESDEENTREGA.Multicontador;
+package fp.dam.psp.EvPrimera.TEMA2.Noviembre.ACTIVIDADESDEENTREGA.Multicontador.l;
 
 import javax.swing.*;
 import java.awt.*;
