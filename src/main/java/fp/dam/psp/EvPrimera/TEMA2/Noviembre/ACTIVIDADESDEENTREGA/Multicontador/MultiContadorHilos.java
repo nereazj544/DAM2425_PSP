@@ -2,7 +2,8 @@ package fp.dam.psp.EvPrimera.TEMA2.Noviembre.ACTIVIDADESDEENTREGA.Multicontador;
 
 import javax.swing.*;
 import java.awt.*;
-
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
@@ -56,7 +57,28 @@ public class MultiContadorHilos extends JFrame {
             Con.setColumns(cl);
             Con.setEditable(false);
             // Con.getFont();
-            Con.setFont(new Font("Arial", Font.BOLD, 120));
+            // Con.setFont(new Font("Arial", Font.BOLD, 120));
+            Con.setBackground(new Color(155, 248, 235));
+
+            // TODO TEXTO MODICIACION
+            try {
+                File fontDile = new File(
+                        "src\\main\\java\\fp\\dam\\psp\\EvPrimera\\TEMA2\\Noviembre\\ACTIVIDADESDEENTREGA\\Multicontador\\res\\Calculator.ttf");
+                if (!fontDile.exists()) {
+                    System.err.println("> No existe maripili o no se ecuentra :v");
+                }
+
+                Font cal = Font.createFont(Font.TRUETYPE_FONT, fontDile);
+
+                GraphicsEnvironment environment = GraphicsEnvironment.getLocalGraphicsEnvironment();
+
+                environment.registerFont(cal);
+                Font ft = cal.deriveFont(Font.BOLD, 120f);
+                Con.setFont(ft);
+
+            } catch (Exception e) {
+                // TODO: handle exception
+            }
 
             // ! BOTONES (SIN IMAGENES)
             // JButton REST = new JButton("REST");
@@ -68,9 +90,9 @@ public class MultiContadorHilos extends JFrame {
 
             // ! IMAGENES
             ImageIcon img_REST = new ImageIcon(
-                    "src\\main\\java\\fp\\dam\\psp\\EvPrimera\\TEMA2\\Noviembre\\ACTIVIDADESDEENTREGA\\Multicontador\\img\\rest.jpg");
+                    "src\\main\\java\\fp\\dam\\psp\\EvPrimera\\TEMA2\\Noviembre\\ACTIVIDADESDEENTREGA\\Multicontador\\res\\rest.jpg");
             ImageIcon img_MAX = new ImageIcon(
-                    "src\\main\\java\\fp\\dam\\psp\\EvPrimera\\TEMA2\\Noviembre\\ACTIVIDADESDEENTREGA\\Multicontador\\img\\plus.png");
+                    "src\\main\\java\\fp\\dam\\psp\\EvPrimera\\TEMA2\\Noviembre\\ACTIVIDADESDEENTREGA\\Multicontador\\res\\plus.png");
 
             // ? REDIMENSION == REST
             Image imRES = img_REST.getImage();
@@ -137,10 +159,56 @@ public class MultiContadorHilos extends JFrame {
             });
         }));
 
+        // TODO FONT
+
+        // ! INTENTO 1
+        /*
+         * 
+         * try {
+         * Font calFont = Font.createFont(Font.TRUETYPE_FONT, new File(
+         * "src\\main\\java\\fp\\dam\\psp\\EvPrimera\\TEMA2\\Noviembre\\ACTIVIDADESDEENTREGA\\Multicontador\\res\\Calculator.ttf"
+         * ));
+         * 
+         * 
+         * GraphicsEnvironment environment =
+         * GraphicsEnvironment.getLocalGraphicsEnvironment();
+         * environment.registerFont(calFont);
+         * 
+         * 
+         * Font fnt = calFont.deriveFont(120);
+         * 
+         * reG.setFont(fnt);
+         * } catch (FontFormatException | IOException e1) {
+         * // TODO Auto-generated catch block
+         * e1.printStackTrace();
+         * }
+         * 
+         */
+
+        try {
+            File fontDile = new File(
+                    "src\\main\\java\\fp\\dam\\psp\\EvPrimera\\TEMA2\\Noviembre\\ACTIVIDADESDEENTREGA\\Multicontador\\res\\Calculator.ttf");
+            if (!fontDile.exists()) {
+                System.err.println("> No existe maripili o no se ecuentra :v");
+            }
+
+            Font cal = Font.createFont(Font.TRUETYPE_FONT, fontDile);
+
+            GraphicsEnvironment environment = GraphicsEnvironment.getLocalGraphicsEnvironment();
+
+            environment.registerFont(cal);
+            Font ft = cal.deriveFont(Font.BOLD, 120f);
+            r.setFont(ft);
+
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+
+        // TODO IMAGENES
 
         // ! IMAGENES (COPIA Y PEGA DEL REST 👍)
         ImageIcon img_REST = new ImageIcon(
-                "src\\main\\java\\fp\\dam\\psp\\EvPrimera\\TEMA2\\Noviembre\\ACTIVIDADESDEENTREGA\\Multicontador\\img\\rest.jpg");
+                "src\\main\\java\\fp\\dam\\psp\\EvPrimera\\TEMA2\\Noviembre\\ACTIVIDADESDEENTREGA\\Multicontador\\res\\rest.jpg");
 
         // ? REDIMENSION == REST
         Image imRES = img_REST.getImage();
@@ -151,7 +219,11 @@ public class MultiContadorHilos extends JFrame {
         reG.setBackground(Color.ORANGE);
         reG.setIcon(ic_REST);
 
-        r.setFont(new Font("Arial", Font.BOLD, 120));
+        // r.setFont(new Font("Arial", Font.BOLD, 120));
+        r.setBackground(new Color(197, 200, 0));
+
+        // TODO PANEL GL
+
         // ! AÑADIR AL PANEL GL
         panG.add(reG);
         panG.add(r);
