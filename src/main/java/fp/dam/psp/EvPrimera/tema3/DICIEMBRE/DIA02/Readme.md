@@ -41,3 +41,7 @@ boolean alcanzable = googleIP.isReachable(5000); // timeout 5 segundos
 - **getHostAddress()**: Devuelve la dirección IP en formato String
 - **getAddress()**: Devuelve la dirección IP como array de bytes
 - **isReachable()**: Comprueba si el host es alcanzable
+
+# Clase URL
+Represneta un puntero a un recurso en la Web.
+![img.png](img.png)
