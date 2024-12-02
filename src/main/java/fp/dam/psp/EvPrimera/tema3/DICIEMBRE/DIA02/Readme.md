@@ -45,3 +45,37 @@ boolean alcanzable = googleIP.isReachable(5000); // timeout 5 segundos
 # Clase URL
 Represneta un puntero a un recurso en la Web.
 ![img.png](img.png)
+
+
+## Características Principales
+
+- Representa una URL completa con todos sus componentes
+- Permite acceder a recursos web mediante diferentes protocolos
+- Proporciona métodos para analizar y manipular URLs
+- Facilita la conexión y descarga de recursos
+
+
+## Métodos Importantes
+
+```java
+// Crear una URL
+URL url = new URL("https://www.ejemplo.com/pagina.html");
+
+// Obtener componentes de la URL
+String protocolo = url.getProtocol();    // "https"
+String host = url.getHost();             // "www.ejemplo.com"
+String ruta = url.getPath();             // "/pagina.html"
+int puerto = url.getPort();              // -1 (puerto por defecto)
+
+// Abrir conexión y leer contenido
+URLConnection conexion = url.openConnection();
+InputStream input = conexion.getInputStream();
+```
+## Métodos Adicionales
+
+- **getFile()**: Obtiene el nombre del archivo de la URL
+- **getQuery()**: Obtiene la parte de consulta de la URL
+- **getRef()**: Obtiene el fragmento de referencia
+- **toURI()**: Convierte la URL a un objeto URI
+
+
