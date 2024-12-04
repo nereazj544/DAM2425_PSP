@@ -1,10 +1,8 @@
-package fp.dam.psp.EXAMENES.Ev1_NereaZJ;
-
+package fp.dam.psp.Other.Chinos;
 
 import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
-
 
 public class Main extends JFrame implements WindowListener {
 
@@ -13,13 +11,12 @@ public class Main extends JFrame implements WindowListener {
 	private JButton pausa = new JButton("PAUSA");
 	private JButton reanudar = new JButton("REANUDAR");
 
-	//TODO Se invocan las clases (las de los hilos)
-	Deposito d = new Deposito(10);
-	PinchaGlobos PG = new PinchaGlobos("PG", d);
-	HinchaGlobos HG = new HinchaGlobos("HG", d);
-	
+	// TODO Se invocan las clases (las de los hilos)
+	Palillos[] p = new Palillos[5];
+	Filosofos[] f = new Filosofos[5];
+
 	public Main() {
-		super("Examen1Ev Nerea Zapatero Jara");
+		super("Filosofos chinos");
 		this.addWindowListener(this);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		Container contentPane = getContentPane();
@@ -37,6 +34,19 @@ public class Main extends JFrame implements WindowListener {
 		contentPane.add(scrollPane, BorderLayout.CENTER);
 		pack();
 		setLocationRelativeTo(null);
+
+		// ! Invocamos un metodo para poder iniciar los filosofos
+		iniciarF();
+	}
+
+	private void iniciarF() {
+		for (int i = 0; i < 5; i++) {
+			p[i] = new Palillos();
+		}
+		String[] n = { "孔夫子 ", "楊朱 ", "荀子", "商鞅", "莊子" };
+		for (int i = 0; i < 5; i++) {
+			f[i] = new Filosofos(n[i], p[i], p[(i + 1) % 5]);
+		}
 	}
 
 	public static void actualizar(String msg) {
@@ -47,26 +57,33 @@ public class Main extends JFrame implements WindowListener {
 		pausa.setEnabled(false);
 		reanudar.setEnabled(true);
 		textArea.append("PAUSADO\n");
-		//TODO: Se pone el metodo de parada de cada hilo
-		HG.suspender();
-		PG.suspender();
-		
+		// TODO: Se pone el metodo de parada de cada hilo
+		for (Filosofos filosofos : f) {
+			filosofos.suspender();
+
+		}
+
 	}
-	
+
 	private void reanudar(ActionEvent e) {
 		pausa.setEnabled(true);
 		reanudar.setEnabled(false);
 		textArea.append("REANUDADO\n");
-		//TODO: Se pone el metodo de volver a carrular de cada hilo
-		HG.reanudar();
-		PG.reanudar();
+		// TODO: Se pone el metodo de volver a carrular de cada hilo
+		for (Filosofos filosofos : f) {
+			filosofos.reanudar();
+
+		}
 	}
-	
+
 	private void iniciar() {
 		setVisible(true);
-		//TODO: Se pone "[hilo].star()" pa que carrule, y si no carrula revisar el metodo de reanudar (sino es notify es notifyall)
-		HG.start();
-		PG.start();
+		// TODO: Se pone "[hilo].star()" pa que carrule, y si no carrula revisar el
+		// metodo de reanudar (sino es notify es notifyall)
+		for (Filosofos filosofos : f) {
+			filosofos.start();
+		}
+
 	}
 
 	private static void crear() {
@@ -85,10 +102,18 @@ public class Main extends JFrame implements WindowListener {
 	public void windowClosing(WindowEvent e) {
 		// TODO finalizar hilos de forma ordenada antes de salir
 		System.exit(0);
-		//TODO: Se pone el metodo de fin
-		HG.fin();
-		PG.fin();
-
+		// TODO: Se pone el metodo de fin
+		for (Filosofos filosofos : f) {
+			filosofos.fin();
+		}
+		for (Filosofos filosofos : f) {
+			try {
+				filosofos.join();
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
 		// Aqui seria:
 		/*
 		 * f1.interrupt();

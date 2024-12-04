@@ -1,10 +1,8 @@
-package fp.dam.psp.EXAMENES.Ev1_NereaZJ;
-
+package fp.dam.psp.Other.Ascensores;
 
 import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
-
 
 public class Main extends JFrame implements WindowListener {
 
@@ -13,13 +11,12 @@ public class Main extends JFrame implements WindowListener {
 	private JButton pausa = new JButton("PAUSA");
 	private JButton reanudar = new JButton("REANUDAR");
 
-	//TODO Se invocan las clases (las de los hilos)
-	Deposito d = new Deposito(10);
-	PinchaGlobos PG = new PinchaGlobos("PG", d);
-	HinchaGlobos HG = new HinchaGlobos("HG", d);
-	
+	// TODO Se invocan las clases (las de los hilos)
+	Ascensor a1 = new Ascensor("Ascensor 1");
+	Ascensor a2 = new Ascensor("Ascensor 2");
+
 	public Main() {
-		super("Examen1Ev Nerea Zapatero Jara");
+		super(" ");
 		this.addWindowListener(this);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		Container contentPane = getContentPane();
@@ -47,26 +44,28 @@ public class Main extends JFrame implements WindowListener {
 		pausa.setEnabled(false);
 		reanudar.setEnabled(true);
 		textArea.append("PAUSADO\n");
-		//TODO: Se pone el metodo de parada de cada hilo
-		HG.suspender();
-		PG.suspender();
-		
+		// TODO: Se pone el metodo de parada de cada hilo
+		a1.suspender();
+		a2.suspender();
+
 	}
-	
+
 	private void reanudar(ActionEvent e) {
 		pausa.setEnabled(true);
 		reanudar.setEnabled(false);
 		textArea.append("REANUDADO\n");
-		//TODO: Se pone el metodo de volver a carrular de cada hilo
-		HG.reanudar();
-		PG.reanudar();
+		// TODO: Se pone el metodo de volver a carrular de cada hilo
+		a1.reanudar();
+		a2.reanudar();
 	}
-	
+
 	private void iniciar() {
 		setVisible(true);
-		//TODO: Se pone "[hilo].star()" pa que carrule, y si no carrula revisar el metodo de reanudar (sino es notify es notifyall)
-		HG.start();
-		PG.start();
+		// TODO: Se pone "[hilo].star()" pa que carrule, y si no carrula revisar el
+		// metodo de reanudar (sino es notify es notifyall)
+		a1.start();
+		a2.start();
+
 	}
 
 	private static void crear() {
@@ -85,9 +84,9 @@ public class Main extends JFrame implements WindowListener {
 	public void windowClosing(WindowEvent e) {
 		// TODO finalizar hilos de forma ordenada antes de salir
 		System.exit(0);
-		//TODO: Se pone el metodo de fin
-		HG.fin();
-		PG.fin();
+		// TODO: Se pone el metodo de fin
+		a1.fin();
+		a2.fin();
 
 		// Aqui seria:
 		/*
