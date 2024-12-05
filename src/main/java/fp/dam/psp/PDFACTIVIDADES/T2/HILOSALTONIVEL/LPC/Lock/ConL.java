@@ -89,5 +89,10 @@ public class ConL {
             }
         }
 
+        long end = System.currentTimeMillis();
+        System.out.printf("%nTotal: %d lienas, %d palabras, %d caractere%n", tL, tP, tC);
+
+        System.out.printf("TIempo: %d ms%n", end - i);
+
     }
 }
