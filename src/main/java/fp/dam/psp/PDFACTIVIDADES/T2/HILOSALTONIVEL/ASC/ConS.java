@@ -12,7 +12,7 @@ public class ConS {
         static final int MAX_CP = 8;
         static final int MAX_PS = 21;
         private final Semaphore cp = new Semaphore(MAX_CP, true);
-        private final Semaphore smp = new Semaphore(1);
+        private final Semaphore smp = new Semaphore(2);
 
         private int pACS = 0;
 
