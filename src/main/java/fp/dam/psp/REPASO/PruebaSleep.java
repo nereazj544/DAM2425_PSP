@@ -1,7 +1,9 @@
 package fp.dam.psp.REPASO;
 
 public class PruebaSleep {
-    public static void main(String[] args)  throws InterruptedException{
+    /*
+     * 
+     public static void main(String[] args)  throws InterruptedException{
         Thread t1 = new Thread(PruebaSleep::run. "Hilo 1");
         Thread t2 = new Thread(PruebaSleep::run. "Hilo 2");
         t1.start();
@@ -11,6 +13,7 @@ public class PruebaSleep {
         System.out.println(t1.getState());
         System.out.println(t2.getState());
     }
+    */
 
     private static void run(){
         synchronized(PruebaSleep.class){
