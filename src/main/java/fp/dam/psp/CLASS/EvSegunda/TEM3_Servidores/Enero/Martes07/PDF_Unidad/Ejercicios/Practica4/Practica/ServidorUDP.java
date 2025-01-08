@@ -10,10 +10,10 @@ public class ServidorUDP {
         try {
             byte[] buffer = new byte[1024];
             DatagramSocket sck;
+            sck = new DatagramSocket(12345);
 
             while (true) {
 
-                sck = new DatagramSocket(12345);
                 DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
 
                 sck.receive(packet);
