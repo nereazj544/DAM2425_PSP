@@ -33,8 +33,9 @@ public class ConexionURL_Api {
                         br.lines().collect(Collectors.joining()), JsonRespuesta.class
 
                 );
-
+                    int c = 1;
                 for (String fact : jsR.facts){
+                    System.out.print("> " + c++ + " ");
                     System.out.println(fact);
                 }
 
