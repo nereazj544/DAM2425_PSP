@@ -31,7 +31,14 @@ public class ConexionURL_Api {
                 Gson gson = new Gson();
                 JsonRespuesta jsR = gson.fromJson(
                         br.lines().collect(Collectors.joining()), JsonRespuesta.class
+
                 );
+
+                for (String fact : jsR.facts){
+                    System.out.println(fact);
+                }
+
+                connectionURL.disconnect();
 
 
                 connectionURL.disconnect();
