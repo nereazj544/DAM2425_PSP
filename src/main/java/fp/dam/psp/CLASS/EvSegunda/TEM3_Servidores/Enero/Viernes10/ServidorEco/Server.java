@@ -25,7 +25,7 @@ public class Server {
 
             BufferedReader br = new BufferedReader(new InputStreamReader(sck.getInputStream()));
 
-        PrintWriter pw = new PrintWriter(sck.getOutputStream(), true);
+        PrintWriter pw = new PrintWriter(sck.getOutputStream(), true); //La version dos sera con Data
 
         String l;
 
