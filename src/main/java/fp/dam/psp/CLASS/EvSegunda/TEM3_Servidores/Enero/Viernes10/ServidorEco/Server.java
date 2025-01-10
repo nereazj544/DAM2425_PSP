@@ -15,33 +15,34 @@ import java.net.Socket;
 
 public class Server {
     public static void main(String[] args) throws  IOException {
-        //! Protocolos sin crear. En este ejemplo se crea el protocolo. Cuando se acepte la conexion leelar - escribir - cerrar
+        //! Protocolos sin crear. En este ejemplo se crea el protocolo. Cuando se acepte la conexion leelar - escribir - cerrar \\ IMPLEMENTAR UN RUNNABLE EN OTRA CLASE USANDO EXECUTORSERVICS
 
 //        try {
-            ServerSocket s = new ServerSocket(6000); //Numero de puerto
-            System.out.println(". . . Servidor iniciando . . . ");
-
+        ServerSocket s = new ServerSocket(6000); //Numero de puerto
+        System.out.println(". . . Servidor iniciando . . . ");
+        while (true) {
             Socket sck = s.accept(); //Aceptamos la conexion
 
             BufferedReader br = new BufferedReader(new InputStreamReader(sck.getInputStream()));
 
-        PrintWriter pw = new PrintWriter(sck.getOutputStream(), true); //La version dos sera con Data
+            PrintWriter pw = new PrintWriter(sck.getOutputStream(), true); //La version dos sera con Data
 
-        String l;
+            String l;
 
-        while ((l = br.readLine()) != null){
-            System.out.println("> Recibido: " + l);
-            pw.println(l);
-            if (l.equals("fin")){
-                break;
+            while ((l = br.readLine()) != null) {
+                System.out.println("> Recibido: " + l);
+                pw.println(l);
+                if (l.equals("fin")) {
+                    System.out.println("CERRADO");
+                }
             }
-        }
 
-        br.close();
-        pw.close();
-        s.close();
+            br.close();
+            pw.close();
+            s.close();
 //        }catch (IOException e) {
 //            e.getMessage();
 //        }
+        }
     }
 }
