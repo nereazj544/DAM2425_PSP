@@ -6,10 +6,13 @@ Pagina: dogapi.com
 
  */
 
+import com.google.gson.Gson;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.*;
+import java.util.stream.Collectors;
 
 public class ConexionURL_Api {
         public static void main(String[] args) throws URISyntaxException, MalformedURLException, IOException {
@@ -25,14 +28,17 @@ public class ConexionURL_Api {
             int responseCode = connectionURL.getResponseCode(); //! para ver si hay respuesta
             if (responseCode == HttpURLConnection.HTTP_OK) {
                 BufferedReader br = new BufferedReader(new InputStreamReader(connectionURL.getInputStream()));
+                Gson gson = new Gson();
+                JsonRespuesta jsR = gson.fromJson(
+                        br.lines().collect(Collectors.joining()), JsonRespuesta.class
+                );
 
-                String l;
 
-                while ((l = br.readLine()) != null) {
-                    System.out.println(l);
-
-                }
                 connectionURL.disconnect();
+
+                               } else {
+                System.out.println(responseCode);
+
             }
         }
     }
