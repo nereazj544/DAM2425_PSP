@@ -17,18 +17,19 @@ public class ConexionURL {
         // ! Al parecer URL se quedo obsoleto
         URL url = new URI(args[0]).toURL();
 
-        //? Un poco rollo parece
+        // ? Un poco rollo parece
         HttpURLConnection connectionURL = (HttpURLConnection) url.openConnection();
 
-        // Se puede hacer por el metodo get, put (varios, para hacer las peticiones) no se hara en este caso.
+        // Se puede hacer por el metodo get, put (varios, para hacer las peticiones) no
+        // se hara en este caso.
 
-        int responseCode = connectionURL.getResponseCode(); //! para ver si hay respuesta
-        if (responseCode == HttpURLConnection.HTTP_OK){
+        int responseCode = connectionURL.getResponseCode(); // ! para ver si hay respuesta
+        if (responseCode == HttpURLConnection.HTTP_OK) {
             BufferedReader br = new BufferedReader(new InputStreamReader(connectionURL.getInputStream()));
 
             String l;
 
-            while ((l = br.readLine()) != null){
+            while ((l = br.readLine()) != null) {
                 System.out.println(l);
 
             }
@@ -36,9 +37,8 @@ public class ConexionURL {
             connectionURL.disconnect();
         }
 
-    //! Usar una expresion regular para mostrar solo las direcciones de la pagina web, y descargar las imagenes para almacenarlas en algun lado.
-
-
+        // ! Usar una expresion regular para mostrar solo las direcciones de la pagina
+        // web, y descargar las imagenes para almacenarlas en algun lado.
 
     }
 }
