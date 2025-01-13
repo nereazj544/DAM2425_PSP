@@ -16,7 +16,7 @@ public class TareaServidor implements  Runnable{
     public void run() {
        try(socket){
            String s = new DataInputStream(socket.getInputStream()).readUTF();
-           System.out.println(" Peticion " + s + " :" + socket.getInetAddress() + " : " + socket.getPort());
+           System.out.println(" Peticion " + s + " :" + socket.getInetAddress() + " : " + socket.getPort() );
            new DataOutputStream(socket.getOutputStream()).writeUTF(s);
 
        } catch (Exception e) {

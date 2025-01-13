@@ -8,7 +8,7 @@ import java.util.concurrent.Executors;
 public class ServerEco {
 
     public static void main(String[] args) throws Exception{
-        ServerSocket sSocket = new ServerSocket(6000);
+        ServerSocket sSocket = new ServerSocket(6000); //? cada que se crea socket va a usar un socket diferente cada vez
         ExecutorService service = Executors.newFixedThreadPool(100);
         System.out.println(" . . .  servidor activo . . .");
 
