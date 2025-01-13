@@ -10,7 +10,7 @@ public class ServerEco {
     public static void main(String[] args) throws Exception{
         ServerSocket sSocket = new ServerSocket(6000);
         ExecutorService service = Executors.newFixedThreadPool(100);
-
+        System.out.println(" . . .  servidor activo . . .");
 
         while (true){
             Socket sck = sSocket.accept();
