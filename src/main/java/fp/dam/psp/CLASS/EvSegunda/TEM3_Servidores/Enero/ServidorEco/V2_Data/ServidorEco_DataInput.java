@@ -1,8 +1,8 @@
 package fp.dam.psp.CLASS.EvSegunda.TEM3_Servidores.Enero.ServidorEco.V2_Data;
 
-import java.io.BufferedReader;
+// import java.io.BufferedReader;
 import java.io.DataInputStream;
-import java.io.InputStreamReader;
+// import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -16,7 +16,8 @@ public class ServidorEco_DataInput {
 
             Socket sck = s.accept();
 
-            // BufferedReader br = new BufferedReader(new InputStreamReader(sck.getInputStream()));
+            // BufferedReader br = new BufferedReader(new
+            // InputStreamReader(sck.getInputStream()));
 
             DataInputStream in = new DataInputStream(sck.getInputStream());
             PrintWriter pw = new PrintWriter(sck.getOutputStream(), true);
