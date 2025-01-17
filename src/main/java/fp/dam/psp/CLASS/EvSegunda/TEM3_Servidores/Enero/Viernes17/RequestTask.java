@@ -26,8 +26,13 @@ public class RequestTask implements Runnable {
                     socket.getInetAddress() + " : " + socket.getPort() +
                     " : " + LocalDateTime.now());
 try {
+
+    String l;
+    l = in.readUTF();
     for (;;) {
         out.writeUTF(in.readUTF());
+        System.out.println("> Mensaje recibido: " + l);
+        out.writeUTF(l);
     }
 } catch (EOFException e) {
     System.out.println(">ERROR");
