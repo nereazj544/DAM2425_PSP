@@ -10,12 +10,13 @@ public class ClientEco {
             DataInputStream in = new DataInputStream(s.getInputStream());
             DataOutputStream out = new DataOutputStream(s.getOutputStream());
 
+
             Scanner sc = new Scanner(System.in);
             String l;
 
             while (true) {
                 System.out.print("> Introduce un mensaje: ");
-                l = sc.nextLine();
+                l = sc.nextLine().toLowerCase();
                 out.writeUTF(l);
 
                 if (l.equals("fin")) {
