@@ -11,8 +11,9 @@ public class Client extends JFrame {
 
 
     public Client() {
-        super("Clinte");
+        super("Cliente");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 
 
     }
