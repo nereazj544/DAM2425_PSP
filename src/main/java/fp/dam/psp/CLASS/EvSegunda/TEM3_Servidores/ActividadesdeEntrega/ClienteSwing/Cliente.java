@@ -11,15 +11,10 @@ import java.net.Socket;
 
 public class Cliente extends JFrame {
 
-
-
-    //! SOCKET & STREAMS
+    // ! SOCKET & STREAMS
     private Socket s;
     private DataInputStream in;
     private DataOutputStream out;
-
-
-
 
     private static final long serialVersionUID = 1L;
 
@@ -89,38 +84,72 @@ public class Cliente extends JFrame {
         pack();
         setLocationRelativeTo(null);
 
-
         conServer();
     }
 
     // ! Metdos
 
-
     private void conServer() {
         try {
-            
-            DataInputStream in = new DataInputStream(s.getInputStream());
 
-            while (true) {
-                String mensaje = in.readUTF();
-                textAreaServer.append(mensaje + "\n");
-            }
+            s = new Socket("localhost", 6000);
+            in = new DataInputStream(s.getInputStream());
+            out = new DataOutputStream(s.getOutputStream());
 
-        } catch (Exception e) {
+            textAreaCliente.append("Conectado al servidor");
+            new Thread(() -> {
 
+                try {
+                    while (true) {
+                        String mensaje;
+
+                        while ((mensaje = in.readUTF()) != null) {
+                            textAreaServer.append("> Servidor: " + mensaje + "\n");
+                        }
+                    }
+                } catch (Exception e) {
+                    textAreaServer.append("Error al conectar con el servidor\n");
+                }
+
+            }).start();
+        } catch (IOException e) {
+            textAreaServer.append("Error al conectar con el servidor\n");
         }
     }
 
     private void enviar(ActionEvent e) {
         try {
-            
-            DataOutputStream out = new DataOutputStream(s.getOutputStream());
 
+            String m = textAreaCliente.getText().trim();
+
+            if (!m.isEmpty()) {
+                out.writeUTF(m);
+                textAreaCliente.setText("");
+
+                if (m.equalsIgnoreCase("fin")) {
+                    textAreaCliente.append("> La conexion se ha finalizado\n");
+                    s.close();
+                }
+            }
+
+
+            /*
+             * 
+             DataOutputStream out = new DataOutputStream(s.getOutputStream());
+             
             out.writeUTF(textAreaCliente.getText());
             textAreaCliente.setText("");
+            if (textAreaCliente.getText().equalsIgnoreCase("fin")
+            || textAreaCliente.getText().equalsIgnoreCase("FIN")) {
+
+                textAreaServer.append("> SE HA ESCRITO FIN Y SE HA FINALIZADO LA CONEXION");
+                System.out.println("> SE HA ESCRITO FIN Y SE HA FINALIZADO LA CONEXION");
+            }
+            */
 
         } catch (Exception ex) {
             // TODO: handle exception
+            textAreaServer.append("> Error al enviar mensaje o \n se ha finalizado la conexion con el servidor\n");
         }
     }
 
