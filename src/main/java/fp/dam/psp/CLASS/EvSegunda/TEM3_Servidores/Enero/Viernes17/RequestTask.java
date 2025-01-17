@@ -42,8 +42,8 @@ try {
 
 
         } catch (Exception e) {
-            System.out.println("> ERRROR");
-            e.getMessage();
+            System.out.println("> ERRROR " + e.getMessage());
+
         }
     }
 }

@@ -13,7 +13,9 @@ public class Cliente {
                 out.writeUTF("hola" + i);
 //                String s = new DataInputStream(socket.getInputStream()).readUTF();
 //                System.out.println(s);
+                for(;;);
             }
+            socket.shutdownOutput();
 
         }
     }
