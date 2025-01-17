@@ -21,6 +21,10 @@ public class RequestTask implements Runnable {
             String s;
             DataInputStream in = new DataInputStream(socket.getInputStream());
             DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+            s = new DataInputStream(socket.getInputStream()).readUTF();
+            System.out.println("Petición : " + s + " : " +
+                    socket.getInetAddress() + " : " + socket.getPort() +
+                    " : " + LocalDateTime.now());
 try {
     for (;;) {
         out.writeUTF(in.readUTF());
@@ -29,10 +33,7 @@ try {
     System.out.println(">ERROR");
 }
 
-//            String s = new DataInputStream(socket.getInputStream()).readUTF();
-//            System.out.println("Petición : " + s + " : " +
-//                    socket.getInetAddress() + " : " + socket.getPort() +
-//                    " : " + LocalDateTime.now());
+
 //            new DataOutputStream(socket.getOutputStream()).writeUTF(s);
 //            System.out.println("respuesta : " + s + " : " +
 //                    socket.getLocalAddress() + " : " + socket.getLocalPort() +
