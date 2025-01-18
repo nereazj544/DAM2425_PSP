@@ -129,6 +129,7 @@ public class Cliente extends JFrame {
                 if (m.equalsIgnoreCase("fin")) {
                     textAreaCliente.append("> La conexion se ha finalizado\n");
                     s.close();
+                    enviar.setEnabled(false);
                 }
             }
 

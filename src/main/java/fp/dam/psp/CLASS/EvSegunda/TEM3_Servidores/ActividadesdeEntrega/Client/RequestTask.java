@@ -1,4 +1,4 @@
-package fp.dam.psp.CLASS.EvSegunda.TEM3_Servidores.ActividadesdeEntrega.ClienteSwing;
+package fp.dam.psp.CLASS.EvSegunda.TEM3_Servidores.ActividadesdeEntrega.Client;
 
 import java.io.*;
 import java.net.*;
@@ -52,3 +52,4 @@ public class RequestTask implements Runnable {
     }
 
 }
+
