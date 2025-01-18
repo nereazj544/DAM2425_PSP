@@ -20,14 +20,16 @@ public class Cliente {
             System.out.println("- salir");
 
             String l;
+            while (true) {
 
-            while (sc.hasNextLine()) {
-                l = sc.nextLine();
-                if (l.equalsIgnoreCase("salir")) {
-                    break;
+                while (sc.hasNextLine()) {
+                    l = sc.nextLine();
+                    if (l.equals("salir")) {
+                        break;
+                    }
+                    out.writeUTF(l);
+                    Respuesta(in);
                 }
-                out.writeUTF(l);
-                Respuesta(in);
             }
 
         } catch (Exception e) {
