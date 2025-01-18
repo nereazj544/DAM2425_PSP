@@ -139,9 +139,12 @@ public class Cliente extends JFrame {
             }).start();
 
         } catch (Exception e) {
-
-            ClientText.append("> Conexión cerrada con el servidor.\n");
-            ClientText.append("> Causas: se agoto el tiempo o porque se ha escrito 'FIN'\n");
+            ClientText.append("> SE HA PRODUCIDO UN ERROR \nCON EL SERVIDOR POSIBLES CAUSAS:");
+            ClientText.append("\n1.- Se ha agotado el tiempo de espera del servidor.");
+            ClientText.append("\n2.- Se ha escrito 'FIN'.");
+            // ClientText.append("> Conexión cerrada con el servidor.\n");
+            // ClientText.append("> Causas: se agoto el tiempo o porque se ha escrito
+            // 'FIN'\n");
 
             ServerText.append("\n> Error con la \nconexion al Servidor\n");
             ServerText.append(
