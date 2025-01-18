@@ -1,4 +1,4 @@
-package fp.dam.psp.CLASS.EvSegunda.TEM3_Servidores.ActividadesdeEntrega.Client;
+package fp.dam.psp.CLASS.EvSegunda.TEM3_Servidores.Other.Client;
 
 import java.io.*;
 import java.net.*;

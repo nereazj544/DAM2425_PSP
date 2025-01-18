@@ -74,10 +74,11 @@ public class Cliente extends JFrame {
         // TODO: TEXTO NOTA
 
         nota.setText(
-                "> Introduce el texto, cuando quieras finalizar escribe 'FIN' y envialo\n El recuadro de la derecha es el servidor y el de la izquierda donde debes de escribri :)");
+                "> Introduce el texto, cuando quieras finalizar escribe 'FIN' y envialo\n El recuadro azul es el servidor y el amarillo donde debes de escribri :)");
 
         nota.setFont(new Font("Consolas", Font.BOLD, 20));
         nota.setBackground(Color.LIGHT_GRAY);
+        nota.setEditable(false);
 
         // TODO: CENTRAR TEXTO DE NOTA:
         StyledDocument doc = nota.getStyledDocument();
@@ -129,14 +130,19 @@ public class Cliente extends JFrame {
 
                     }
                 } catch (Exception e) {
-                    ServerText.append("\n> Se ha producido un error.\n");
-                    // ServerText.append("\n> Más informacion acerca del error: \n" + e.getMessage());
+                    ServerText.append("\n> Se ha cerrado la conexion con el Servidor.\n");
+                    // ServerText.append("\n> Más informacion acerca del error: \n" +
+                    // e.getMessage());
                     enviar.setEnabled(false);
 
                 }
             }).start();
 
         } catch (Exception e) {
+
+            ClientText.append("> Conexión cerrada con el servidor.\n");
+            ClientText.append("> Causas: se agoto el tiempo o porque se ha escrito 'FIN'\n");
+
             ServerText.append("\n> Error con la \nconexion al Servidor\n");
             ServerText.append(
                     "\n> Más informacion acerca del error: \n Se ha cerrado la conexion \no a ocurrido algun otro tipo de error");
@@ -174,8 +180,8 @@ public class Cliente extends JFrame {
             }
         } catch (Exception ex) {
             enviar.setEnabled(false);
-            ClientText.append("\n> Error en el envio del mensaje.");
-            ClientText.append("\n> Error: Se cerro la conexion con el cliente");
+            ServerText.append("\n> Error en el envio del mensaje.");
+            ServerText.append("\n> Error: Se cerro la conexion con el cliente");
 
         }
 
