@@ -1,4 +1,13 @@
-# Cliente con Swing
+# Cliente con Swing (AMPLIACION)
+En este paquete se encontraran las siguentes carpetas:
+- V1_ServertextandClienteText
+- V2_ClienteText
+
+> [!IMPORTANT]
+> La diferencia entre las dos versiones que la V1 tiene un texto extra para poner las notificaciones del Servidor, mientras que en la V2 es como se especifico en clase.
+
+
+
 
 ## Enunciado del ejercicio
 Este ejercicio es una ampliacion del ejercicio de Servidor Eco.
