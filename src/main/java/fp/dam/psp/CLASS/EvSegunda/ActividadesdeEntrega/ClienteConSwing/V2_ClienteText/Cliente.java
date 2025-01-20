@@ -1,4 +1,4 @@
-package fp.dam.psp.CLASS.EvSegunda.TEM3_Servidores.ActividadesdeEntrega.ClienteConSwing.V2_ClienteText;
+package fp.dam.psp.CLASS.EvSegunda.ActividadesdeEntrega.ClienteConSwing.V2_ClienteText;
 
 /* En esta version se añade solo el recuadro del texto del cliente y servidor, que es como se indico en clase. */
 

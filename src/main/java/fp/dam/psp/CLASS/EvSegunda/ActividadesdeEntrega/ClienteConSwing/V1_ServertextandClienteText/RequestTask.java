@@ -1,4 +1,4 @@
-package fp.dam.psp.CLASS.EvSegunda.TEM3_Servidores.ActividadesdeEntrega.ClienteConSwing.V1_ServertextandClienteText;
+package fp.dam.psp.CLASS.EvSegunda.ActividadesdeEntrega.ClienteConSwing.V1_ServertextandClienteText;
 
 import java.io.*;
 import java.net.*;

@@ -1,4 +1,4 @@
-package fp.dam.psp.CLASS.EvSegunda.TEM3_Servidores.ActividadesdeEntrega.Ej6_Agenda;
+package fp.dam.psp.CLASS.EvSegunda.ActividadesdeEntrega.Ej6_Agenda;
 
 import java.util.*;
 import java.net.*;

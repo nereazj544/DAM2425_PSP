@@ -1,4 +1,4 @@
-package fp.dam.psp.CLASS.EvSegunda.TEM3_Servidores.ActividadesdeEntrega.ClienteConSwing.V1_ServertextandClienteText;
+package fp.dam.psp.CLASS.EvSegunda.ActividadesdeEntrega.ClienteConSwing.V1_ServertextandClienteText;
 
 /*
  * En esta version se añade un recuadro para las contextaciones del servidor.
