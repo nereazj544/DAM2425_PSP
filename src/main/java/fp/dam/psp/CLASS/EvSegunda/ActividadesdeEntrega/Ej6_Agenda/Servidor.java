@@ -167,8 +167,10 @@ public class Servidor {
 
         // TODO: Enviar Errores
         private void enviarErrorSintaxis(String peticion, int i, DataOutputStream out) throws IOException {
-            out.writeUTF("ERR03");
-            out.writeUTF(peticion + "\n" + " ".repeat(i) + "^");
+            synchronized (contactos) {
+                out.writeUTF("ERR03");
+                out.writeUTF(peticion + "\n" + " ".repeat(i) + "^");
+            }
         }
 
         // TODO: Comprobar numero

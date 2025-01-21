@@ -23,7 +23,7 @@ public class Cliente {
             while (true) {
 
                 while (sc.hasNextLine()) {
-                    l = sc.nextLine();
+                    l = sc.nextLine().toLowerCase();
                     if (l.equals("salir")) {
                         break;
                     }
