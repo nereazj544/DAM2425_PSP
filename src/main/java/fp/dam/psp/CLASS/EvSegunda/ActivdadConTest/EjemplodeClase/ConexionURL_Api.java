@@ -45,7 +45,6 @@ public class ConexionURL_Api {
 
         } else {
             System.out.println(responseCode);
-
         }
     }
 }
