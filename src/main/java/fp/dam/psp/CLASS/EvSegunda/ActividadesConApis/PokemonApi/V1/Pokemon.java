@@ -1,4 +1,4 @@
-package fp.dam.psp.CLASS.EvSegunda.ActividadesConApis.V1;
+package fp.dam.psp.CLASS.EvSegunda.ActividadesConApis.PokemonApi.V1;
 
 import java.util.List;
 
