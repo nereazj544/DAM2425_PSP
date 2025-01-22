@@ -1,4 +1,4 @@
-package fp.dam.psp.CLASS.EvSegunda.ActivdadConTest.EjemplodeClase;
+package fp.dam.psp.CLASS.EvSegunda.ActividadesConApis.EjemplodeClase;
 
 /*
 Alternativa del ejercicio para API

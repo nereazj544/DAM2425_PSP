@@ -1,4 +1,4 @@
-package fp.dam.psp.CLASS.EvSegunda.ActivdadConTest.Other.PokemonApi.V1;
+package fp.dam.psp.CLASS.EvSegunda.ActividadesConApis.V1;
 
 import java.io.*;
 import java.net.*;
