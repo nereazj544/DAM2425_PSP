@@ -6,8 +6,7 @@ import java.util.concurrent.*;
 
 public class Servidor {
     public static void main(String[] args) {
-        try {
-            ServerSocket sScok = new ServerSocket(6000);
+        try (ServerSocket sScok = new ServerSocket(6000)) {
             ExecutorService exSer = Executors.newFixedThreadPool(100);
 
             System.out.println(". . . Servidor iniciando . . . ");
