@@ -1,4 +1,4 @@
-package fp.dam.psp.CLASS.EvSegunda.ActividadesdeEntrega.ClienteConSwing.V1_ServertextandClienteText;
+package fp.dam.psp.CLASS.EvSegunda.Tema5_ProgSegura.Jueves23.ActidadPDF.Activdad1;
 
 //! Import
 import java.net.*;
@@ -7,6 +7,7 @@ import java.util.concurrent.*;
 public class Servidor {
     public static void main(String[] args) {
         try (ServerSocket sScok = new ServerSocket(6000)) {
+
             ExecutorService exSer = Executors.newFixedThreadPool(100);
 
             System.out.println(". . . Servidor iniciando . . . ");
