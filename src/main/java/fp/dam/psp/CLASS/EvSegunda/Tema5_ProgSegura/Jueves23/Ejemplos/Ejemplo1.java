@@ -8,7 +8,8 @@ public class Ejemplo1 {
         System.out.println("PROPIEDAD               VALOR");
         for (int i = 0; i < t.length; i++) {
             System.out.format("%-20s ==> %s\n", t[i], System.getProperty(t[i]));
-        }
+
 
     }
+}
 }
