@@ -1,7 +1,7 @@
-package fp.dam.psp.CLASS.EvSegunda.TEM3_Servidores.Enero.Lunes20.Test;
-
-//import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.net.Socket;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
 public class ServerUnitTest {
