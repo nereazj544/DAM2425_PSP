@@ -1,4 +1,4 @@
-package fp.dam.psp.CLASS.EvSegunda.Tema5_ProgSegura.Enero.Lunes27.EjemplosU5;
+package fp.dam.psp.CLASS.EvSegunda.Tema5_ProgSegura.EjemplosU5;
 
 public class Ejemplo1 {
     public static void main(String[] args) {
