@@ -1,4 +1,4 @@
-package fp.dam.psp.CLASS.EvSegunda.Tema5_ProgSegura.Viernes24.EjemploAñadoPasado;
+package fp.dam.psp.CLASS.EvSegunda.Tema5_ProgSegura.Enero.Viernes24.EjemploAñadoPasado;
 
 import java.io.*;
 import java.security.*;

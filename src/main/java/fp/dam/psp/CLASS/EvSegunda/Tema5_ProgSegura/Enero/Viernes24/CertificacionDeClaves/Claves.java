@@ -1,4 +1,4 @@
-package fp.dam.psp.CLASS.EvSegunda.Tema5_ProgSegura.Viernes24.CertificacionDeClaves;
+package fp.dam.psp.CLASS.EvSegunda.Tema5_ProgSegura.Enero.Viernes24.CertificacionDeClaves;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
