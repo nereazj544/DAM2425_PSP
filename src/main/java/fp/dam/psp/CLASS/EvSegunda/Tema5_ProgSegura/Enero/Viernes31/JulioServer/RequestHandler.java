@@ -38,9 +38,12 @@ public class RequestHandler implements Runnable {
                             md.update(bff, 0, n);
 
                         byte [] hash = md.digest();
-                        byte [] B64 = Base64.getEncoder().encode(hash);
+//                        byte [] B64 = Base64.getEncoder().encode(hash);
+                    String B64 = Base64.getEncoder().encodeToString(hash);
 
                         //Convertirlo aun string y mandolor con utf
+//                    new DataOutputStream(socket.getOutputStream()).writeUTF(new String(B64));
+                    new DataOutputStream(socket.getOutputStream()).writeUTF(new String B64 = Base64.getEncoder().encodeToString(hash));
 
                 }
 
