@@ -3,12 +3,11 @@ package fp.dam.psp.CLASS.EvSegunda.Tema5_ProgSegura.Enero.Viernes31.JulioServer;
 import java.net.*;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.security.DigestException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.time.*;
-
-
-
+import java.util.Base64;
 
 
 public class RequestHandler implements Runnable {
@@ -32,7 +31,16 @@ public class RequestHandler implements Runnable {
                 if (rq.equals("hash")){
                     MessageDigest md = MessageDigest.getInstance(in.readUTF());
 
-                    byte [] hash = md.digest(rq.getBytes(StandardCharsets.UTF_8));
+                        byte [] bff =  new byte[1024];
+                        int n;
+
+                        while ((n = in.read(bff)) != 1)
+                            md.update(bff, 0, n);
+
+                        byte [] hash = md.digest();
+                        byte [] B64 = Base64.getEncoder().encode(hash);
+
+                        //Convertirlo aun string y mandolor con utf
 
                 }
 
