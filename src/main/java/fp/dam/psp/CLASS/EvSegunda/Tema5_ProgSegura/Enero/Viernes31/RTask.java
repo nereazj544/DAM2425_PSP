@@ -10,30 +10,29 @@ import java.security.MessageDigest;
 import java.time.LocalDateTime;
 
 public class RTask implements Runnable {
-    private  final Socket sck;
+    private final Socket sck;
 
-    public  RTask(Socket sck){
+    public RTask(Socket sck) {
         this.sck = sck;
     }
 
-private  String generarHash(String mensaje) {
-    try {
-        MessageDigest md = MessageDigest.getInstance("SHA-256");
-        byte[] hash = md.digest(mensaje.getBytes(StandardCharsets.UTF_8));
-        StringBuilder sb = new StringBuilder();
-        for (byte b : hash) {
-            String hex = Integer.toHexString(0xff & b);
-            if (hex.length() == 1) sb.append('0');
-            sb.append(hex);
+    private String generarHash(String mensaje) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] hash = md.digest(mensaje.getBytes(StandardCharsets.UTF_8));
+            StringBuilder sb = new StringBuilder();
+            for (byte b : hash) {
+                String hex = Integer.toHexString(0xff & b);
+                if (hex.length() == 1)
+                    sb.append('0');
+                sb.append(hex);
+            }
+            return sb.toString();
+        } catch (Exception e) {
+            e.getMessage();
+            return null;
         }
-        return sb.toString();
-    } catch (Exception e) {
-        e.getMessage();
-        return null;
     }
-}
-
-
 
     @Override
     public void run() {
@@ -44,19 +43,18 @@ private  String generarHash(String mensaje) {
             System.out.println("> Se ha recidbido una conexcion con el: " + sck.getInetAddress().getHostAddress()
                     + " || Puerto utilizado: " + sck.getPort() + " || Hora Acutal: " + LocalDateTime.now());
 
-        }catch (Exception e){
+        } catch (Exception e) {
             enviarmensaje("Se ha detectado un error: " + e.getMessage());
         }
 
     }
 
-
-    //* Enviar mensaje de error o otro tipo
-    private   void enviarmensaje(String mensaje) {
+    // * Enviar mensaje de error o otro tipo
+    private void enviarmensaje(String mensaje) {
         try {
-            DataOutputStream  out = new DataOutputStream(sck.getOutputStream());
+            DataOutputStream out = new DataOutputStream(sck.getOutputStream());
             out.writeUTF(mensaje);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.getMessage();
         }
     }
