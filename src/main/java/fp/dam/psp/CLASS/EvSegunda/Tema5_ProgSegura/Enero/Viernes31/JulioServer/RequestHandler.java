@@ -9,7 +9,6 @@ import java.security.NoSuchAlgorithmException;
 import java.time.*;
 import java.util.Base64;
 
-
 public class RequestHandler implements Runnable {
 
     private final Socket socket;
@@ -25,27 +24,30 @@ public class RequestHandler implements Runnable {
     @Override
     public void run() {
         try (socket) {
-                DataInputStream in = new DataInputStream(socket.getInputStream());
-                String rq = in.readUTF();
+            DataInputStream in = new DataInputStream(socket.getInputStream());
+            String rq = in.readUTF();
 
-                if (rq.equals("hash")){
-                    MessageDigest md = MessageDigest.getInstance(in.readUTF());
+            if (rq.equals("hash")) {
+                MessageDigest md = MessageDigest.getInstance(in.readUTF());
 
-                        byte [] bff =  new byte[1024];
-                        int n;
+                byte[] bff = new byte[1024];
+                int n;
 
-                        while ((n = in.read(bff)) != 1)
-                            md.update(bff, 0, n);
+                while ((n = in.read(bff)) != 1)
+                    md.update(bff, 0, n);
 
-                        byte [] hash = md.digest();
-//                        byte [] B64 = Base64.getEncoder().encode(hash);
-                    String B64 = Base64.getEncoder().encodeToString(hash);
+                byte[] hash = md.digest();
+                // byte [] B64 = Base64.getEncoder().encode(hash);
+                String B64 = Base64.getEncoder().encodeToString(hash);
 
-                        //Convertirlo aun string y mandolor con utf
-//                    new DataOutputStream(socket.getOutputStream()).writeUTF(new String(B64));
-                    new DataOutputStream(socket.getOutputStream()).writeUTF(new String B64 = Base64.getEncoder().encodeToString(hash));
+                // Convertirlo aun string y mandolor con utf
+                // new DataOutputStream(socket.getOutputStream()).writeUTF(new String(B64));
+                // new DataOutputStream(socket.getOutputStream()).writeUTF(String B64 =
+                // Base64.getEncoder().encodeToString(hash));
+                
+                new DataOutputStream(socket.getOutputStream()).writeUTF(Base64.getEncoder().encodeToString(hash));
 
-                }
+            }
 
         } catch (IOException e) {
             error(e.getLocalizedMessage());
