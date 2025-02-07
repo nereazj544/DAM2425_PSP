@@ -1,4 +1,4 @@
-package fp.dam.psp.CLASS.EvSegunda.Tema5_ProgSegura.Viernes7;
+package fp.dam.psp.CLASS.EvSegunda.Tema5_ProgSegura.Febrero.Viernes7;
 
 /*
 ! FUNCION:
