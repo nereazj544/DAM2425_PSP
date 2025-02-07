@@ -1,0 +1,1 @@
+La carpeta "CLASS" es donde se encuentra el trabajo diario de clase, donde se clafica por eveluacines y dentro de esta se clasifica por meses y dias de clase de dicha asignatura.
