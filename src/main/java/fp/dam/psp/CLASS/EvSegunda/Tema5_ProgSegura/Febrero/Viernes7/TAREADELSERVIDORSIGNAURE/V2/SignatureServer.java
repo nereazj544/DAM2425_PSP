@@ -9,9 +9,13 @@ import java.util.concurrent.*;
 
 public class SignatureServer {
 
+    private static KeyPair kPair;
 
     public static void main(String[] args) {
         try (ServerSocket s = new ServerSocket(6000)) {
+            KeyPairGenerator kGen = KeyPairGenerator.getInstance("DSA");
+            kGen.initialize(1024);
+            kPair = kGen.generateKeyPair();
 
             ExecutorService ExSer = Executors.newFixedThreadPool(100);
             System.out.println(" ");
@@ -22,7 +26,7 @@ public class SignatureServer {
             while (true){
                 Socket sck = s.accept();
                 sck.setSoTimeout(6000);
-                ExSer.execute(new TaskSS(sck));
+                ExSer.execute(new TaskSS(sck, kPair));
 
             }
 
