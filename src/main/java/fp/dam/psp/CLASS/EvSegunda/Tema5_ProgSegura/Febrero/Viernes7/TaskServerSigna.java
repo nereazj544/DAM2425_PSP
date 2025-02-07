@@ -23,7 +23,7 @@ public class TaskServerSigna implements Runnable {
     public void run() {
 try (sck){
 
-    // Cifrado tengo sueño :^
+    // Cifrado
     KeyPairGenerator keyGen = KeyPairGenerator.getInstance("DSA");
     SecureRandom Sr = SecureRandom.getInstance("SHA1PRNG");
     keyGen.initialize(1024, Sr);
