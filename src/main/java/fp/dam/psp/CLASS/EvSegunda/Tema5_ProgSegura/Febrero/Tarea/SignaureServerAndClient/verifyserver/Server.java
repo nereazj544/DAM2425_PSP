@@ -1,13 +1,15 @@
-package fp.dam.psp.CLASS.EvSegunda.Tema5_ProgSegura.Febrero.Viernes7.TAREADELSERVIDORSIGNAURE.V2;
+package fp.dam.psp.CLASS.EvSegunda.Tema5_ProgSegura.Febrero.Tarea.SignaureServerAndClient.verifyserver;
 
-//! IMPORTES
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
-import java.net.*;
-import java.security.*;
-import java.util.concurrent.*;
+import fp.dam.psp.CLASS.EvSegunda.Tema5_ProgSegura.Febrero.Viernes7.TAREADELSERVIDORSIGNAURE.V2.TaskSS;
 
-public class SignatureServer {
-
+public class Server {
     private static KeyPair kPair;
 
     public static void main(String[] args) {
@@ -25,7 +27,7 @@ public class SignatureServer {
             while (true){
                 Socket sck = s.accept();
                 sck.setSoTimeout(6000);
-                ExSer.execute(new TaskSS(sck, kPair));
+                ExSer.execute(new RequestHandler(sck, kPair));
 
             }
 
@@ -33,5 +35,4 @@ public class SignatureServer {
             e.getMessage();
         }
     }
-
 }
