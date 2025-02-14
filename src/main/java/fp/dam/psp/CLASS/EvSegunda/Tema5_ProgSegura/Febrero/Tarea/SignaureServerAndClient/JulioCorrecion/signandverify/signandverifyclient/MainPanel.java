@@ -134,6 +134,8 @@ public class MainPanel extends JPanel {
             String alias = (String) aliasComboBox.getSelectedItem();
             String algoritmo = (String) algorithmComboBox.getSelectedItem();
 
+            File f = fileChooser.getSelectedFile();
+
             try {
                 PrivateKey pk = (PrivateKey) ks.getKey(alias, "practicas".toCharArray());
                 X509Certificate cer = (X509Certificate) ks.getCertificate(alias);
@@ -147,7 +149,8 @@ public class MainPanel extends JPanel {
                 byte [] bfr = new byte[1024];
 
                 int n;
-                BufferedInputStream in = new BufferedInputStream (new FileInputStream(fileChooser.getSelectedFile()));
+//                BufferedInputStream in = new BufferedInputStream (new FileInputStream(fileChooser.getSelectedFile()));
+                BufferedInputStream in = new BufferedInputStream (new FileInputStream(f);
                 while ((n =in.read(bfr)) != -1){
                     sgn.update(bfr, 0, n);
                 }
@@ -166,11 +169,11 @@ public class MainPanel extends JPanel {
                 frima.append(algoritmo);
                 frima.append("#"); //SEPARACION
 
-    frima.append(en.encodeToString(cer.getEncoded()));
-
-
-
-
+                frima.append(en.encodeToString(cer.getEncoded()));
+                try(BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(f.getAbsolutePath() + ".signature"));){
+                        byte [] firmaXo = frima.toString().getBytes();
+                        out.write(firmaXo, 0, firmaXo.length);
+                    }
 
                 //! TODAS LAS EXCEPCIONES DE ESTA COSA
             } catch (GeneralSecurityException | IOException ex) {
