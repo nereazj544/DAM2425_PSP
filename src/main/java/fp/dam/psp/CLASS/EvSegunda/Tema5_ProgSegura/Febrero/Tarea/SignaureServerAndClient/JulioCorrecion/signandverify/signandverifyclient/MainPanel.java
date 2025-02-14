@@ -1,6 +1,7 @@
 package fp.dam.psp.CLASS.EvSegunda.Tema5_ProgSegura.Febrero.Tarea.SignaureServerAndClient.JulioCorrecion.signandverify.signandverifyclient;
 
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicEditorPaneUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -145,9 +146,26 @@ public class MainPanel extends JPanel {
 
                 byte [] bfr = new byte[1024];
 
+                int n;
+                BufferedInputStream in = new BufferedInputStream (new FileInputStream(fileChooser.getSelectedFile()));
+                while ((n =in.read(bfr)) != -1){
+                    sgn.update(bfr, 0, n);
+                }
+
+
+                Base64.Encoder en = Base64.getEncoder();
+                String frima = en.encodeToString(sgn.sign());
+
+                /*
+                  NOMBRE DEL ALGORIMO + ALGO MÁS
+                SHA224 WITH RSA
+
+
+                 */
+                //                    String bs64 = Base64.getEncoder().encodeToString();
 
                 //! TODAS LAS EXCEPCIONES DE ESTA COSA
-            } catch (GeneralSecurityException ex) {
+            } catch (GeneralSecurityException | IOException ex) {
                 JOptionPane.showMessageDialog(this, "Firma creada correctamente", "Exito",
                         JOptionPane.INFORMATION_MESSAGE);
             }
