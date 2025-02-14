@@ -137,6 +137,14 @@ public class MainPanel extends JPanel {
                 PrivateKey pk = (PrivateKey) ks.getKey(alias, "practicas".toCharArray());
                 X509Certificate cer = (X509Certificate) ks.getCertificate(alias);
 
+                //? Obtener la clave publica. (ESTO PARA EL SERVIDOR)
+//                PublicKey publicKey = (PublicKey) cer.getPublicKey();
+
+                Signature sgn = Signature.getInstance(algoritmo);
+                sgn.initSign(pk);
+
+                byte [] bfr = new byte[1024];
+
 
                 //! TODAS LAS EXCEPCIONES DE ESTA COSA
             } catch (GeneralSecurityException ex) {
