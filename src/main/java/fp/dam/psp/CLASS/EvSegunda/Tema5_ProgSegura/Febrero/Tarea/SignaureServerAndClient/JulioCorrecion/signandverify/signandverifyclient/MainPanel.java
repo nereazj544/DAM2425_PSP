@@ -150,33 +150,41 @@ public class MainPanel extends JPanel {
 
                 int n;
 //                BufferedInputStream in = new BufferedInputStream (new FileInputStream(fileChooser.getSelectedFile()));
+
+                try(
+
                 BufferedInputStream in = new BufferedInputStream (new FileInputStream(f);
-                while ((n =in.read(bfr)) != -1){
-                    sgn.update(bfr, 0, n);
-                }
+                ) {
+                    while ((n = in.read(bfr)) != -1) {
+                        sgn.update(bfr, 0, n);
+                    }
 
 
-                Base64.Encoder en = Base64.getEncoder();
-                StringBuilder frima = new StringBuilder();
+                    Base64.Encoder en = Base64.getEncoder();
+                    StringBuilder frima = new StringBuilder();
 
                 /*
                   NOMBRE DEL ALGORIMO + ALGO MÁS (PAL SERVIDOR)
                     SHA224 WITH RSA
                  */
-                 //no se usar "#" para la codificacion
-                frima.append(en.encodeToString(sgn.sign()));
-                frima.append("#");
-                frima.append(algoritmo);
-                frima.append("#"); //SEPARACION
+                    //no se usar "#" para la codificacion
+                    frima.append(en.encodeToString(sgn.sign()));
+                    frima.append("#");
+                    frima.append(algoritmo);
+                    frima.append("#"); //SEPARACION
 
-                frima.append(en.encodeToString(cer.getEncoded()));
-                try(BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(f.getAbsolutePath() + ".signature"));){
-                        byte [] firmaXo = frima.toString().getBytes();
+                    frima.append(en.encodeToString(cer.getEncoded()));
+                    try (BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(f.getAbsolutePath() + ".signature"));) {
+                        byte[] firmaXo = frima.toString().getBytes();
                         out.write(firmaXo, 0, firmaXo.length);
                     }
 
+                }catch (IOException ex){
+                    JOptionPane.showMessageDialog(this, "Firma creada correctamente", "Exito",
+                            JOptionPane.INFORMATION_MESSAGE);
+                }
                 //! TODAS LAS EXCEPCIONES DE ESTA COSA
-            } catch (GeneralSecurityException | IOException ex) {
+            } catch (GeneralSecurityException ex) {
                 JOptionPane.showMessageDialog(this, "Firma creada correctamente", "Exito",
                         JOptionPane.INFORMATION_MESSAGE);
             }
