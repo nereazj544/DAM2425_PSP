@@ -154,15 +154,23 @@ public class MainPanel extends JPanel {
 
 
                 Base64.Encoder en = Base64.getEncoder();
-                String frima = en.encodeToString(sgn.sign());
+                StringBuilder frima = new StringBuilder();
 
                 /*
-                  NOMBRE DEL ALGORIMO + ALGO MÁS
-                SHA224 WITH RSA
-
-
+                  NOMBRE DEL ALGORIMO + ALGO MÁS (PAL SERVIDOR)
+                    SHA224 WITH RSA
                  */
-                //                    String bs64 = Base64.getEncoder().encodeToString();
+                 //no se usar "#" para la codificacion
+                frima.append(en.encodeToString(sgn.sign()));
+                frima.append("#");
+                frima.append(algoritmo);
+                frima.append("#"); //SEPARACION
+
+    frima.append(en.encodeToString(cer.getEncoded()));
+
+
+
+
 
                 //! TODAS LAS EXCEPCIONES DE ESTA COSA
             } catch (GeneralSecurityException | IOException ex) {
