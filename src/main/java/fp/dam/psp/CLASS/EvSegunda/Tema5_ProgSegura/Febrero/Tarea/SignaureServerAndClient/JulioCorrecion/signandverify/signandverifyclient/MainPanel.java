@@ -146,11 +146,11 @@ public class MainPanel extends JPanel {
                 Signature sgn = Signature.getInstance(algoritmo);
                 sgn.initSign(pk);
 
-                byte [] bfr = new byte[1024];
 
-                int n;
+
+
 //                BufferedInputStream in = new BufferedInputStream (new FileInputStream(fileChooser.getSelectedFile()));
-
+                byte [] bfr = new byte[1024]; int n;
                 try(
 
                 BufferedInputStream in = new BufferedInputStream (new FileInputStream(f);
@@ -174,9 +174,9 @@ public class MainPanel extends JPanel {
                     frima.append("#"); //SEPARACION
 
                     frima.append(en.encodeToString(cer.getEncoded()));
-                    try (BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(f.getAbsolutePath() + ".signature"));) {
-                        byte[] firmaXo = frima.toString().getBytes();
-                        out.write(firmaXo, 0, firmaXo.length);
+                    try (PrintWriter out = new PrintWriter(new FileOutputStream(f.getAbsolutePath() + ".signature"));) {
+//                        byte[] firmaXo = frima.toString().getBytes();
+                        out.println(frima.toString());
                     }
 
                 }catch (IOException ex){
@@ -207,7 +207,28 @@ public class MainPanel extends JPanel {
             File signatureFile = new File(file.getAbsolutePath() + ".signature");
             // Enviar la firma y el fichero al servidor y mostrar el resultado de la verificación en un JOptionPane
                 // TODO
+                try(Socket sck  = new Socket("localhost", 6000);
+                BufferedInputStream inFile = new BufferedInputStream(new FileInputStream(file));
+                BufferedReader brSgn = new BufferedReader(new FileReader(signatureFile))
+                ) {
+                    DataInputStream in = new DataInputStream(sck.getInputStream());
+                    DataOutputStream out = new DataOutputStream(sck.getOutputStream());
 
+                    out.writeUTF(brSgn.readLine());
+
+                    byte [] bfr = new byte[1024];
+                    int n;
+                        while ((n = inFile.read(bfr)) != -1) {
+//                            sgn.update(bfr, 0, n);
+
+
+
+sck.shutdownOutput();
+
+                }catch (Exception e){
+                    JOptionPane.showMessageDialog(this, "Firma creada correctamente", "Exito",
+                            JOptionPane.INFORMATION_MESSAGE);
+                }
             // ********************************************************************************************************************
         }
     }
