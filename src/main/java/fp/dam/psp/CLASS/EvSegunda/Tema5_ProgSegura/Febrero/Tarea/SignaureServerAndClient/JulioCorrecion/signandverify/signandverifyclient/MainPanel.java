@@ -206,6 +206,7 @@ public class MainPanel extends JPanel {
             File file = fileChooser.getSelectedFile();
             File signatureFile = new File(file.getAbsolutePath() + ".signature");
             // Enviar la firma y el fichero al servidor y mostrar el resultado de la verificación en un JOptionPane
+                // TODO
 
             // ********************************************************************************************************************
         }
