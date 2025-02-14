@@ -162,11 +162,12 @@ public class MainPanel extends JPanel {
                     fw.write(sgB64 + "#" + cerB64);
                 }
 
-                JOptionPane.showMessageDialog(this, "Firma creada correctamente", "Exito",
-                        JOptionPane.INFORMATION_MESSAGE);
+
 
             } catch (Exception ex) {
                 ex.getMessage();
+                JOptionPane.showMessageDialog(this, "Firma creada correctamente", "Exito",
+                        JOptionPane.INFORMATION_MESSAGE);
             }
             // Obtener el alias y el algoritmo seleccionados en los JComboBox aliasComboBox
             // y algorithmComboBox

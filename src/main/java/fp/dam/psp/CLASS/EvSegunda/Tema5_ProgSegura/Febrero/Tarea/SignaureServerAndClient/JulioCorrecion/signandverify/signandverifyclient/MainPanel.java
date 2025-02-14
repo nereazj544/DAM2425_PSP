@@ -34,7 +34,6 @@ public class MainPanel extends JPanel {
             aliases.add(aliasEnum.nextElement());
         }
 
-
         // ********************************************************************************************************************
 
         GridBagConstraints constraints = new GridBagConstraints();
@@ -130,8 +129,20 @@ public class MainPanel extends JPanel {
         fileChooser.setMultiSelectionEnabled(false);
         if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             // Obtener el alias y el algoritmo seleccionados en los JComboBox aliasComboBox y algorithmComboBox
+            //TODO
+            String alias = (String) aliasComboBox.getSelectedItem();
+            String algoritmo = (String) algorithmComboBox.getSelectedItem();
+
+            try {
+                PrivateKey pk = (PrivateKey) ks.getKey(alias, "practicas".toCharArray());
+                X509Certificate cer = (X509Certificate) ks.getCertificate(alias);
 
 
+                //! TODAS LAS EXCEPCIONES DE ESTA COSA
+            } catch (GeneralSecurityException ex) {
+                JOptionPane.showMessageDialog(this, "Firma creada correctamente", "Exito",
+                        JOptionPane.INFORMATION_MESSAGE);
+            }
             // ********************************************************************************************************************
 
             //  Firmar el fichero seleccionado con el algoritmo seleccionado y el certificado correspondiente al alias seleccionado
