@@ -1,27 +1,24 @@
 package fp.dam.psp.CLASS.EvSegunda.Tema5_ProgSegura.Febrero.Tarea.SignaureServerAndClient.JulioCorrecion.signandverify.signandverifyclient;
 
 import javax.swing.*;
-import javax.swing.plaf.basic.BasicEditorPaneUI;
+// import javax.swing.plaf.basic.BasicEditorPaneUI;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
+
 import java.io.*;
-import java.net.Socket;
+import java.net.*;
 import java.security.*;
-import java.security.cert.X509Certificate;
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.Enumeration;
+import java.security.cert.*;
+import java.util.*;
 
 public class MainPanel extends JPanel {
-
     private final KeyStore ks;
     private static final ArrayList<String> aliases = new ArrayList<>();
-    private static final String [] hashAlgorithms = {"SHA224", "SHA256", "SHA384", "SHA512", "SHA3-224", "SHA3-256", "SHA3-384", "SHA3-512"};
+    private static final String[] hashAlgorithms = { "SHA224", "SHA256", "SHA384", "SHA512", "SHA3-224", "SHA3-256",
+            "SHA3-384", "SHA3-512" };
     private final JComboBox<String> algorithmComboBox;
     private final JComboBox<String> aliasComboBox;
     private final JTextArea info;
-//    private  final Socket sck;
 
     public MainPanel() throws GeneralSecurityException, IOException {
         super(new GridBagLayout());
@@ -29,12 +26,9 @@ public class MainPanel extends JPanel {
         ks.load(ClassLoader.getSystemResourceAsStream("keystore.p12"), "practicas".toCharArray());
 
         // Almacenar los alias en el ArrayList aliases
-        // TODO
-        Enumeration<String> aliasEnum = ks.aliases();
-        while (aliasEnum.hasMoreElements()) {
-            aliases.add(aliasEnum.nextElement());
-        }
-
+        Enumeration<String> e = ks.aliases();
+        while (e.hasMoreElements())
+            aliases.add(e.nextElement());
         // ********************************************************************************************************************
 
         GridBagConstraints constraints = new GridBagConstraints();
@@ -47,7 +41,8 @@ public class MainPanel extends JPanel {
         constraints.gridy = 1;
         algorithmComboBox = addComboBox("Algoritmo", hashAlgorithms, 0, constraints, null);
         addSeparator(1, constraints);
-        aliasComboBox = addComboBox("Certificado", aliases.toArray(new String[0]), 2, constraints, this::certificateListener);
+        aliasComboBox = addComboBox("Certificado", aliases.toArray(new String[0]), 2, constraints,
+                this::certificateListener);
         info = new JTextArea(30, 80);
         info.setEditable(false);
         constraints.gridx = 0;
@@ -64,8 +59,7 @@ public class MainPanel extends JPanel {
         button.setToolTipText(toolTip);
         button.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createEmptyBorder(10, 10, 10, 10),
-                button.getBorder()
-        ));
+                button.getBorder()));
         c.gridx = x;
         c.weightx = 1;
         add(button, c);
@@ -75,14 +69,14 @@ public class MainPanel extends JPanel {
         JSeparator separator = new JSeparator(JSeparator.VERTICAL);
         separator.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createEmptyBorder(0, 10, 0, 10),
-                separator.getBorder()
-        ));
+                separator.getBorder()));
         c.gridx = x;
         c.weightx = 0;
         add(separator, c);
     }
 
-    private JComboBox<String> addComboBox(String title, String [] options, int x, GridBagConstraints c, ActionListener listener) {
+    private JComboBox<String> addComboBox(String title, String[] options, int x, GridBagConstraints c,
+            ActionListener listener) {
         c.gridx = x;
         c.weightx = 1;
         GridBagConstraints constraints = new GridBagConstraints();
@@ -95,8 +89,7 @@ public class MainPanel extends JPanel {
                 BorderFactory.createEmptyBorder(10, 10, 10, 10),
                 BorderFactory.createCompoundBorder(
                         BorderFactory.createLineBorder(Color.DARK_GRAY),
-                        BorderFactory.createEmptyBorder(10, 10, 10, 10)
-        )));
+                        BorderFactory.createEmptyBorder(10, 10, 10, 10))));
         panel.add(new JLabel(title), constraints);
         constraints.gridx = 1;
         constraints.weightx = 1;
@@ -117,10 +110,12 @@ public class MainPanel extends JPanel {
                 info.setText(certificate.toString());
                 info.setCaretPosition(0);
             } catch (KeyStoreException ex) {
-                JOptionPane.showMessageDialog(this, ex.getLocalizedMessage(), "Error al obtener el certificado", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, ex.getLocalizedMessage(), "Error al obtener el certificado",
+                        JOptionPane.ERROR_MESSAGE);
             }
         else
-            JOptionPane.showMessageDialog(this, "No se ha seleccionado ningún certificado", "Error al obtener el certificado", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No se ha seleccionado ningún certificado",
+                    "Error al obtener el certificado", JOptionPane.ERROR_MESSAGE);
     }
 
     private void signListener(ActionEvent e) {
@@ -129,70 +124,50 @@ public class MainPanel extends JPanel {
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
         fileChooser.setMultiSelectionEnabled(false);
         if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-            // Obtener el alias y el algoritmo seleccionados en los JComboBox aliasComboBox y algorithmComboBox
-            //TODO
+            // Obtener el alias y el algoritmo seleccionados en los JComboBox aliasComboBox
+            // y algorithmComboBox
             String alias = (String) aliasComboBox.getSelectedItem();
-            String algoritmo = (String) algorithmComboBox.getSelectedItem();
-
-            File f = fileChooser.getSelectedFile();
-
-            try {
-                PrivateKey pk = (PrivateKey) ks.getKey(alias, "practicas".toCharArray());
-                X509Certificate cer = (X509Certificate) ks.getCertificate(alias);
-
-                //? Obtener la clave publica. (ESTO PARA EL SERVIDOR)
-//                PublicKey publicKey = (PublicKey) cer.getPublicKey();
-
-                Signature sgn = Signature.getInstance(algoritmo);
-                sgn.initSign(pk);
-
-
-
-
-//                BufferedInputStream in = new BufferedInputStream (new FileInputStream(fileChooser.getSelectedFile()));
-                byte [] bfr = new byte[1024]; int n;
-                try(
-
-                BufferedInputStream in = new BufferedInputStream (new FileInputStream(f);
-                ) {
-                    while ((n = in.read(bfr)) != -1) {
-                        sgn.update(bfr, 0, n);
-                    }
-
-
-                    Base64.Encoder en = Base64.getEncoder();
-                    StringBuilder frima = new StringBuilder();
-
-                /*
-                  NOMBRE DEL ALGORIMO + ALGO MÁS (PAL SERVIDOR)
-                    SHA224 WITH RSA
-                 */
-                    //no se usar "#" para la codificacion
-                    frima.append(en.encodeToString(sgn.sign()));
-                    frima.append("#");
-                    frima.append(algoritmo);
-                    frima.append("#"); //SEPARACION
-
-                    frima.append(en.encodeToString(cer.getEncoded()));
-                    try (PrintWriter out = new PrintWriter(new FileOutputStream(f.getAbsolutePath() + ".signature"));) {
-//                        byte[] firmaXo = frima.toString().getBytes();
-                        out.println(frima.toString());
-                    }
-
-                }catch (IOException ex){
-                    JOptionPane.showMessageDialog(this, "Firma creada correctamente", "Exito",
-                            JOptionPane.INFORMATION_MESSAGE);
-                }
-                //! TODAS LAS EXCEPCIONES DE ESTA COSA
-            } catch (GeneralSecurityException ex) {
-                JOptionPane.showMessageDialog(this, "Firma creada correctamente", "Exito",
-                        JOptionPane.INFORMATION_MESSAGE);
-            }
+            String algorithm = (String) algorithmComboBox.getSelectedItem();
+            File file = fileChooser.getSelectedFile();
             // ********************************************************************************************************************
 
-            //  Firmar el fichero seleccionado con el algoritmo seleccionado y el certificado correspondiente al alias seleccionado
-            //  y guardar la firma en un fichero con el mismo nombre que el fichero original añadiendo la extensión .signature
-
+            // Firmar el fichero seleccionado con el algoritmo seleccionado y el certificado
+            // correspondiente al alias seleccionado
+            // y guardar la firma en un fichero con el mismo nombre que el fichero original
+            // añadiendo la extensión .signature
+            try {
+                X509Certificate certificate = (X509Certificate) ks.getCertificate(alias);
+                PrivateKey key = (PrivateKey) ks.getKey(alias, "practicas".toCharArray());
+                Signature signature = Signature.getInstance(algorithm);
+                signature.initSign(key);
+                try (BufferedInputStream in = new BufferedInputStream(new FileInputStream(file))) {
+                    int n;
+                    byte[] buffer = new byte[1024];
+                    while ((n = in.read(buffer)) != -1)
+                        signature.update(buffer, 0, n);
+                    Base64.Encoder encoder = Base64.getEncoder();
+                    StringBuilder firma = new StringBuilder();
+                    firma.append(encoder.encodeToString(signature.sign()));
+                    firma.append("#");
+                    firma.append(algorithm);
+                    firma.append("#");
+                    firma.append(encoder.encodeToString(certificate.getEncoded()));
+                    try (PrintWriter out = new PrintWriter(
+                            new FileOutputStream(file.getAbsolutePath() + ".signature"))) {
+                        out.println(firma.toString());
+                    }
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(this,
+                            ex.getLocalizedMessage(),
+                            "Error",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (GeneralSecurityException ex) {
+                JOptionPane.showMessageDialog(this,
+                        ex.getLocalizedMessage(),
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            }
             // ********************************************************************************************************************
         }
     }
@@ -205,30 +180,29 @@ public class MainPanel extends JPanel {
         if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
             File signatureFile = new File(file.getAbsolutePath() + ".signature");
-            // Enviar la firma y el fichero al servidor y mostrar el resultado de la verificación en un JOptionPane
-                // TODO
-                try(Socket sck  = new Socket("localhost", 6000);
-                BufferedInputStream inFile = new BufferedInputStream(new FileInputStream(file));
-                BufferedReader brSgn = new BufferedReader(new FileReader(signatureFile))
-                ) {
-                    DataInputStream in = new DataInputStream(sck.getInputStream());
-                    DataOutputStream out = new DataOutputStream(sck.getOutputStream());
-
-                    out.writeUTF(brSgn.readLine());
-
-                    byte [] bfr = new byte[1024];
-                    int n;
-                        while ((n = inFile.read(bfr)) != -1) {
-//                            sgn.update(bfr, 0, n);
-
-
-
-sck.shutdownOutput();
-
-                }catch (Exception e){
-                    JOptionPane.showMessageDialog(this, "Firma creada correctamente", "Exito",
-                            JOptionPane.INFORMATION_MESSAGE);
-                }
+            // Enviar la firma y el fichero al servidor y mostrar el resultado de la
+            // verificación en un JOptionPane
+            try (Socket socket = new Socket("localhost", 9000);
+                    BufferedInputStream inFile = new BufferedInputStream(new FileInputStream(file));
+                    BufferedReader inSignature = new BufferedReader(new FileReader(signatureFile))) {
+                DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+                out.writeUTF(inSignature.readLine());
+                int n;
+                byte[] buffer = new byte[1024];
+                while ((n = inFile.read(buffer)) != -1)
+                    out.write(buffer, 0, n);
+                socket.shutdownOutput();
+                DataInputStream in = new DataInputStream(socket.getInputStream());
+                JOptionPane.showMessageDialog(this,
+                        in.readUTF(),
+                        "Respuesta del servidor",
+                        JOptionPane.INFORMATION_MESSAGE);
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(this,
+                        e.getLocalizedMessage(),
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            }
             // ********************************************************************************************************************
         }
     }
