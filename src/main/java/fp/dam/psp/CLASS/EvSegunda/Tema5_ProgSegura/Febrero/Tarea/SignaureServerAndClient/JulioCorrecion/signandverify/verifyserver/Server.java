@@ -13,10 +13,10 @@ public class Server {
     private  static KeyStore kStore;
     public static void main(String[] args) {
         try (ServerSocket sSck = new ServerSocket(6000)) {
-            KeyPairGenerator kPairGen = KeyPairGenerator.getInstance("PKCS12");
-            kPairGen.initialize(1024);
+//            KeyPairGenerator kPairGen = KeyPairGenerator.getInstance("PKCS12");
+//            kPairGen.initialize(1024);
 
-            kPair = kPairGen.generateKeyPair();
+//            kPair = kPairGen.generateKeyPair();
 
             ExecutorService ExSer = Executors.newFixedThreadPool(100);
             System.out.println(" ");
@@ -26,9 +26,8 @@ public class Server {
             while (true){
                 Socket sck = sSck.accept();
                 sck.setSoTimeout(6000);
-                ExSer.execute(new RequestHandler(sck, kStore, kPair));
+                ExSer.execute(new RequestHandler(sck));
             }
-
 
         } catch (Exception e) {
             e.getMessage();

@@ -2,16 +2,13 @@ package fp.dam.psp.CLASS.EvSegunda.Tema5_ProgSegura.Febrero.Tarea.SignaureServer
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.io.*;
-import java.net.Socket;
-import java.nio.file.Files;
+import java.net.*;
+import java.nio.file.*;
 import java.security.*;
-import java.security.cert.X509Certificate;
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.Enumeration;
+import java.security.cert.*;
+import java.util.*;
 
 public class MainPanel extends JPanel {
 
@@ -146,7 +143,7 @@ public class MainPanel extends JPanel {
                     byte[] buffer = new byte[1024];
                     int len;
                     while ((len = fis.read(buffer)) != -1) {
-                        sgn.update(buffer, 0, len);
+                        sgn.update(buffer, 0, len); // Alimentamos al Signature con los datos del fichero
                     }
 
                 }
@@ -161,8 +158,6 @@ public class MainPanel extends JPanel {
                 try (FileWriter fw = new FileWriter(sgFile)) {
                     fw.write(sgB64 + "#" + cerB64);
                 }
-
-
 
             } catch (Exception ex) {
                 ex.getMessage();

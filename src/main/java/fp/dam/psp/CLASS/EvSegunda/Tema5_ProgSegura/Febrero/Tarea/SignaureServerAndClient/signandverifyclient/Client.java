@@ -1,13 +1,12 @@
 package fp.dam.psp.CLASS.EvSegunda.Tema5_ProgSegura.Febrero.Tarea.SignaureServerAndClient.signandverifyclient;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.security.GeneralSecurityException;
+// import java.awt.*;
+// import java.awt.event.*;
+import java.io.*;
+import java.security.*;
 
-public class Client extends JFrame{
+public class Client extends JFrame {
 
     private Client() {
         super("Firma y verificación");

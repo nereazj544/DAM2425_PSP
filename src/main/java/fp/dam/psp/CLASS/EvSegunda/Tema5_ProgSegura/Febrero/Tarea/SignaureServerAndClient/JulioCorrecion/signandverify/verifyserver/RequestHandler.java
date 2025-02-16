@@ -11,10 +11,9 @@ public class RequestHandler implements  Runnable{
     private  final Socket sck;
     private   KeyStore keyStore;
     private  KeyPair keyPair;
-    public RequestHandler(Socket sck, KeyStore kStore, KeyPair keyPair) {
+    public RequestHandler(Socket sck) {
         this.sck = sck;
-        this.keyStore = kStore;
-        this.keyPair = keyPair;
+
     }
 
 
