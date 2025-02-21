@@ -1,14 +1,14 @@
-package DB.Server;
+package fp.dam.DB.Server;
 
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.util.concurrent.ExecutorService;
+import java.net.*;
+
+import java.util.concurrent.*;
 
 public class Server {
     public static void main(String[] args) {
         try (ServerSocket sk = new ServerSocket(600)) {
             ExecutorService executorService = Executors.newFixedThreadPool(100);
-            
+
             System.out.println(". . . Servidor iniciando . . . ");
             System.out.println("> Servidor conectado a MySql");
             System.out.println(" ");
@@ -16,7 +16,7 @@ public class Server {
 
             while (true) {
                 Socket sck = sk.accept();
-                sck.setSoTimeout(6000);
+                // sck.setSoTimeout(6000);
                 executorService.execute(new ConexionSql(sck));
             }
 
