@@ -16,7 +16,7 @@ public class Cliente extends JFrame {
     private DataInputStream in;
     private DataOutputStream out;
 
-    // TODO Swing
+    // TODO COMPONENTES Swing
     private static final long serialVersionUID = 1L;
 
     // Cliente
@@ -27,7 +27,7 @@ public class Cliente extends JFrame {
 
     // Nota
     JTextPane nota1 = new JTextPane();
-    JTextPane nota2 = new JTextPane();
+    JTextField mensaje = new JTextField();
 
     // Botones
     private JButton enviar = new JButton("ENVIAR");
@@ -38,22 +38,26 @@ public class Cliente extends JFrame {
         super("Agenda Signature");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 400);
+        // setLayout(new GridBagLayout());
+        // GridBagConstraints gbc = new GridBagConstraints();
 
         JScrollPane jp;
 
         // TODO Confi Server
         ServerText.setEditable(false);
-        ServerText.setColumns(200);
-        ServerText.setRows(200);
+        ServerText.setLineWrap(true);
+        ServerText.setColumns(20);
+        ServerText.setRows(20);
         ServerText.setBackground(new Color(46, 152, 193));
         // TODO: Añadir el texto del Servidor
         jp = new JScrollPane(ServerText, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
-                JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         add(jp, BorderLayout.EAST);
-
+        
         // TODO Confi Cliente
-        ClienteText.setColumns(200);
-        ClienteText.setRows(200);
+        ClienteText.setColumns(20);
+        ClienteText.setLineWrap(true);
+        ClienteText.setRows(20);
         ClienteText.setBackground(new Color(226, 221, 163));
         ClienteText.setFont(new Font("Console", Font.BOLD, 10));
         // TODO: Añadir el texto del Cliente
@@ -64,7 +68,7 @@ public class Cliente extends JFrame {
         // TODO: TEXTO NOTA
         nota1.setText(
                 "> Introduce el texto, cuando quieras finalizar escribe 'FIN' y envialo\n El recuadro azul es el servidor y el amarillo donde debes de escribri :)");
-        nota1.setFont(new Font("Consolas", Font.BOLD, 20));
+        nota1.setFont(new Font("Consolas", Font.BOLD, 15));
         nota1.setBackground(Color.LIGHT_GRAY);
         nota1.setEditable(false);
 
@@ -75,6 +79,13 @@ public class Cliente extends JFrame {
         doc.setParagraphAttributes(0, doc.getLength(), center, false);
 
         add(nota1, BorderLayout.NORTH);
+
+
+        //Todo: Mensaje (errores)
+        mensaje.setEditable(false);
+        mensaje.setBackground(Color.RED);
+        
+
 
         pack();
         setLocationRelativeTo(null);
