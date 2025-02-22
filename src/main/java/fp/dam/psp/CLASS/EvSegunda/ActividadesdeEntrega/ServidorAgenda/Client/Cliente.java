@@ -31,7 +31,6 @@ public class Cliente extends JFrame {
 
     // Botones
     private JButton enviar = new JButton("ENVIAR");
-    private JButton fin = new JButton("ENVIAR");
 
     // TODO Configuracion de la aplicacion
     public Cliente() {
@@ -51,12 +50,12 @@ public class Cliente extends JFrame {
         ServerText.setBackground(new Color(46, 152, 193));
         // TODO: Añadir el texto del Servidor
         jp = new JScrollPane(ServerText, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
-        JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+                JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         add(jp, BorderLayout.EAST);
-        
+
         // TODO Confi Cliente
-        ClienteText.setColumns(20);
         ClienteText.setLineWrap(true);
+        ClienteText.setColumns(20);
         ClienteText.setRows(20);
         ClienteText.setBackground(new Color(226, 221, 163));
         ClienteText.setFont(new Font("Console", Font.BOLD, 10));
@@ -80,13 +79,15 @@ public class Cliente extends JFrame {
 
         add(nota1, BorderLayout.NORTH);
 
-
-        //Todo: Mensaje (errores)
+        // Todo: Mensaje (errores)
         mensaje.setEditable(false);
-        mensaje.setBackground(Color.RED);
-        
+        mensaje.setColumns(20);
+        add(mensaje, BorderLayout.SOUTH);
 
-
+        // TODO: BOTON DE ENVIAR
+        enviar.addActionListener(this::enviar);
+        enviar.setFont(new Font("console", Font.BOLD, 20));
+        add(enviar, BorderLayout.SOUTH);
         pack();
         setLocationRelativeTo(null);
 
@@ -97,6 +98,12 @@ public class Cliente extends JFrame {
 
     // TODO Server Configuracion
     private void ServidorConexion() {
+
+    }
+
+    // TODO: BOTON DE ESCUCHA
+
+    private void enviar(ActionEvent e) {
 
     }
 
