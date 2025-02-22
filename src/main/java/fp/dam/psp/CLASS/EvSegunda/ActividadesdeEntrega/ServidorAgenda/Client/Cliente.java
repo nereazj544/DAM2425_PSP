@@ -37,8 +37,8 @@ public class Cliente extends JFrame {
         super("Agenda Signature");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 400);
-        setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
+        // setLayout(new GridBagLayout());
+        // GridBagConstraints gbc = new GridBagConstraints();
 
         JScrollPane jp;
 
@@ -92,23 +92,6 @@ public class Cliente extends JFrame {
         
         
         // TODO == COMPONENTES DEL GRIDBAGLAYAOUT ==
-
-        gbc.insets = new Insets(5, 5, 5, 5);
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-
-        //Segunda fila - Etiquetas Cliente/Servidor
-        gbc.gridwidth = 1;
-        gbc.gridx = 0; 
-        gbc.gridy = 1;
-        add(ClienteText, gbc);
-        gbc.gridx = 2;
-        add(ServerText, gbc);
-
-
-
-
-
-
 
         pack();
         setLocationRelativeTo(null);
