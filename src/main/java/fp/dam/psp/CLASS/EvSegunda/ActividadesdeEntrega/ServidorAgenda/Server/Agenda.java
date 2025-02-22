@@ -4,7 +4,6 @@ import java.io.*;
 import java.net.*;
 
 import java.security.*;
-import java.security.cert.*;
 import java.security.spec.*;
 
 import java.util.*;
@@ -88,18 +87,33 @@ public class Agenda implements Runnable {
     }
 
     private String añadir(String arg) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'añadir'");
+        String[] info = arg.split(" ", 2);
+        if (info.length < 2 || !info[1].matches("\\d+")) {
+            return "ERROR3\n" + arg + " no es un contacto valido";
+        }
+
+        String n = info[0];
+        String t = info[1];
+        contactos.putIfAbsent(n, ConcurrentHashMap.newKeySet());
+        if (contactos.get(n).contains(t)) {
+            return "ERROR1";
+        }
+        contactos.get(n).add(t);
+        return "OK";
     }
 
     private String buscar(String arg) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscar'");
+        if (contactos.containsKey(arg)) {
+            return "ERROR 2\n No hay contactos";
+        }
+        return "OK" + String.join("\n", contactos.get(arg));
     }
 
     private String elimar(String arg) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'elimar'");
+        if (contactos.remove(arg) == null) {
+            return "ERROR 2\n No hay contactos";
+        }
+        return "OK";
     }
 
     private String listar(String arg) {
@@ -109,5 +123,19 @@ public class Agenda implements Runnable {
         List<String> lista = new ArrayList<>();
         Collections.sort(lista);
         return "OK" + String.join("\n", lista);
+    }
+
+    public static void Claves() throws Exception{
+        KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
+        keyGen.initialize(2048);
+        KeyPair keyPair = keyGen.generateKeyPair();
+        pvKey = keyPair.getPrivate();
+        
+        try (FileOutputStream fos = new FileOutputStream("public.key")) {
+            fos.write(keyPair.getPublic().getEncoded());
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
