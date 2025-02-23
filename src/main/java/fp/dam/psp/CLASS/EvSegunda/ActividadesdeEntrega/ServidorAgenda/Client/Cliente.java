@@ -2,6 +2,8 @@ package fp.dam.psp.CLASS.EvSegunda.ActividadesdeEntrega.ServidorAgenda.Client;
 
 //! Import 
 import java.net.*;
+import java.security.*;
+import java.util.Base64;
 import java.io.*;
 
 import java.awt.*;
@@ -9,12 +11,17 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.text.*;
 
+import fp.dam.psp.CLASS.EvSegunda.ActividadesdeEntrega.ServidorAgenda.Server.*;
+
 public class Cliente extends JFrame {
 
     // TODO
     private Socket sck;
     private DataInputStream in;
     private DataOutputStream out;
+
+    private PublicKey pubkey;
+    private PrivateKey pvkey;
 
     // TODO COMPONENTES Swing
     private static final long serialVersionUID = 1L;
@@ -109,6 +116,21 @@ public class Cliente extends JFrame {
             sck = new Socket("localhost", 6000);
             in = new DataInputStream(sck.getInputStream());
             out = new DataOutputStream(sck.getOutputStream());
+
+            KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
+            keyGen.initialize(2048);
+            KeyPair key = keyGen.generateKeyPair();
+            pubkey = key.getPublic();
+            pvkey = key.getPrivate();
+
+            //Enviar clave pub
+            byte[] pubkeby = pubkey.getEncoded();
+            out.writeInt(pubkeby.length);
+            out.write(pubkeby);
+
+            String r = in.readUTF();
+            ServerText.append("> Mensaje recibido: " + r + "\n");
+            
         } catch (Exception e) {
             mensaje("Error al conectar con el servidor");
         }
@@ -119,13 +141,50 @@ public class Cliente extends JFrame {
 
     private void enviar(ActionEvent e) {
         try {
+            String m = ClienteText.getText();
+            out.writeUTF(m);
+            ServerText.append("> Mensaje enviado: " + m + "\n");
+
+            if (m.equals("FIN")) {
+                out.writeUTF("FIN");
+                mensaje("Conexion finalizada");
+                sck.close();
+                return;
+            }
+
+
+            out.writeUTF(m);
+            String r = in.readUTF();
+            String firma = in.readUTF();
+            ServerText.append("> Mensaje recibido: " + r + "\n");
+            ServerText.append("> Firma recibida: " + firma + "\n");
+
+            boolean v = vfirma(r, firma);
+            if (v) {
+                ServerText.append("> Firma verificada: " + v + "\n");
+            } else {
+                ServerText.append("> Firma invalida.");
+            }
+            ServerText.append("> Firma verificada: " + v + "\n");
 
         } catch (Exception ex) {
-            // TODO: handle exception
+            mensaje(ex.getLocalizedMessage());
         }
     }
 
-    // TODO Cliente Configuracion
+    // TODO Cliente Configuracion - Firmas
+
+    private boolean vfirma(String m, String f) {
+        try {
+            Signature sign = Signature.getInstance("SHA256withRSA");
+            sign.initVerify(pubkey);
+            sign.update(m.getBytes());
+            return sign.verify(Base64.getDecoder().decode(f));
+        } catch (Exception e) {
+            mensaje(e.getMessage());
+            return false;
+        }
+    }
 
     // TODO Mensjae de error
     private void mensaje(String msg) {

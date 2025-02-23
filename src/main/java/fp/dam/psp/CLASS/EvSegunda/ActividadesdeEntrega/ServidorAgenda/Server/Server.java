@@ -16,7 +16,7 @@ public class Server {
 
             while (true) {
                 Socket sck = sSck.accept();
-                sck.setSoTimeout(6000);
+                // sck.setSoTimeout(6000);
                 ExSer.execute(new Agenda(sck));
             }
 
