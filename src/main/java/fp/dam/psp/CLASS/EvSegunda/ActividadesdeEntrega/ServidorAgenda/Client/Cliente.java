@@ -27,7 +27,7 @@ public class Cliente extends JFrame {
 
     // Nota
     JTextPane nota1 = new JTextPane();
-    JTextField mensaje = new JTextField();
+    JTextArea mensaje = new JTextArea();
 
     // Botones
     private JButton enviar = new JButton("ENVIAR");
@@ -35,34 +35,50 @@ public class Cliente extends JFrame {
     // TODO Configuracion de la aplicacion
     public Cliente() {
         super("Agenda Signature");
+        setSize(600, 450);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(600, 400);
-        // setLayout(new GridBagLayout());
-        // GridBagConstraints gbc = new GridBagConstraints();
+        setLayout(null);
 
         JScrollPane jp;
 
-        // TODO Confi Server
-        ServerText.setEditable(false);
-        ServerText.setLineWrap(true);
-        ServerText.setColumns(20);
-        ServerText.setRows(20);
-        ServerText.setBackground(new Color(46, 152, 193));
-        // TODO: Añadir el texto del Servidor
-        jp = new JScrollPane(ServerText, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
-                JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        add(jp, BorderLayout.EAST);
-
-        // TODO Confi Cliente
+        // TODO: CLIENTE
+        JLabel Cliente = new JLabel("Cliente");
+        Cliente.setFont(new Font("Console", Font.BOLD, 20));
         ClienteText.setLineWrap(true);
-        ClienteText.setColumns(20);
-        ClienteText.setRows(20);
-        ClienteText.setBackground(new Color(226, 221, 163));
-        ClienteText.setFont(new Font("Console", Font.BOLD, 10));
-        // TODO: Añadir el texto del Cliente
+        Cliente.setBounds(45, 50, 200, 30);
+        add(Cliente);
+        ClienteText.setEditable(true);
+
         jp = new JScrollPane(ClienteText, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
                 JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        add(jp, BorderLayout.WEST);
+        jp.setBounds(50, 78, 200, 200);
+        add(jp);
+
+        // TODO: Servidor
+        JLabel Servidor = new JLabel("Servidor");
+        Servidor.setFont(new Font("Console", Font.BOLD, 20));
+        Servidor.setBounds(350, 50, 200, 30);
+        add(Servidor);
+
+        ServerText.setLineWrap(true);
+        ServerText.setEditable(false);
+        jp = new JScrollPane(ServerText, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+                JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        jp.setBounds(350, 78, 200, 200);
+        add(jp);
+
+        // TODO: Boton
+        enviar.setBounds(240, 336, 119, 36);
+        enviar.addActionListener(this::enviar);
+        add(enviar);
+
+        // TODO: Mensje error
+        mensaje.setLineWrap(true);
+        mensaje.setEditable(false);
+        jp = new JScrollPane(mensaje, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+                JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        jp.setBounds(50, 285, 200, 40);
+        add(jp);
 
         // TODO: TEXTO NOTA
         nota1.setText(
@@ -76,24 +92,10 @@ public class Cliente extends JFrame {
         SimpleAttributeSet center = new SimpleAttributeSet();
         StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
         doc.setParagraphAttributes(0, doc.getLength(), center, false);
+        nota1.setBounds(50, 5, 500, 40);
+        add(nota1);
 
-        add(nota1, BorderLayout.NORTH);
-
-        // Todo: Mensaje (errores)
-        mensaje.setEditable(false);
-        mensaje.setColumns(20);
-        add(mensaje, BorderLayout.SOUTH);
-
-        // TODO: BOTON DE ENVIAR
-        enviar.addActionListener(this::enviar);
-        enviar.setFont(new Font("console", Font.BOLD, 20));
-        add(enviar, BorderLayout.SOUTH);
-
-        
-        
-        // TODO == COMPONENTES DEL GRIDBAGLAYAOUT ==
-
-        pack();
+        // pack();
         setLocationRelativeTo(null);
 
         // TODO: Configuracion con el servidor;
@@ -103,16 +105,33 @@ public class Cliente extends JFrame {
 
     // TODO Server Configuracion
     private void ServidorConexion() {
+        try {
+            sck = new Socket("localhost", 6000);
+            in = new DataInputStream(sck.getInputStream());
+            out = new DataOutputStream(sck.getOutputStream());
+        } catch (Exception e) {
+            mensaje("Error al conectar con el servidor");
+        }
 
     }
 
     // TODO: BOTON DE ESCUCHA
 
     private void enviar(ActionEvent e) {
+        try {
 
+        } catch (Exception ex) {
+            // TODO: handle exception
+        }
     }
 
     // TODO Cliente Configuracion
+
+    // TODO Mensjae de error
+    private void mensaje(String msg) {
+        mensaje.setText(msg + "\n");
+        mensaje.setForeground(Color.RED);
+    }
 
     // TODO Main
     public static void main(String[] args) {
