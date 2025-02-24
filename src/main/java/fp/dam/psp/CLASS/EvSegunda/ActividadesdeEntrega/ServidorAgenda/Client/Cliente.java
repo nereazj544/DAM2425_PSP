@@ -102,7 +102,6 @@ public class Cliente extends JFrame {
         nota1.setBounds(50, 5, 500, 40);
         add(nota1);
 
-        // pack();
         setLocationRelativeTo(null);
 
         // TODO: Configuracion con el servidor;
@@ -176,10 +175,11 @@ public class Cliente extends JFrame {
 
     private boolean vfirma(String m, String f) {
         try {
+            byte [] firmaby = Base64.getDecoder().decode(f.trim());
             Signature sign = Signature.getInstance("SHA256withRSA");
             sign.initVerify(pubkey);
             sign.update(m.getBytes());
-            return sign.verify(Base64.getDecoder().decode(f));
+            return sign.verify(firmaby);
         } catch (Exception e) {
             mensaje(e.getMessage());
             return false;
