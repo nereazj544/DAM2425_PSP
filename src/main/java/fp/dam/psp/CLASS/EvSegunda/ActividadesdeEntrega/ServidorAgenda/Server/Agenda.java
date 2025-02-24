@@ -9,6 +9,9 @@ import java.security.spec.*;
 import java.util.*;
 import java.util.concurrent.*;
 
+//TODO MIRAR PORQUE NO CARRULA
+
+
 public class Agenda implements Runnable {
     private final Socket sck;
     private static final Map<String, Set<String>> contactos = new ConcurrentHashMap<>();
@@ -130,10 +133,10 @@ public class Agenda implements Runnable {
         keyGen.initialize(2048);
         KeyPair keyPair = keyGen.generateKeyPair();
         pvKey = keyPair.getPrivate();
-        
+
         try (FileOutputStream fos = new FileOutputStream("public.key")) {
             fos.write(keyPair.getPublic().getEncoded());
-            
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

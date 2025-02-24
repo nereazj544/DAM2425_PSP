@@ -2,7 +2,7 @@ package fp.dam.psp.CLASS.EvSegunda.ActividadesdeEntrega.ServidorAgenda.Server;
 
 import java.net.*;
 import java.util.concurrent.*;
-
+//TODO MIRAR PORQUE NO CARRULA
 public class Server {
     public static void main(String[] args) {
         try (ServerSocket sSck = new ServerSocket(6000)) {

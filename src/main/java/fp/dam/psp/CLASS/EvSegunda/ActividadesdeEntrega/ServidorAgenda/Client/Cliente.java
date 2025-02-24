@@ -12,7 +12,7 @@ import javax.swing.*;
 import javax.swing.text.*;
 
 import fp.dam.psp.CLASS.EvSegunda.ActividadesdeEntrega.ServidorAgenda.Server.*;
-
+//TODO MIRAR PORQUE NO CARRULA
 public class Cliente extends JFrame {
 
     // TODO
