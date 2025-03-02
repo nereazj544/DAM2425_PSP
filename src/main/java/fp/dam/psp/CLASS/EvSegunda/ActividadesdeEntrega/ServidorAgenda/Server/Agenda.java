@@ -64,7 +64,7 @@ public class Agenda implements Runnable {
     }
 
     private String proMen(String m) {
-        String[] partes = m.split(":", 2);
+        String[] partes = m.split(" ", 2);
         if (partes.length < 2 && !m.equals("contactos")) {
             return "ERROR3\n" + m + " no es un comando valido";
         }
