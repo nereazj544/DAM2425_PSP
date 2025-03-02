@@ -123,153 +123,67 @@ public class Client extends JFrame {
             in = new DataInputStream(sck.getInputStream());
             out = new DataOutputStream(sck.getOutputStream());
 
-            // Recibir clave pública del servidor
             int longitudClave = in.readInt();
             byte[] clavePublicaBytes = new byte[longitudClave];
             in.readFully(clavePublicaBytes);
-
-            // Convertir bytes a objeto PublicKey
+            
             KeyFactory keyFactory = KeyFactory.getInstance("RSA");
             pubkey = keyFactory.generatePublic(new X509EncodedKeySpec(clavePublicaBytes));
 
-            // Generar clave simétrica AES
             KeyGenerator keyGen = KeyGenerator.getInstance("AES");
             keyGen.init(256);
             KY_Simetrica = keyGen.generateKey();
 
-            // Cifrar la clave simétrica con la clave pública del servidor
             Cipher rsaCifrar = Cipher.getInstance("RSA");
             rsaCifrar.init(Cipher.ENCRYPT_MODE, pubkey);
             byte[] claveCifrada = rsaCifrar.doFinal(KY_Simetrica.getEncoded());
 
-            // Enviar la clave simétrica cifrada al servidor
             out.writeInt(claveCifrada.length);
             out.write(claveCifrada);
             out.flush();
 
             ServerText.append("Conexión segura establecida con el servidor\n");
-
         } catch (Exception e) {
             mostrarError("Error al establecer conexión segura: " + e.getMessage());
-            e.printStackTrace();
         }
     }
 
     private void enviar(ActionEvent e) {
         try {
             String mensaje = ClienteText.getText().trim();
-
-            // Si el mensaje está vacío, no hacer nada
             if (mensaje.isEmpty()) {
                 mostrarError("Introduce un mensaje válido");
                 return;
             }
 
-            // Cifrar mensaje con la clave simétrica
             Cipher aesCifrar = Cipher.getInstance("AES");
             aesCifrar.init(Cipher.ENCRYPT_MODE, KY_Simetrica);
             byte[] mensajeCifrado = aesCifrar.doFinal(mensaje.getBytes());
 
-            // Enviar mensaje cifrado
             out.writeInt(mensajeCifrado.length);
             out.write(mensajeCifrado);
             out.flush();
 
             ServerText.append("> Mensaje enviado: " + mensaje + "\n");
 
-            // Recibir respuesta cifrada
             int longitudRespuesta = in.readInt();
             byte[] respuestaCifrada = new byte[longitudRespuesta];
             in.readFully(respuestaCifrada);
 
-            // Descifrar respuesta
             Cipher aesDescifrar = Cipher.getInstance("AES");
             aesDescifrar.init(Cipher.DECRYPT_MODE, KY_Simetrica);
             byte[] respuestaDescifrada = aesDescifrar.doFinal(respuestaCifrada);
             String respuesta = new String(respuestaDescifrada);
 
             ServerText.append("> Respuesta del servidor: " + respuesta + "\n");
-            ClienteText.setText(""); // Limpiar campo de texto
-
+            ClienteText.setText("");
         } catch (Exception ex) {
             mostrarError("Error al enviar/recibir: " + ex.getMessage());
-            ex.printStackTrace();
         }
     }
 
-    private void cerrarConexion() {
-        try {
-            // Enviar mensaje vacío para indicar fin de comunicación
-            Cipher aesCifrar = Cipher.getInstance("AES");
-            aesCifrar.init(Cipher.ENCRYPT_MODE, KY_Simetrica);
-            byte[] mensajeCifrado = aesCifrar.doFinal("".getBytes());
 
-            out.writeInt(mensajeCifrado.length);
-            out.write(mensajeCifrado);
-            out.flush();
-
-            if (in != null)
-                in.close();
-            if (out != null)
-                out.close();
-            if (sck != null)
-                sck.close();
-        } catch (Exception e) {
-            mostrarError("Error al cerrar conexión: " + e.getMessage());
-        }
-    }
-
-    // Métodos para gestionar el KeyStore
-    private void crearKeyStore() {
-        try {
-            KeyStore keyStore = KeyStore.getInstance("JKS");
-            keyStore.load(null, KY_Pass.toCharArray());
-
-            // Generar par de claves RSA
-            KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
-            keyGen.initialize(2048);
-            KeyPair keyPair = keyGen.generateKeyPair();
-
-            // Guardar clave privada en el KeyStore
-            KeyStore.PrivateKeyEntry privateKeyEntry = new KeyStore.PrivateKeyEntry(
-                    keyPair.getPrivate(),
-                    new java.security.cert.Certificate[] {
-                            generarCertificadoAutofirmado(keyPair, "CN=Cliente")
-                    });
-
-            keyStore.setEntry("clientkey", privateKeyEntry,
-                    new KeyStore.PasswordProtection(KY_Pass.toCharArray()));
-
-            // Guardar KeyStore en archivo
-            try (FileOutputStream fos = new FileOutputStream(KY_Path)) {
-                keyStore.store(fos, KY_Pass.toCharArray());
-            }
-
-        } catch (Exception e) {
-            mostrarError("Error al crear KeyStore: " + e.getMessage());
-        }
-    }
-
-    private KeyStore cargarKeyStore() {
-        try {
-            KeyStore keyStore = KeyStore.getInstance("JKS");
-            File keyStoreFile = new File(KY_Path);
-
-            if (!keyStoreFile.exists()) {
-                crearKeyStore();
-            }
-
-            try (FileInputStream fis = new FileInputStream(KY_Path)) {
-                keyStore.load(fis, KY_Pass.toCharArray());
-            }
-
-            return keyStore;
-        } catch (Exception e) {
-            mostrarError("Error al cargar KeyStore: " + e.getMessage());
-            return null;
-        }
-    }
-
+    
     // TODO Mensjae de error
     private void mostrarError(String msg) {
         mensaje.setText(msg + "\n");
