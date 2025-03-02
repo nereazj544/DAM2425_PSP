@@ -11,7 +11,6 @@ import java.util.concurrent.*;
 
 //TODO MIRAR PORQUE NO CARRULA
 
-
 public class Agenda implements Runnable {
     private final Socket sck;
     private static final Map<String, Set<String>> contactos = new ConcurrentHashMap<>();
@@ -35,15 +34,21 @@ public class Agenda implements Runnable {
             KeyFactory keyFactory = KeyFactory.getInstance("RSA");
             X509EncodedKeySpec pubKeySpec = new X509EncodedKeySpec(keyClient);
             pubKey = keyFactory.generatePublic(pubKeySpec);
-            out.writeUTF("> Recibida clave publica del cliente");
+            out.writeUTF("\n> Recibida clave publica del cliente");
+            while (true) {
 
-            String m = in.readUTF();
-            out.writeUTF("> Mensaje recibido: " + m);
+                String m = in.readUTF().toLowerCase();
+                if (m.equalsIgnoreCase("fin")) {
+                    out.writeUTF("\nOK");
+                    break;
+                }
+                out.writeUTF("\n> Mensaje recibido: " + m);
 
-            String r = proMen(m);
-            String firma = firmarMen(r);
-            out.writeUTF(r);
-            out.writeUTF(firma);
+                String r = proMen(m);
+                String firma = firmarMen(r);
+                out.writeUTF(r);
+                out.writeUTF(firma);
+            }
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -128,17 +133,17 @@ public class Agenda implements Runnable {
         return "OK" + String.join("\n", lista);
     }
 
-    // public static void Claves() throws Exception{
-    //     KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
-    //     keyGen.initialize(2048);
-    //     KeyPair keyPair = keyGen.generateKeyPair();
-    //     pvKey = keyPair.getPrivate();
+    public static void Claves() throws Exception {
+        KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
+        keyGen.initialize(2048);
+        KeyPair keyPair = keyGen.generateKeyPair();
+        pvKey = keyPair.getPrivate();
 
-    //     try (FileOutputStream fos = new FileOutputStream("public.key")) {
-    //         fos.write(keyPair.getPublic().getEncoded());
+        try (FileOutputStream fos = new FileOutputStream("public.key")) {
+            fos.write(keyPair.getPublic().getEncoded());
 
-    //     } catch (Exception e) {
-    //         System.out.println(e.getMessage());
-    //     }
-    // }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }

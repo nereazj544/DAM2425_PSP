@@ -2,12 +2,13 @@ package fp.dam.psp.CLASS.EvSegunda.ActividadesdeEntrega.ServidorAgenda.Server;
 
 import java.net.*;
 import java.util.concurrent.*;
+
 //TODO MIRAR PORQUE NO CARRULA
 public class Server {
     public static void main(String[] args) {
         try (ServerSocket sSck = new ServerSocket(6000)) {
 
-            // Agenda.Claves();
+            Agenda.Claves();
 
             ExecutorService ExSer = Executors.newFixedThreadPool(100);
             System.out.println(" ");
@@ -16,7 +17,6 @@ public class Server {
 
             while (true) {
                 Socket sck = sSck.accept();
-                // sck.setSoTimeout(6000);
                 ExSer.execute(new Agenda(sck));
             }
 

@@ -128,7 +128,7 @@ public class Cliente extends JFrame {
             out.write(pubkeby);
 
             String r = in.readUTF();
-            ServerText.append("> Mensaje recibido: " + r + "\n");
+            ServerText.append("\n> Mensaje recibido: " + r + "\n");
             
         } catch (Exception e) {
             mensaje("Error al conectar con el servidor");
@@ -142,7 +142,7 @@ public class Cliente extends JFrame {
         try {
             String m = ClienteText.getText();
             out.writeUTF(m);
-            ServerText.append("> Mensaje enviado: " + m + "\n");
+            ServerText.append("\n> Mensaje enviado: " + m + "\n");
 
             if (m.equals("FIN")) {
                 out.writeUTF("FIN");
@@ -155,16 +155,16 @@ public class Cliente extends JFrame {
             out.writeUTF(m);
             String r = in.readUTF();
             String firma = in.readUTF();
-            ServerText.append("> Mensaje recibido: " + r + "\n");
-            ServerText.append("> Firma recibida: " + firma + "\n");
+            ServerText.append("\n> Mensaje recibido: " + r + "\n");
+            ServerText.append("\n> Firma recibida: " + firma + "\n");
 
             boolean v = vfirma(r, firma);
             if (v) {
-                ServerText.append("> Firma verificada: " + v + "\n");
+                ServerText.append("\n > Firma verificada: " + v + "\n");
             } else {
-                ServerText.append("> Firma invalida.");
+                ServerText.append("\n> Firma invalida.");
             }
-            ServerText.append("> Firma verificada: " + v + "\n");
+            ServerText.append("\n> Firma verificada: " + v + "\n");
 
         } catch (Exception ex) {
             mensaje(ex.getLocalizedMessage());
