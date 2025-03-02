@@ -4,7 +4,6 @@ import java.io.*;
 import java.net.*;
 
 import java.security.*;
-import java.security.cert.*;
 import java.security.spec.*;
 
 import java.util.*;
@@ -17,12 +16,9 @@ public class Agenda implements Runnable {
     private static final Map<String, Set<String>> contactos = new ConcurrentHashMap<>();
     private static PrivateKey pvKey; // Clave privada - Servidor
     private static PublicKey pubKey; // Clave publica - Cliente
-    private final X509Certificate cert;
 
-    public Agenda(Socket sck, PrivateKey pvKey, X509Certificate cert) {
+    public Agenda(Socket sck) {
         this.sck = sck;
-        this.pvKey = pvKey;
-        this.cert = cert;
     }
 
     @Override
