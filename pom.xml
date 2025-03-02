@@ -38,24 +38,14 @@
         <scope>test</scope>
     </dependency>
 
-
-
-
-        <!-- ! IGNORAR -->
-        <!--! MySql -->
-        <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
-        <dependency>
-            <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-j</artifactId>
-            <version>8.4.0</version>
-        </dependency>
-
-        <!--! Creaccion de claves  -->
-        <dependency>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk15on</artifactId>
-            <version>1.70</version>
-        </dependency>
+    <!-- ! IGNORAR -->
+    <!--! MySql -->
+    <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+    <dependency>
+        <groupId>com.mysql</groupId>
+        <artifactId>mysql-connector-j</artifactId>
+        <version>8.4.0</version>
+    </dependency>
 
 
 
