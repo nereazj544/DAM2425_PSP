@@ -3,11 +3,14 @@ package fp.dam.psp.CLASS.EvSegunda.ActividadesdeEntrega.ServidorAgenda_1.Client;
 //! Import 
 import java.net.*;
 import java.security.*;
+import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
 import java.io.*;
 
 import java.awt.*;
 import java.awt.event.*;
+
+import javax.crypto.*;
 import javax.swing.*;
 import javax.swing.text.*;
 
@@ -18,8 +21,14 @@ public class Client extends JFrame {
     private DataInputStream in;
     private DataOutputStream out;
 
+    // TODO_ CLAVES
     private PublicKey pubkey;
     private PrivateKey pvkey;
+    private SecretKey KY_Simetrica;
+
+    // ! Ruta de la clave
+    private static final String KY_Path = "src\\main\\java\\fp\\dam\\psp\\CLASS\\EvSegunda\\ActividadesdeEntrega\\ServidorAgenda_1\\Key\\cliente.p12";
+    private static final String KY_Pass = "cliente"; // ! Contraseña
 
     // TODO COMPONENTES Swing
     private static final long serialVersionUID = 1L;
@@ -87,8 +96,8 @@ public class Client extends JFrame {
 
         // TODO: TEXTO NOTA
         nota1.setText(
-                "> Introduce el texto, cuando quieras finalizar escribe 'FIN' y envialo\n El recuadro azul es el servidor y el amarillo donde debes de escribri :)");
-        nota1.setFont(new Font("Consolas", Font.BOLD, 15));
+                "Introduce tu petición según el formato:\n- nombre: teléfono (añadir contacto), buscar:nombre (buscar contacto),eliminar:nombre (eliminar), contactos (listar todos)");
+        nota1.setFont(new Font("Consolas", Font.BOLD, 9));
         nota1.setBackground(Color.LIGHT_GRAY);
         nota1.setEditable(false);
 
@@ -114,78 +123,155 @@ public class Client extends JFrame {
             in = new DataInputStream(sck.getInputStream());
             out = new DataOutputStream(sck.getOutputStream());
 
-            KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
-            keyGen.initialize(2048);
-            KeyPair key = keyGen.generateKeyPair();
-            pubkey = key.getPublic();
-            pvkey = key.getPrivate();
+            // Recibir clave pública del servidor
+            int longitudClave = in.readInt();
+            byte[] clavePublicaBytes = new byte[longitudClave];
+            in.readFully(clavePublicaBytes);
 
-            //Enviar clave pub
-            byte[] pubkeby = pubkey.getEncoded();
-            out.writeInt(pubkeby.length);
-            out.write(pubkeby);
+            // Convertir bytes a objeto PublicKey
+            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+            pubkey = keyFactory.generatePublic(new X509EncodedKeySpec(clavePublicaBytes));
 
-            String r = in.readUTF();
-            ServerText.append("\n> Mensaje recibido: " + r + "\n");
-            
+            // Generar clave simétrica AES
+            KeyGenerator keyGen = KeyGenerator.getInstance("AES");
+            keyGen.init(256);
+            KY_Simetrica = keyGen.generateKey();
+
+            // Cifrar la clave simétrica con la clave pública del servidor
+            Cipher rsaCifrar = Cipher.getInstance("RSA");
+            rsaCifrar.init(Cipher.ENCRYPT_MODE, pubkey);
+            byte[] claveCifrada = rsaCifrar.doFinal(KY_Simetrica.getEncoded());
+
+            // Enviar la clave simétrica cifrada al servidor
+            out.writeInt(claveCifrada.length);
+            out.write(claveCifrada);
+            out.flush();
+
+            ServerText.append("Conexión segura establecida con el servidor\n");
+
         } catch (Exception e) {
-            mensaje("Error al conectar con el servidor");
+            mostrarError("Error al establecer conexión segura: " + e.getMessage());
+            e.printStackTrace();
         }
-
     }
-
-    // TODO: BOTON DE ESCUCHA
 
     private void enviar(ActionEvent e) {
         try {
-            String m = ClienteText.getText();
-            out.writeUTF(m);
-            ServerText.append("\n> Mensaje enviado: " + m + "\n");
+            String mensaje = ClienteText.getText().trim();
 
-            if (m.equals("FIN")) {
-                out.writeUTF("FIN");
-                mensaje("Conexion finalizada");
-                sck.close();
+            // Si el mensaje está vacío, no hacer nada
+            if (mensaje.isEmpty()) {
+                mostrarError("Introduce un mensaje válido");
                 return;
             }
 
+            // Cifrar mensaje con la clave simétrica
+            Cipher aesCifrar = Cipher.getInstance("AES");
+            aesCifrar.init(Cipher.ENCRYPT_MODE, KY_Simetrica);
+            byte[] mensajeCifrado = aesCifrar.doFinal(mensaje.getBytes());
 
-            out.writeUTF(m);
-            String r = in.readUTF();
-            String firma = in.readUTF();
-            ServerText.append("\n> Mensaje recibido: " + r + "\n");
-            ServerText.append("\n> Firma recibida: " + firma + "\n");
+            // Enviar mensaje cifrado
+            out.writeInt(mensajeCifrado.length);
+            out.write(mensajeCifrado);
+            out.flush();
 
-            boolean v = vfirma(r, firma);
-            if (v) {
-                ServerText.append("\n > Firma verificada: " + v + "\n");
-            } else {
-                ServerText.append("\n> Firma invalida.");
-            }
-            ServerText.append("\n> Firma verificada: " + v + "\n");
+            ServerText.append("> Mensaje enviado: " + mensaje + "\n");
+
+            // Recibir respuesta cifrada
+            int longitudRespuesta = in.readInt();
+            byte[] respuestaCifrada = new byte[longitudRespuesta];
+            in.readFully(respuestaCifrada);
+
+            // Descifrar respuesta
+            Cipher aesDescifrar = Cipher.getInstance("AES");
+            aesDescifrar.init(Cipher.DECRYPT_MODE, KY_Simetrica);
+            byte[] respuestaDescifrada = aesDescifrar.doFinal(respuestaCifrada);
+            String respuesta = new String(respuestaDescifrada);
+
+            ServerText.append("> Respuesta del servidor: " + respuesta + "\n");
+            ClienteText.setText(""); // Limpiar campo de texto
 
         } catch (Exception ex) {
-            mensaje(ex.getLocalizedMessage());
+            mostrarError("Error al enviar/recibir: " + ex.getMessage());
+            ex.printStackTrace();
         }
     }
 
-    // TODO Cliente Configuracion - Firmas
-
-    private boolean vfirma(String m, String f) {
+    private void cerrarConexion() {
         try {
-            byte [] firmaby = Base64.getDecoder().decode(f.trim());
-            Signature sign = Signature.getInstance("SHA256withRSA");
-            sign.initVerify(pubkey);
-            sign.update(m.getBytes());
-            return sign.verify(firmaby);
+            // Enviar mensaje vacío para indicar fin de comunicación
+            Cipher aesCifrar = Cipher.getInstance("AES");
+            aesCifrar.init(Cipher.ENCRYPT_MODE, KY_Simetrica);
+            byte[] mensajeCifrado = aesCifrar.doFinal("".getBytes());
+
+            out.writeInt(mensajeCifrado.length);
+            out.write(mensajeCifrado);
+            out.flush();
+
+            if (in != null)
+                in.close();
+            if (out != null)
+                out.close();
+            if (sck != null)
+                sck.close();
         } catch (Exception e) {
-            mensaje(e.getMessage());
-            return false;
+            mostrarError("Error al cerrar conexión: " + e.getMessage());
+        }
+    }
+
+    // Métodos para gestionar el KeyStore
+    private void crearKeyStore() {
+        try {
+            KeyStore keyStore = KeyStore.getInstance("JKS");
+            keyStore.load(null, KY_Pass.toCharArray());
+
+            // Generar par de claves RSA
+            KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
+            keyGen.initialize(2048);
+            KeyPair keyPair = keyGen.generateKeyPair();
+
+            // Guardar clave privada en el KeyStore
+            KeyStore.PrivateKeyEntry privateKeyEntry = new KeyStore.PrivateKeyEntry(
+                    keyPair.getPrivate(),
+                    new java.security.cert.Certificate[] {
+                            generarCertificadoAutofirmado(keyPair, "CN=Cliente")
+                    });
+
+            keyStore.setEntry("clientkey", privateKeyEntry,
+                    new KeyStore.PasswordProtection(KY_Pass.toCharArray()));
+
+            // Guardar KeyStore en archivo
+            try (FileOutputStream fos = new FileOutputStream(KY_Path)) {
+                keyStore.store(fos, KY_Pass.toCharArray());
+            }
+
+        } catch (Exception e) {
+            mostrarError("Error al crear KeyStore: " + e.getMessage());
+        }
+    }
+
+    private KeyStore cargarKeyStore() {
+        try {
+            KeyStore keyStore = KeyStore.getInstance("JKS");
+            File keyStoreFile = new File(KY_Path);
+
+            if (!keyStoreFile.exists()) {
+                crearKeyStore();
+            }
+
+            try (FileInputStream fis = new FileInputStream(KY_Path)) {
+                keyStore.load(fis, KY_Pass.toCharArray());
+            }
+
+            return keyStore;
+        } catch (Exception e) {
+            mostrarError("Error al cargar KeyStore: " + e.getMessage());
+            return null;
         }
     }
 
     // TODO Mensjae de error
-    private void mensaje(String msg) {
+    private void mostrarError(String msg) {
         mensaje.setText(msg + "\n");
         mensaje.setForeground(Color.RED);
     }
@@ -194,6 +280,5 @@ public class Client extends JFrame {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new Client().setVisible(true));
     }
-
 
 }

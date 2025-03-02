@@ -1,7 +1,12 @@
 package fp.dam.psp.CLASS.EvSegunda.ActividadesdeEntrega.ServidorAgenda_1.Server;
 
+import java.io.FileInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.security.KeyStore;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.cert.Certificate;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -25,13 +30,20 @@ public class Server {
             
             
             //TODO_ KEY
+            KeyStore ks = KeyStore.getInstance("PKCS12");
+            ks.load(new FileInputStream(KY_Path), KY_Pass.toCharArray());
+            PrivateKey KY_privSV = (PrivateKey) ks.getKey("servidor", KY_Pass.toCharArray());
             
-            
+            Certificate cert = ks.getCertificate("servidor");
+            PublicKey KY_pubSV = cert.getPublicKey();
             
             //TODO_ Servidor 2
             while (true) {
                 Socket sck = SV_Sck.accept();
-                
+                System.out.println("> Cliente conectado: " + sck.getInetAddress().getHostAddress());
+
+                Ex_Serv.submit(new AgendaTask (sck, KY_privSV, KY_pubSV));
+
             }
 
             
