@@ -4,13 +4,9 @@ Crear un servidor - cliente a partir del ejercicio seis de la unidad 3.
 
 
 # Ejercicio 6
-Crea un servidor que resuelva de forma concurrente peticiones de clientes para el manejo de una 
-lista de contactos telefónicos, teniendo en cuenta que cada contacto puede tener varios teléfonos. 
-No se pondrá límite al número de contactos que se pueden almacenar en el servidor ni a la 
-cantidad de teléfonos que puede tener un contacto, salvo el que impone el tamaño de la memoria 
-disponible. 
-Los clientes realizarán una petición por conexión en formato de texto, atendiendo a la sintaxis que 
-se describe a continuación: 
+Crea un servidor que resuelva de forma concurrente peticiones de clientes para el manejo de una lista de contactos telefónicos, teniendo en cuenta que cada contacto puede tener varios teléfonos. 
+No se pondrá límite al número de contactos que se pueden almacenar en el servidor ni a la cantidad de teléfonos que puede tener un contacto, salvo el que impone el tamaño de la memoria disponible. 
+Los clientes realizarán una petición por conexión en formato de texto, atendiendo a la sintaxis que se describe a continuación: 
 Añadir un contacto: 
 nombre: teléfono 
 • El dato teléfono estará formado únicamente por dígitos decimales. 
