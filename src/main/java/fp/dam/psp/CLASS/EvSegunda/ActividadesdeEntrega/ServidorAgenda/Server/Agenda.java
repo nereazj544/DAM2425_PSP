@@ -128,17 +128,17 @@ public class Agenda implements Runnable {
         return "OK" + String.join("\n", lista);
     }
 
-    public static void Claves() throws Exception{
-        KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
-        keyGen.initialize(2048);
-        KeyPair keyPair = keyGen.generateKeyPair();
-        pvKey = keyPair.getPrivate();
+    // public static void Claves() throws Exception{
+    //     KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
+    //     keyGen.initialize(2048);
+    //     KeyPair keyPair = keyGen.generateKeyPair();
+    //     pvKey = keyPair.getPrivate();
 
-        try (FileOutputStream fos = new FileOutputStream("public.key")) {
-            fos.write(keyPair.getPublic().getEncoded());
+    //     try (FileOutputStream fos = new FileOutputStream("public.key")) {
+    //         fos.write(keyPair.getPublic().getEncoded());
 
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
+    //     } catch (Exception e) {
+    //         System.out.println(e.getMessage());
+    //     }
+    // }
 }

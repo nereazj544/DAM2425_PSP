@@ -7,7 +7,7 @@ public class Server {
     public static void main(String[] args) {
         try (ServerSocket sSck = new ServerSocket(6000)) {
 
-            Agenda.Claves();
+            // Agenda.Claves();
 
             ExecutorService ExSer = Executors.newFixedThreadPool(100);
             System.out.println(" ");
