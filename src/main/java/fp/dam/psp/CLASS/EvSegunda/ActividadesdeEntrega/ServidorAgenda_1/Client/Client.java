@@ -82,8 +82,8 @@ public class Client extends JFrame {
         add(jp);
 
         // TODO: Boton
-        enviar.setBounds(240, 336, 119, 36);
         enviar.addActionListener(this::enviar);
+        enviar.setBounds(240, 336, 119, 36);
         add(enviar);
 
         // TODO: Mensje error
